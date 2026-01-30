@@ -1,0 +1,29 @@
+# Temporary folders #
+#####################
+temp
+template
+fsh-generated
+output
+node_modules
+
+# Don't commit txcache or other input-cache files #
+###########################################
+input-cache
+
+# Windows generated files #
+###########################
+Thumbs.db
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# backup files #
+################
+*.bak
+/fsh/build
+
+# generated file #
+################
+FHIR-us-pcs.xml
