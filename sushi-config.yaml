@@ -1,0 +1,44 @@
+canonical: http://hl7.org/fhir/us/pcs
+fhirVersion: 4.0.1
+FSHOnly: false
+applyExtensionMetadataToRoot: false
+id: hl7.fhir.us.pcs
+name: US-PCS
+title: United States Patient Care Summary Implementation Guide
+status: active
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: cgp
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 0
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+license: CC0-1.0
+version: 0.0.1
+copyrightYear: 2026+
+releaseLabel: STU 1
+publisher:
+  name: HL7 International / Cross-Group Projects
+  url: http://www.hl7.org/Special/committees/structure
+jurisdiction: 'urn:iso:std:iso:3166#US'
+dependencies:
+  hl7.fhir.uv.ips:
+    version: current
+    uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
+  hl7.fhir.us.core:
+    version: 8.0.0
+    uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
+menu:
+  Home: index.html
+  Table of Contents: toc.html
+  Guidance: guidance.html
+  Use Case: use-case.html
+  FHIR Artifacts:
+    PCS Composition: StructureDefinition-Composition-us-pcs.html
+    PCS Library (Profiles): profiles.html
+    Examples: examples.html
+  Support:
+    About: IG-analysis.html
+    Downloads: downloads.html
+    Copyrights: copyrights.html
+  Change Log: changes.html
