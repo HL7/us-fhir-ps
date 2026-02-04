@@ -1,4 +1,7 @@
-To be written...
+The United States Patient Care Summary
+
+{% include img.html img="The US-PCS.png" caption="Figure 1: The US-PCS" width="80%" %}
+
 
 ### Purpose
 
@@ -12,6 +15,8 @@ Details on the project background are available...
 
 Project scope...
 
+{% include img.html img="The US-PCS Composition.png" caption="Figure 1: The US-PCS"
+    width="80%" %}
 
 ### Authors and Contributors
 

@@ -14,7 +14,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: trial-use
 license: CC0-1.0
-version: 0.0.1
+version: 1.0.0-ballot
 copyrightYear: 2026+
 releaseLabel: STU 1
 publisher:
@@ -23,19 +23,21 @@ publisher:
 jurisdiction: 'urn:iso:std:iso:3166#US'
 dependencies:
   hl7.fhir.uv.ips:
-    version: current
+    version: 2.0.0
     uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
   hl7.fhir.us.core:
-    version: 8.0.0
+    version: 6.1.0
     uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
 menu:
   Home: index.html
   Table of Contents: toc.html
-  Guidance: guidance.html
-  Use Case: use-case.html
+  Guidance: 
+    General Guidance: general-guidance.html
+    Terminology Guidance: terminology-guidance.html
+    Use Case: use-case.html
+    US Variance Statement: us-variance-to-ips.html
   FHIR Artifacts:
-    PCS Composition: StructureDefinition-Composition-us-pcs.html
-    PCS Library (Profiles): profiles.html
+    Profiles: profiles.html
     Examples: examples.html
   Support:
     About: IG-analysis.html

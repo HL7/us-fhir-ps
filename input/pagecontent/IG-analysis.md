@@ -4,21 +4,22 @@ This Implementation Guide may be balloted
 
 ### Dependencies and Related Guides
 
-To be inserted...
+{% include img.html img="US-PCS-Relationships.png" caption="Figure 1: The US-PCS"
+    width="80%" %}
 
-#### Relationship to International Patient Summary 
-
-To be inserted...
-
-#### Relationship to US Core
+#### Dependecy on US Core
 
 To be inserted...
 
-#### Patient profile Differences between IPS and US-PCS
+#### Alignment to International Patient Summary 
 
 To be inserted...
 
 #### Alignment to FHIR Clinical Documents
+
+To be inserted...
+
+#### Profile Differences between IPS and US-PCS
 
 To be inserted...
 

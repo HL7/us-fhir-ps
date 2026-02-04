@@ -2,4 +2,4 @@
 
 The links and descriptions for the profiles that have been defined for this implementation guide are listed here:
 
-To be inserted...
+{% lang-fragment table-profiles.xhtml %}
