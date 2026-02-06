@@ -63,11 +63,11 @@ The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)]
 
 The Profile elements consist of *Mandatory*, *Must Support*, and *USCDI Requirements* elements. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
-### Mandatory Elements
+#### Mandatory Elements
 
 *Mandatory* elements are elements with a minimum cardinality of 1 (min=1). When an element is Mandatory, the data is expected to always be present. Very rarely, it may not be, and guidance for when data is missing is provided in the [Missing Data section](). 
 
-### Must Support Elements
+#### Must Support Elements
 
 For generating a US-PCS, *Must Support* on any profile data element **SHALL** be interpreted as follows:
 
