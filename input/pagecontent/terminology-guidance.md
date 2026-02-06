@@ -30,6 +30,4 @@ The [International Patient Summary (IPS)] has preferred bindings to several term
 
 ### Using SNOMED IPS Terminology
 
-SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license. In addition, national editions of SNOMED CT may vary from internationally recognized codes. 
-
-Thereforce, it is encouraged to leverage codes from the SNOMED IPS Terminology when possible. This sub-onotology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
+SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Thereforce, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-onotology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
