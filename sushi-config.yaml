@@ -4,7 +4,7 @@ FSHOnly: false
 applyExtensionMetadataToRoot: false
 id: hl7.fhir.us.pcs
 name: US-PCS
-title: United States Patient Care Summary Implementation Guide
+title: United States Patient Care Summary (US-PCS) Implementation Guide
 status: active
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
