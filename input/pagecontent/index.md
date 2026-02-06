@@ -40,7 +40,7 @@ FHIR Implementation Guide with a mininum of profiles for Bundle and Composition 
 
 ### The US-PCS Sections
 
-The US-PCS Composition contains three required  (Problems, Allergies and Medicatiosn) and thirteen additional sections as aligned with the IPS:
+The US-PCS Composition contains three required  (Problems, Allergies and Medications) and thirteen additional sections as aligned with the IPS:
 
 {% include img.html img="The US-PCS Composition.png" caption="Figure 2: The US-PCS"
     width="80%" %}
