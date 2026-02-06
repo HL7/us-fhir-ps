@@ -28,6 +28,9 @@ dependencies:
   hl7.fhir.us.core:
     version: 6.1.0
     uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
+  hl7.fhir.uv.fhir-clinical-document:
+    version: 1.0.1
+    uri: http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document
 menu:
   Home: index.html
   Table of Contents: toc.html

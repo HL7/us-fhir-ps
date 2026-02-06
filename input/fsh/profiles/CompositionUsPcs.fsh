@@ -1,5 +1,5 @@
 Profile: CompositionUsPcs
-Parent: Composition
+Parent: ClinicalDocumentComposition
 Id: Composition-us-pcs
 Title: "Composition (US-PCS)"
 Description: """Content goes here."""

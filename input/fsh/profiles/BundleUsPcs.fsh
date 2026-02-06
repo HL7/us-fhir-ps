@@ -1,5 +1,5 @@
 Profile: BundleUsPcs
-Parent: Bundle
+Parent: ClinicalDocumentBundle
 Id: Bundle-us-pcs
 Title: "Bundle (US-PCS)"
 Description: "This profile"
@@ -10,25 +10,7 @@ Description: "This profile"
 * ^jurisdiction = urn:iso:std:iso:3166#US
 * ^purpose = "Description goes here."
 * obeys bdl-uspcs-1
-* . ^short = "International Patient Summary Bundle"
-* . ^definition = "International Patient Summary Bundle. \r\nA container for a collection of resources in the patient summary document."
-* identifier 1.. MS
-* type = #document (exactly)
-* timestamp 1.. MS
-* entry ^slicing.discriminator[0].type = #type
-* entry ^slicing.discriminator[=].path = "resource"
-* entry ^slicing.discriminator[+].type = #profile
-* entry ^slicing.discriminator[=].path = "resource"
-* entry ^slicing.rules = #open
-* entry ^short = "Entry resource in the patient summary bundle"
-* entry ^definition = "An entry resource included in the patient summary document bundle resource."
-* entry ^comment = "Must contain the IPS Composition as the first entry (only a single Composition resource instance may be included) and a Patient resource.  Additional constraints are specified in the IPS Composition profile."
-* entry.fullUrl 1.. 
-* entry.search ..0
-* entry.request ..0
-* entry.response ..0
 * entry contains
-    composition 1..1 and
     patient 1..1 and
     allergyintolerance 0..* and
     careplan 0..* and
@@ -59,9 +41,7 @@ Description: "This profile"
     observation-vital-signs 0..* and
     organization 0..* and
     specimen 0..* 
-* entry[composition].resource 1..
-* entry[composition].resource only CompositionUsPcs
-* entry[composition] MS
+* entry[clinical-document-composition].resource only CompositionUsPcs
 * entry[patient].resource 1..
 * entry[patient].resource only us-core-patient
 * entry[allergyintolerance].resource 1..

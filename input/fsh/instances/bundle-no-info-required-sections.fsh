@@ -7,7 +7,7 @@ Usage: #example
 * identifier.system = "urn:oid:2.16.724.4.8.10.200.10"
 * identifier.value = "59f51f0b-2005-485c-858e-3d3ae9657287"
 * type = #document
-* timestamp = "2026-02-01T20:42:11.0607701+00:00"
+* timestamp = "2026-02-02T20:42:11+00:00"
 * entry[0].fullUrl = "https://fhir.example.org/fhir/Composition/514af4c1-194d-48b4-8afe-7be09d3f895a"
 * entry[=].resource = 514af4c1-194d-48b4-8afe-7be09d3f895a
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Patient/ABC4321"
@@ -18,7 +18,7 @@ Usage: #example
 * entry[=].resource = 19c24876-ccf8-45e7-8b66-462317e970f1
  
 Instance: 514af4c1-194d-48b4-8afe-7be09d3f895a
-InstanceOf: Composition
+InstanceOf: CompositionUsPcs
 Usage: #inline
 * meta.versionId = "1"
 * language = #en-US
@@ -26,13 +26,14 @@ Usage: #inline
 * identifier.value = "59f51f0b-2005-485c-858e-3d3ae9657287"
 * status = #final
 * type = $loinc#60591-5 "Patient summary Document"
+* category[clinicalnotecategory]
 * subject = Reference(ABC4321)
-* date = "2026-02-01"
+* date = "2026-02-01T20:43:11+00:00"
 * author = Reference(d9b97b04-b606-4f07-baf2-7eb3dcae0a2a)
 * title = "US Patient Care Summary Generated 2026-02-01"
 * confidentiality = #N
 * attester.mode = #professional
-* attester.time = "2026-02-01"
+* attester.time = "2026-02-01T20:42:11+00:00"
 * attester.party = Reference(19c24876-ccf8-45e7-8b66-462317e970f1)
 * custodian = Reference(d9b97b04-b606-4f07-baf2-7eb3dcae0a2a)
 * event.code = $v3-ActClass#PCPR
