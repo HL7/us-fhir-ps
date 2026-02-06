@@ -38,24 +38,24 @@ Usage: #inline
 * custodian = Reference(d9b97b04-b606-4f07-baf2-7eb3dcae0a2a)
 * event.code = $v3-ActClass#PCPR
 * event.period.end = "2026-02-01"
-* section[0].title = "Allergies and Intolerances"
-* section[=].code = $loinc#48765-2 "Allergies and adverse reactions Document"
-* section[=].text.status = #generated
-* section[=].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available regarding the subject's allergies.</div>"
-* section[=].emptyReason = $list-empty-reason#unavailable "Unavailable"
-* section[=].emptyReason.text = "No information available"
-* section[+].title = "Problem List"
-* section[=].code = $loinc#11450-4 "Problem list - Reported"
-* section[=].text.status = #generated
-* section[=].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available about the subject's health problems or disabilities.</div>"
-* section[=].emptyReason = $list-empty-reason#unavailable "Unavailable"
-* section[=].emptyReason.text = "No information available"
-* section[+].title = "Medication Summary"
-* section[=].code = $loinc#10160-0 "History of Medication use Narrative"
-* section[=].text.status = #generated
-* section[=].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available about the subject's medication use or administration.</div>"
-* section[=].emptyReason = $list-empty-reason#unavailable "Unavailable"
-* section[=].emptyReason.text = "No information available"
+* section[sectionAllergies].title = "Allergies and Intolerances"
+* section[sectionAllergies].code = $loinc#48765-2 "Allergies and adverse reactions Document"
+* section[sectionAllergies].text.status = #generated
+* section[sectionAllergies].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available regarding the subject's allergies.</div>"
+* section[sectionAllergies].emptyReason = $list-empty-reason#unavailable "Unavailable"
+* section[sectionAllergies].emptyReason.text = "No information available"
+* section[sectionProblems].title = "Problem List"
+* section[sectionProblems].code = $loinc#11450-4 "Problem list - Reported"
+* section[sectionProblems].text.status = #generated
+* section[sectionProblems].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available about the subject's health problems or disabilities.</div>"
+* section[sectionProblems].emptyReason = $list-empty-reason#unavailable "Unavailable"
+* section[sectionProblems].emptyReason.text = "No information available"
+* section[sectionMedications].title = "Medication Summary"
+* section[sectionMedications].code = $loinc#10160-0 "History of Medication use Narrative"
+* section[sectionMedications].text.status = #generated
+* section[sectionMedications].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>There is no information available about the subject's medication use or administration.</div>"
+* section[sectionMedications].emptyReason = $list-empty-reason#unavailable "Unavailable"
+* section[sectionMedications].emptyReason.text = "No information available"
 
 Instance: ABC4321
 InstanceOf: Patient

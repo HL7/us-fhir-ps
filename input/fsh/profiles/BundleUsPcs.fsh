@@ -10,6 +10,7 @@ Description: "This profile"
 * ^jurisdiction = urn:iso:std:iso:3166#US
 * ^purpose = "Description goes here."
 * obeys bdl-uspcs-1
+* entry.fullUrl 1.. 
 * entry contains
     patient 1..1 and
     allergyintolerance 0..* and
@@ -102,3 +103,4 @@ Description: "This profile"
 * entry[observation-vital-signs].resource only us-core-vital-signs
 * entry[specimen].resource 1..
 * entry[specimen].resource only SpecimenUvIps
+* signature 0..1 MS

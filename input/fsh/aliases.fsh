@@ -6,3 +6,4 @@ Alias: $v3-TribalEntityUS = http://terminology.hl7.org/CodeSystem/v3-TribalEntit
 Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $usps = https://www.usps.com/
+Alias: $composition-section-note = http://hl7.org/fhir/StructureDefinition/note
