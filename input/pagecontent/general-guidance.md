@@ -15,7 +15,7 @@ The US-PCS [Bundle]() and [Composition]() profiles derive from guidance in [FHIR
 
 #### US Core Version 6.1.0
 
-The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1-snapshot1/). These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and should be generally available to most US health information technology vendors. In the event that only resources conformant to a different version of US Core are available, this guide recommends sending available resources rather than omitting information. Any reference to US Core resources **SHALL NOT** be considered a requirement to send resources conformant to a specific US Core version. The ["US Variance to IPS"](./us-variance-to-ips.html) portion of this guide compares the clincial profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
+The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1-snapshot1/). These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and should be generally available to most US health information technology vendors. In the event that only resources conformant to a different version of US Core are available, this guide recommends sending available resources rather than omitting information. Any reference to US Core resources **SHALL NOT** be considered a requirement to send resources conformant to a specific US Core version. For example, a US-PCS server can include more recent versions such as US Core 7.0.0, US Core 8.0.1 and still conform to this guide. The ["US Variance to IPS"](./us-variance-to-ips.html) portion of this guide compares the clincial profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
 
 **TBD: What to do with resources that don't fit in IPS section??**
 
@@ -59,7 +59,7 @@ TBD
 
 The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and also assign Must Support in the profiles. 
 
-The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1-snapshot1/must-support.html) defintino with adapations to a document context:
+The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1-snapshot1/must-support.html) defintion with adapations to a document context:
 
 The Profile elements consist of *Mandatory*, *Must Support*, and *USCDI Requirements* elements. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
