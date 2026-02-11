@@ -7,6 +7,8 @@ This Implementation Guide may be balloted
 {% include img.html img="US-PCS-Relationships.png" caption="Figure 1: The US-PCS"
     width="80%" %}
 
+{% lang-fragment dependency-table.xhtml %}
+
 #### Dependecy on US Core
 
 To be inserted...
@@ -25,8 +27,8 @@ To be inserted...
 
 ### Cross Version Analysis
 
-To be inserted...
+{% lang-fragment cross-version-analysis.xhtml %}
 
 ### Global Profiles
 
-To be inserted...
+{% lang-fragment globals-table.xhtml %}

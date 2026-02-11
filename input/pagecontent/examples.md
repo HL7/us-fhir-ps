@@ -1,10 +1,10 @@
 ### Bundle
 
-To be inserted...
+{% lang-fragment list-simple-name-bundles.xhtml %}
 
 ### Composition
 
-To be inserted...
+{% lang-fragment list-simple-name-compositions.xhtml %}
 
 **Examples:** all the examples that are used in this Implementation Guide available for download:
 
