@@ -38,7 +38,7 @@ menu:
     General Guidance: general-guidance.html
     Terminology Guidance: terminology-guidance.html
     Use Case: use-case.html
-    US Variance Statement: us-variance-to-ips.html
+    US Variance Statement: variance.html
   FHIR Artifacts:
     Profiles: profiles.html
     Examples: examples.html
