@@ -17,7 +17,7 @@ The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has
 |Immunization (Immunizations)|CVX|SNOMED, WHO ATC|Map CVX concepts to SNOMED. Include WHO ATC when available
 |Observation and DiagnosticReport (Results)|LOINC|LOINC|No additional mapping
 |Procedure (Procedures)|SNOMED, LOINC, CPT, CDT, ICD-10, HCPCS|SNOMED|Map LOINC, CPT, CDT, ICD-10, HCPCS to SNOMED|
-|Device (Medical Devices)|None|SNOMED|Map to SNOMED|
+|Device (Medical Devices)|SNOMED|SNOMED|Map to SNOMED|
 |Consent (Advance Directives)|Not profiled|Not profiled|
 |Flag (Alerts)|Not profiled|Not profiled|
 |Condition (Functional Status)|SNOMED, ICD-10|SNOMED|Map ICD-10 concepts to SNOMED| 

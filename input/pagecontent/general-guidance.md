@@ -59,13 +59,13 @@ TBD
 
 The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and also assign Must Support in the profiles. 
 
-The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1-snapshot1/must-support.html) defintion with adapations to a document context:
+The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1-snapshot1/must-support.html) definition with adaptations to a document context:
 
 The Profile elements consist of *Mandatory*, *Must Support*, and *USCDI Requirements* elements. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
 #### Mandatory Elements
 
-*Mandatory* elements are elements with a minimum cardinality of 1 (min=1). When an element is Mandatory, the data is expected to always be present. Very rarely, it may not be, and guidance for when data is missing is provided in the [Missing Data section](). 
+*Mandatory* elements are elements with a minimum cardinality of 1 (min=1). When an element is Mandatory, the data is expected to always be present. Very rarely, it may not be, and guidance for when data is missing is provided in [Missing Data](https://hl7.org/fhir/us/core/STU6.1-snapshot1/general-requirements.html#missing-data). 
 
 #### Must Support Elements
 
