@@ -1,6 +1,4 @@
-### Use Case
-
-#### THe US-PCS for Care Continuity 
+### The US-PCS for Care Continuity 
 
 The primary use case of the United States Patient Care Summary (US-PCS) is aligned with the use case from [ISO 27269](https://www.iso.org/standard/84639.html) and the [IPS FHIR Implementation Guide 2.0.0](https://hl7.org/fhir/uv/ips/STU2/). From ISO 27269 *"the primary value of a patient summary, normalized by the IPS, is to facilitate and support appropriate clinical decision-making for the patient at the point of care. The IPS is designed to provide relevant information to assist planned and unplanned care across any organizational boundary, including country borders and their jurisdictional requirements (e.g. local, regional, state/provincial, national and international contexts)."* Both the ISO 27269 and IPS FHIR Implementation guides emphasize that patient summaries are **minimal** and **non-exhaustive** 
 
@@ -23,8 +21,19 @@ In keeping with guidance from the IPS, the US-PCS only requires three sections o
 
 Every entry in the [US-PCS Bundle profile](./StructureDefinition-Bundle-us-pcs.html) requires that the `entry.fullUrl` be included. When data in an US-PCS are from a US Core FHIR server, this URL and other identifiers provide key data for downstream receivers to query for additional information. For example, using the `entry.fullUrl` of the `Patient` resource (as well as the `patient.id`) will allow for additional data requests without needing to perform a [`$match` operation](https://hl7.org/fhir/R4/patient-operation-match.html). US Core define a wide range of [search parameters](https://hl7.org/fhir/us/core/STU6.1/search-parameters-and-operations.html) which provide US implementers with a range of options in requesting additional when clinically appropriate.          
 
-#### Alignment with US Initiatives
+### Patient Mediated Interoperability with US-PCS
 
+In 2025, the US Centers for Medicare and Medicaid Services (CMS) launched the ["Kill the Clipboard" initiative](https://www.cms.gov/health-tech-ecosystem/early-adopters/kill-the-clipboard) that aims to eliminate the manual, error‑prone transfer of medical information by empowering patients and providers with seamless, standards‑based data exchange.
+This initiative, pledged by over 60 organizations, will facilitate record sharing using QR codes (e.g. [SMART Health Cards and Links](https://hl7.org/fhir/uv/smart-health-cards-and-links/)) with FHIR Bundles. The [US-PCS FHIR Bundle profile](./StructureDefinition-Bundle-us-pcs.html) is designed to facilitate sharing essential health information across systems and aligns with this use case. 
 
+When paired with SMART Health Links, US-PCS data can be packaged into a secure, portable URL that patients can easily share across healthcare organizations. While this US-PCS Implementation Guide does not offer full guidance on this use case, it is anticipated that US-PCS will be a component in initiatives like "Kill the Clipboard" that replace paper‑based intake forms with digital, patient‑mediated interoperability. In addition several early implementations of this (such as Washington State Health Summary and CommonHealth) show the potential of this approach. 
 
+### Use-Case Implementations
 
+While not comprehsive, the following list include US early implementers that are providing IPS support using US Core resources that align with the guidance in US-PCS: 
+
+- [Epic](https://www.epic.com/)
+- [MEDITECH](https://ehr.meditech.com/)
+- [Oracle Health](https://www.oracle.com/health/)
+- [Washington State Department of Health](https://doh.wa.gov/) 
+- [CommonHealth](https://www.commonhealth.org/)
