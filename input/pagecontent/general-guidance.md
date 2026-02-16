@@ -51,6 +51,10 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 
 The US-PCS aligns with the IPS by only requiring three sections. Since there is a strong precedence of sending social history and vital sign sections in the United States, those two sections are added to the four recommended sections of the IPS. All other sections of the US-PCS remain aligned with the IPS. 
 
+##### Additional Section in US-PCS  
+
+The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while 16 sections are profiled in this guide, other sections can be added to US-PCS to support care. While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.  For example, a local code of "PAYERS" should not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. 
+
 #### Summary Creation
 
 IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/).
@@ -61,7 +65,7 @@ This guide requires that US-PCS Document Creators **SHALL** be able to generate 
 
 2. Use of the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
 
-Since both of these operations are defined in other guides, they are not profiled in the US-PCS Implementation Guide. The [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html), so this approach strongly aligns US-PCS operations for summary generation with the IPS guide. For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](/general-guidance.html#must-support-elements.html) as well as [US-PCS use cases](/use-case.html)
+Since both of these operations are defined in other guides, they are not profiled in the US-PCS Implementation Guide. The [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html), so this approach strongly aligns US-PCS operations for summary generation with the IPS guide. For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](.en/general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
 
 ### Must Support Definition
 

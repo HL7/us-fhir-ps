@@ -16,16 +16,12 @@ Leveraging the above guidance, we define that the primary US-PCS use case is **t
 
 In keeping with guidance from the IPS, the US-PCS only requires three sections of Problems, Allergies and Medications along with key patient and document information. There are many scenarios where information not included in an US-PCS document will be necessary for optimal clinical care. When appropriate, providers should leverage the ecosystem of US health information exchange capabilities to query for additional data. These may include organizational FHIR endpoints, regional health information exchange organization (HIEs), networks avaiable through electronic health record (EHR) vendors (e.g. [CareQuality](https://carequality.org/) and [Commonwell](https://www.commonwellalliance.org/)) as well as Qualified Health Information Networks (QHIN) through the [Trusted Exchange Framework and Common Agreement (TEFCA)](https://healthit.gov/policy/tefca/). Establishing patterns to request additional information support the "Golden Minimum" principle of US-PCS as aligned with the IPS is illustrated below.
 
-% include img.html img="More-Info.png" caption="Figure 4: Supporting Networks for Additional Data Beyond US-PCS"
+{ % include img.html img="More-Info.png" caption="Figure 4: Supporting Networks for Additional Data Beyond US-PCS"
     width="80%" %}
 
 ##### Queries for Additional Data using US Core FHIR servers  
 
-Every entry in the [US-PCS Bundle profile](./StructureDefinition-Bundle-us-pcs.html) requires that the `entry.fullUrl` be included. When data in an US-PCS are from a US Core FHIR server, this URL and other identifiers provide key data for downstream receivers to query for additional information. For example, using the `entry.fullUrl` of the `Patient` resource (as well as the `patient.id`) will allow for additional data requests without needing to perform a [`$match` operation](https://hl7.org/fhir/R4/patient-operation-match.html). US Core define a wide range of [search parameters](https://hl7.org/fhir/us/core/STU6.1/search-parameters-and-operations.html) which provide US implementers with a range of options in requesting additional when clinically appropriate.         
-
-##### Open Sections in US-PCS  
-
-The US-PCS aligns with the open-section slicing included in IPS. This means that while 16 sections are profiles in this guide, other sections can be added to US-PCS to support care.    
+Every entry in the [US-PCS Bundle profile](./StructureDefinition-Bundle-us-pcs.html) requires that the `entry.fullUrl` be included. When data in an US-PCS are from a US Core FHIR server, this URL and other identifiers provide key data for downstream receivers to query for additional information. For example, using the `entry.fullUrl` of the `Patient` resource (as well as the `patient.id`) will allow for additional data requests without needing to perform a [`$match` operation](https://hl7.org/fhir/R4/patient-operation-match.html). US Core define a wide range of [search parameters](https://hl7.org/fhir/us/core/STU6.1/search-parameters-and-operations.html) which provide US implementers with a range of options in requesting additional when clinically appropriate.          
 
 #### Alignment with US Initiatives
 
