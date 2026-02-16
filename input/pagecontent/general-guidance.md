@@ -8,7 +8,7 @@ td, th {
 
 ### US-PCS Guidance 
 
-The US-PCS [Bundle]() and [Composition]() profiles derive from guidance in [FHIR Clinical Documents (1.0.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/) and apply additional constraints relevant to the United States. These includes header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./us-variance-to-ips.html) portion of this guide. 
+The US-PCS [Bundle]() and [Composition]() profiles derive from guidance in [FHIR Clinical Documents (1.0.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/) and apply additional constraints relevant to the United States. These includes header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
 
 {% include img.html img="US-PCS-Relationships.png" caption="Figure 3: US-PCS Relationships to Other Guides"
     width="80%" %}
@@ -17,7 +17,7 @@ The US-PCS [Bundle]() and [Composition]() profiles derive from guidance in [FHIR
 
 The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1-snapshot1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS. These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and should be generally available by most US health information technology vendors and organizations. While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHOULD NOT** declare conformance to US-PCS when using US Core versions before 6.1.0. In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions. For example, a US-PCS document creator can include more recent versions such as [US Core 7.0.0](https://hl7.org/fhir/us/core/STU7/) or [US Core 8.0.1](https://hl7.org/fhir/us/core/STU8.0.1/) and still conform to this guide. The ["US Variance to IPS"](./us-variance-to-ips.html) portion of this guide compares the clincial profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
 
-**TBD: What to do with resources that don't fit in IPS section??**
+<mark>**TBD: What to do with resources that don't fit in IPS section??**</mark>
 
 #### Aligning US-PCS Sections with IPS and C-CDA
 
@@ -53,7 +53,15 @@ The US-PCS aligns with the IPS by only requiring three sections. Since there is 
 
 #### Summary Creation
 
-TBD
+IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/).
+
+This guide requires that US-PCS Document Creators **SHALL** be able to generate US-PCS documents using at least one of the following two options: 
+
+1. Use of the [`$docref` operation](https://hl7.org/fhir/us/core/STU6.1-snapshot1/OperationDefinition-docref.html) from US Core where the `type` parameter specifies LOINC 60591-5 in reference to a patient summary. 
+
+2. Use of the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
+
+Since both of these operations are defined in other guides, they are not profiled in the US-PCS Implementation Guide. The [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1-snapshot1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html), so this approach strongly aligns US-PCS operations for summary generation with the IPS guide. For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](/general-guidance.html#must-support-elements.html) as well as [US-PCS use cases](/use-case.html)
 
 ### Must Support Definition
 
