@@ -8,7 +8,7 @@ The US-PCS use case builds off of the original intent of the [Continuity of Care
 - **Human-Readable First**: A core requirement that systems can easily render content for humans (i.e. the Narrative Blocks of US-PCS `Composition.section`) without advanced information systems.
 - A **"Snapshot"** not a **"Complete History"**: It was intended to be a static moment in time - "Here is the patient's status at when last seen" - not a longitudinal dump of every blood pressure reading from the last 10 years.
 
-Leveraging the above guidance, we define that the primary US-PCS use case is **to provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.** It not intended to support a longitudinal export of all patient data and it does not replace the full scope of documents in C-CDA.   
+Leveraging the above guidance, we define that the primary US-PCS use case is **to provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.** It is not a longitudinal export of all patient data and it does not replace the full scope of documents in C-CDA.   
 
 #### Data Inclusion and Networks Supporting US-PCS
 
