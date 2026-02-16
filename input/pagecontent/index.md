@@ -36,7 +36,7 @@ FHIR Implementation Guide with a mininum of profiles for Bundle and Composition 
 
 - This work does not replace the full capabilities of the Consolidated Clinical Document Architecture (C-CDA). Document types beyond patient summary will not be profiled.
 - This work does not provide guidance on CDA to FHIR or FHIR to CDA mappings
-- This work will not re-profile resources that already exist in US Core
+- This work will not profile resources that already exist in US Core
 
 ### The US-PCS Sections
 
