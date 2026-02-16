@@ -25,29 +25,29 @@ The US-PCS profiles 16 sections to align with the sections in the IPS Implementa
 
 The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us/ccda/) is a library of clinical documents in wide usage in the United States. The US-PCS is not intended to directly replace any of these documents, although it is most closely related to the [Continuity of Care Document (CCD)](https://hl7.org/cda/us/ccda/StructureDefinition-ContinuityofCareDocumentCCD.html). As published in 2007, the original CCD standard profiled 16 different sections although none were required. Over time through inclusion in the C-CDA standard, 6 of the CCD sections became required as CCD serves a primary mechanism to communicate information across US providers and health information technology.  A comparison of CCD sections (C-CDA 2.1) to the FHIR IPS (2.0) and US-PCS sections is shown below: 
 
-|Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|US-PCS Recommendation| 
-|-----|-----|-----|-----|
-|Problems (11450-4)|SHALL|Required|Required|
-|Allergies (48765-2)|SHALL|Required|Required|
-|Medications (10160-0)|SHALL|Required|Required|
-|Results(30954-2)|SHALL|Recommended|Recommended|
-|Social History (29762-2)|SHALL|Optional|Recommended|
-|Vital Signs (8716-3)|SHALL|Optional|Recommended|
-|Care Plan (18776-5)|SHOULD|Optional|Optional|
-|Procedures (47519-4)|SHOULD|Recommended|Recommended|
-|Advance Directives (42348-3)|MAY|Optional|Optional|
-|Encounters(46240-8)|MAY|Not Profiled|Not Profiled|
-|Family History (10157-6)|MAY|Not Profiled|Not Profiled|
-|Functional Status (47420-5)|MAY|Optional|Optional|
-|Immunizations (11369-6)|MAY|Recommended|Recommended|
-|Medical Devices (46264-8)|MAY|Recommended|Recommended|
-|Payers (48768-6)|MAY|Not Profiled|Not Profiled|
-|Mental Status (10190-7)|MAY|Not Profiled|Not Profiled|
-|Nutrition (61144-2)|MAY|Not Profiled|Not Profiled|
-|Alerts (104605-1)|Not Profiled|Optional|Optional|
-|History of Past Problems (11348-0)|Not Profiled|Optional|Optional|
-|Patient Story (81338-6)|Not Profiled|Optional|Optional|
-|Pregnancy (10162-6)|Not Profiled|Optional|Optional|
+|Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|US-PCS Recommendation|US Core Resources| 
+|-----|-----|-----|-----|----|
+|Problems (11450-4)|SHALL|Required|Required|[Problem and Health Concern](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+|Allergies (48765-2)|SHALL|Required|Required|[Allergy Intolerance](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
+|Medications (10160-0)|SHALL|Required|Required|[Medication Request](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
+|Results(30954-2)|SHALL|Recommended|Recommended|[Lab Result Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[Lab Result Diagnostic Report](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[Observation Clinical Result](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
+|Social History (29762-2)|SHALL|Optional|Recommended|[Smoking Status Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)<br/>[Simple Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)
+|Vital Signs (8716-3)|SHALL|Optional|Recommended|[Blood Pressure Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)<br/>[Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)<br/>[Weight Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)<br/>[Heart Rate Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)<br/>[Respiratory Rate Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)<br/>[Temperature Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)<br/>[Pulse Oximetry Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)<br/>[Pediatric BMI Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)<br/>[Pediatric Weight for Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)<br/>[Pediatric Head Circumference Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+|Care Plan (18776-5)|SHOULD|Optional|Optional|[Care Plan](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
+|Procedures (47519-4)|SHOULD|Recommended|Recommended|[Procedure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
+|Advance Directives (42348-3)|MAY|Optional|Optional|Not available in 6.1.0
+|Encounters(46240-8)|MAY|Not Profiled|Not Profiled|[Encounter](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
+|Family History (10157-6)|MAY|Not Profiled|Not Profiled|Not available in 6.1.0
+|Functional Status (47420-5)|MAY|Optional|Optional|[Problem and Health Concern](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
+|Immunizations (11369-6)|MAY|Recommended|Recommended|[Immunization](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
+|Medical Devices (46264-8)|MAY|Recommended|Recommended|Device Use not available in 6.1.0<br/>[Implantable Device](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
+|Payers (48768-6)|MAY|Not Profiled|Not Profiled|[Coverage](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html)
+|Mental Status (10190-7)|MAY|Not Profiled|Not Profiled|[Simple Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[Problem and Health Concern](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[Screening Assessment Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[Questionnaire Response](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-questionnaireresponse.html)
+|Nutrition (61144-2)|MAY|Not Profiled|Not Profiled|Not Profiled in 6.1.0
+|Alerts (104605-1)|Not Profiled|Optional|Optional|Not Profiled in 6.1.0
+|History of Past Problems (11348-0)|Not Profiled|Optional|Optional|[Problem and Health Concern](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+|Patient Story (81338-6)|Not Profiled|Optional|Optional|[Goal](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-goal.html)
+|Pregnancy (10162-6)|Not Profiled|Optional|Optional|[Pregnancy Status Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)<br/>[Pregnancy Intent Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html)
 
 The US-PCS aligns with the IPS by only requiring three sections. Since there is a strong precedence of sending social history and vital sign sections in the United States, those two sections are added to the four recommended sections of the IPS. All other sections of the US-PCS remain aligned with the IPS. 
 
