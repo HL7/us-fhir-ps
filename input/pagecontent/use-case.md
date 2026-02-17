@@ -27,13 +27,3 @@ In 2025, the US Centers for Medicare and Medicaid Services (CMS) launched the ["
 This initiative, pledged by over 60 organizations, will facilitate record sharing using QR codes (e.g. [SMART Health Cards and Links](https://hl7.org/fhir/uv/smart-health-cards-and-links/)) with FHIR Bundles. The [US-PCS FHIR Bundle profile](./StructureDefinition-Bundle-us-pcs.html) is designed to facilitate sharing essential health information across systems and aligns with this use case. 
 
 When paired with SMART Health Links, US-PCS data can be packaged into a secure, portable URL that patients can easily share across healthcare organizations. While this US-PCS Implementation Guide does not offer full guidance on this use case, it is anticipated that US-PCS will be a component in initiatives like "Kill the Clipboard" that replace paper‑based intake forms with digital, patient‑mediated interoperability. In addition several early implementations of this (such as Washington State Health Summary and CommonHealth) show the potential of this approach. 
-
-### Use Case Implementations
-
-While not comprehensive, the following list include US early implementers that are providing IPS support using US Core resources that align with the guidance in US-PCS: 
-
-- [Epic](https://www.epic.com/)
-- [MEDITECH](https://ehr.meditech.com/)
-- [Oracle Health](https://www.oracle.com/health/)
-- [Washington State Department of Health](https://doh.wa.gov/) 
-- [CommonHealth](https://www.commonhealth.org/)
