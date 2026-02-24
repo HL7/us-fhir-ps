@@ -24,7 +24,7 @@ Following is a non-exhaustive list of third-party terminologies used in this gui
 | National Drug Code (NDC) [US] | Food and Drug Administration | https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory |
 | RxNorm [US] | Unified Medical Language System® (UMLS®) | https://uts.nlm.nih.gov/license.html https://www.nlm.nih.gov/research/umls/rxnorm/docs/termsofservice.html |
 
-
+{% lang-fragment ip-statements.xhtml %}
 
 
 
