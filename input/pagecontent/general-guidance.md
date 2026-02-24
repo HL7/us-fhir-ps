@@ -53,7 +53,7 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 
 The US-PCS aligns with the IPS by only requiring three sections. Since there is a strong precedence of sending social history and vital sign sections in the United States, those two sections are added to the four recommended sections of the IPS. All other sections of the US-PCS remain aligned with the IPS. 
 
-##### Additional Section in US-PCS  
+##### Additional Sections in US-PCS  
 
 The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while 16 sections are profiled in this guide, other sections can be added to US-PCS to support care. While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.  For example, a local code of "PAYERS" should not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. 
 
