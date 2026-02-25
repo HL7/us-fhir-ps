@@ -38,11 +38,13 @@ FHIR Implementation Guide with a mininum of profiles for Bundle and Composition 
 - This work does not provide guidance on CDA to FHIR or FHIR to CDA mappings
 - This work will not profile resources that already exist in US Core
 
-### The US-PCS Sections
+### Principles of the US-PCS
 
-The US-PCS Composition contains three required  (Problems, Allergies and Medications) and thirteen additional sections as aligned with the IPS:
+This US-PCS Implementation Guide specifies both **business principles** for the creation of patient care summaries and **technical capabilities** of systems that conform to this specification. The business principles of US-PCS build on the original intent of the CCD and align with principles from the ISO and FHIR IPS specifications. These are explained in the [US-PCS Use Case](./use-case.html) and keep required content of US-PCS summaries to three required section (i.e. Problems, Allergies, and Medications). US-PCS technical capabilities specify that system must be capable of sending and receiving data in four additional sections and also use the $summary operation in US-PCS generation. These technical capabilities are represented through ["Must Support" flags](./general-guidance.html#must-support-elements) throughout this specification as well as conformance statements in [US-PCS General Guidance](./general-guidance.html). We strongly encourage implementers to consider the use-case of minimal, non-exhaustive summaries when creating US-PCS documents. Although systems must be capable of sending and receiving more than the required sections, we strongly discourage systems from sharing all available data in most US-PCS document instances. For example, sending decades of vital sign and laboratory data creates large, unwieldly documents that violated spirit of a minimal, non-exhaustive patient summary.    
 
-{% include img.html img="The US-PCS Composition.png" caption="Figure 2: The US-PCS"
+The separation of **business principles** from **technical capabilities** in the US-PCS are shown in the following illustration: 
+
+{% include img.html img="The US-PCS Principles.png" caption="Figure 2: The US-PCS Business Principles and Technical Capabilities"
     width="80%" %}
 
 ### Authors and Contributors

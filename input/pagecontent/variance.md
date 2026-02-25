@@ -8,11 +8,16 @@ The US-PCS guide does not use the Must Support definition through obligations as
 
 ### US Variance in Sections
 
-The definition of "Recommended" sections has been changed to "Must Support" sections, meaning that health information system must able to send and receive these in context of the US-PCS. 
+There are no variances in the cardinality of IPS mandatory sections (i.e. Allergies, Problem and Medications)
 
-The US-PCS guide makes the "Medical Devices" section of IPS "Optional" while it is "Recommended" in the IPS.  
+For "recommended" sections in IPS that where support is specified through obligations, the following changes have been introduced: 
 
-The US-PCS guide makes the sections of "Social History" and "Vital Signs" "Must Support" in the context of US-PCS. In addition, the "Recommended" IPS sections of "Immunizations", "Procedures", and "Results" are recategorized from "Recommended" in IPS to "Must Support" 
+- The US-PCS Immunizations, Procedures, and Results sections have been flagged as ["Must Support" as defined in US-PCS](./general-guidance.html#must-support-elements) which varies from the obligations defined in IPS
+- The US-PCS has removed Must Support from the Medical Devices section, which is considered optional in this guide
+
+All other "optional" section in IPS are represented throughout this guide, although resources have been adjusted to use US Core resources when available. 
+
+Finally the US-PCS introduces an "Encounters" section to its [Composition profile](./StructureDefinition-Composition-us-pcs.html). This section contains the same Must Support flags as the sections of Immunizations, Procedures, and Results.
 
 ### US Core Profile Variances to IPS Profiles
 

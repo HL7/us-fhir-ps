@@ -8,7 +8,7 @@ td, th {
 
 ### US-PCS Guidance 
 
-The US-PCS [Bundle]() and [Composition]() profiles derive from guidance in [FHIR Clinical Documents (1.0.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/) and apply additional constraints relevant to the United States. These includes header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
+The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](./StructureDefinition-Composition-us-pcs.html) profiles derive from guidance in [FHIR Clinical Documents (1.0.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/) and apply additional constraints relevant to the United States. These includes header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
 
 {% include img.html img="US-PCS-Relationships.png" caption="Figure 3: US-PCS Relationships to Other Guides"
     width="80%" %}
@@ -63,7 +63,7 @@ IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation
 
 - US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
 
-We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers may also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for implementers.  For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
+We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
 
 ### Must Support Definition
 
