@@ -59,15 +59,11 @@ The US-PCS aligns with the open-section slicing included in IPS, which also alig
 
 #### Summary Creation
 
-IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/).
+IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
 
-This guide requires that US-PCS Document Creators **SHALL** be able to generate US-PCS documents using at least one of the following two options: 
+- US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
 
-1. Use of the [`$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) from US Core where the `type` parameter specifies LOINC 60591-5 in reference to a patient summary. 
-
-2. Use of the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
-
-Since both of these operations are defined in other guides, they are not profiled in the US-PCS Implementation Guide. The [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html), so this approach strongly aligns US-PCS operations for summary generation with the IPS guide. For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
+We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers may also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for implementers.  For additional guidance on what data to include a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
 
 ### Must Support Definition
 
@@ -88,7 +84,7 @@ For generating a US-PCS, *Must Support* on any profile data element **SHALL** be
 * US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.
 * US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. In other words, US-PCS Document Consumers **SHOULD** be capable of displaying the data elements for human use or storing it for other purposes.
 * In situations where information in a particular section is not relevant to the summary, Document Creators **SHALL NOT** include the data elements in the resource instance returned as part of document creation.
-* In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instance returned as part of document creation.
+* In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.
 * US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.
 * In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.
 * US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.
