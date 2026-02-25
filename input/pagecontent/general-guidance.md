@@ -21,7 +21,7 @@ The ["US Variance to IPS"](./variance.html)) portion of this guide compares the 
 
 <mark>**TBD: What to do with resources that don't fit in IPS section??**</mark>
 
-#### Aligning US-PCS Sections with IPS and C-CDA
+#### Aligning US-PCS Sections with IPS, C-CDA and US Core
 
 The US-PCS profiles 16 sections to align with the sections in the IPS Implementation Guide. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections may be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires three section of Problems, Allergies and Medications. This provides the opportunity for concise summaries when appropriate, although implementers are encouraged to include all sections that are clinically relevant. For more guidance about what content should be included in IPS-aligned US-PCS sections, we refer readings to [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
 

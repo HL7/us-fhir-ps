@@ -16,7 +16,9 @@ The US-PCS guide makes the sections of "Social History" and "Vital Signs" "Must 
 
 ### US Core Profile Variances to IPS Profiles
 
-All elements vary in the definition of [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html) vs. definition of [Must Support in US Core](https://hl7.org/fhir/us/core/STU6.1/must-support.html). Items with additional cardinality or Must Support flags and variance in terminology are shown below: 
+The following provides a comparison of IPS 2.0.0 Profiles to US Core 6.1.0 profiles. 
+
+All elements vary in the definition of [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html) vs. definition of [Must Support in US Core](https://hl7.org/fhir/us/core/STU6.1/must-support.html). Items with additional cardinality or Must Support flags and differences in terminology bindings are shown below: 
 
 1. [US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
 
