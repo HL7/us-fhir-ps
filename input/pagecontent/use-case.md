@@ -35,3 +35,20 @@ In 2025, the US Centers for Medicare and Medicaid Services (CMS) launched the ["
 This initiative, pledged by over 60 organizations, will facilitate record sharing using QR codes (e.g. [SMART Health Cards and Links](https://hl7.org/fhir/uv/smart-health-cards-and-links/)) with FHIR Bundles. The [US-PCS FHIR Bundle profile](./StructureDefinition-Bundle-us-pcs.html) is designed to facilitate sharing essential health information across systems and aligns with this use case. 
 
 When paired with SMART Health Links, US-PCS data can be packaged into a secure, portable URL that patients can easily share across healthcare organizations. While this US-PCS Implementation Guide does not offer full guidance on this use case, it is anticipated that US-PCS will be a component in initiatives like "Kill the Clipboard" that replace paper‑based intake forms with digital, patient‑mediated interoperability. In addition several early implementations of this (such as [Washington State Health Summary](https://myhealthsummary.demo.cirg.uw.edu/) and [CommonHealth](https://www.commonhealth.org/ips-developer-guide)) show the potential of this approach. 
+
+### Receiving and Sending Patient Summaries Across National Borders
+
+While this implementation guide is designed so US-PCS documents also conform to the [FHIR IPS Implementation Guide](https://hl7.org/fhir/uv/ips/STU2/), it adds guidance and constraints that vary from IPS. Notably these include:  
+
+- Defining [US-PCS Must Support](/general-guidance.html#must-support-elements) differently than how the IPS defines Must Support
+- Deriving the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) from FHIR Clinical Documents and modifying guidance, sections and constraints
+- Using [US Core Profiles](https://hl7.org/fhir/us/core/STU6.1/) for the individual reasources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
+
+Specific variances from US-PCS to IPS are further detailed in the [US Variance to IPS](./variance.html) section of this guide. 
+
+Using `Composition.meta.profile` as specified in both the US-PCS and IPS guides allows implementers to identify when patient summaries conform to a specific implementation guide. This is particularly important when sending patient summaries across national borders where other nations may have different expectations for their own domestic adaptations of IPS. 
+
+When US-PCS documents are created and used to inform care outside the United States, the inclusion of the terminology translation to IPS will be important since domestic vocabularies from US Core do not always align with global expectations. [Guidance on terminology differences](./terminology-guidance.html) are included in this guide and details specific differences by clincial resource.  The US-PCS shares [guidance and requirements for narrative content as the IPS](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation). Having a human-readable view of US-PCS contents remains important when summaries are shared outside the United States where patients may receive care in different languages and coding expectations differ from the United States. 
+
+When receiving patient summaries that conform to the IPS from other national jurisdictions, systems will generally not be able to assume that the shared summaries have the same coding and data requirements as US-PCS summaries (i.e. resources may not conform to the US Core Implementation Guide). In this circumstance, being able to display the narrative contents of IPS documents remains important for informing care. Reference to the [US-PCS terminology guidance](./terminology-guidance.html) may assist with terminology translation from non-US IPS documents.
+
