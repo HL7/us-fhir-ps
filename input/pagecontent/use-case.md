@@ -40,7 +40,7 @@ When paired with SMART Health Links, US-PCS data can be packaged into a secure, 
 
 While this implementation guide is designed so US-PCS documents also conform to the [FHIR IPS Implementation Guide](https://hl7.org/fhir/uv/ips/STU2/), it adds guidance and constraints that vary from IPS. Notably these include:  
 
-- Defining [US-PCS Must Support](/general-guidance.html#must-support-elements) differently than how the IPS defines Must Support
+- Defining [US-PCS Must Support](./general-guidance.html#must-support-elements) differently than how the IPS defines Must Support
 - Deriving the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) from FHIR Clinical Documents and modifying guidance, sections and constraints
 - Using [US Core Profiles](https://hl7.org/fhir/us/core/STU6.1/) for the individual reasources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
 
