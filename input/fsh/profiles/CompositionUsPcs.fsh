@@ -2,17 +2,17 @@ Profile: CompositionUsPcs
 Parent: ClinicalDocumentComposition
 Id: Composition-us-pcs
 Title: "Composition (US-PCS)"
-Description: """Content goes here."""
+Description: """An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS is composed of 17 sections with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [MustSupport](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/STU6.1/must-support.html) in the context of populating those resources."""
 * ^status = #active
 * ^date = "2025-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
 * ^contact.telecom.value = "http://www.hl7.org/Special/committees/structure"
 * ^jurisdiction = urn:iso:std:iso:3166#US
-* ^purpose = "TBD."
+* ^purpose = "An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
 * ^copyright = "HL7 International"
 * . ^short = "US-PCS Composition"
-* . ^definition = "US-PCS definition."
+* . ^definition = "An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n It is composed of 17 sections with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
 * meta.profile MS
 * meta.profile ^short = "The conformance of this Composition to a specific US-PCS version."
 * meta.profile ^definition = "The conformance of this Composition to a specific version of the US-PCS (e.g. http://hl7.org/fhir/us/pcs/StructureDefinition/Composition-us-pcs|1.0.0)"
@@ -54,19 +54,20 @@ Description: """Content goes here."""
     sectionProblems 1..1 MS and
     sectionAllergies 1..1 MS and
     sectionMedications 1..1 MS and
+    sectionEncounters 0..1 MS and
     sectionImmunizations 0..1 MS and
-    sectionResults 0..1 MS and
     sectionProceduresHx 0..1 MS and
-    sectionMedicalDevices 0..1 MS and
-    sectionAdvanceDirectives 0..1 MS and
-    sectionAlerts 0..1 MS and
-    sectionFunctionalStatus 0..1 MS and
-    sectionPastProblems 0..1 MS and
-    sectionPregnancyHx 0..1 MS and
-    sectionPatientStory 0..1 MS and
-    sectionPlanOfCare 0..1 MS and
-    sectionSocialHistory 0..1 MS and
-    sectionVitalSigns 0..1 MS
+    sectionResults 0..1 MS and
+    sectionAdvanceDirectives 0..1 and
+    sectionAlerts 0..1 and
+    sectionFunctionalStatus 0..1 and
+    sectionMedicalDevices 0..1 and
+    sectionPastProblems 0..1 and
+    sectionPregnancyHx 0..1 and
+    sectionPatientStory 0..1 and
+    sectionPlanOfCare 0..1 and
+    sectionSocialHistory 0..1 and
+    sectionVitalSigns 0..1 
 * section[sectionProblems] obeys cmp-uspcs-1
 * section[sectionProblems] ^short = "US-PCS Problems Section"
 * section[sectionProblems] ^definition = "The problem section lists and describes clinical problems or conditions currently being monitored for the patient."
@@ -111,6 +112,50 @@ Description: """Content goes here."""
 * section[sectionMedications].entry contains medicationStatementOrRequest 0..*
 * section[sectionMedications].entry[medicationStatementOrRequest] only Reference(us-core-medicationrequest)
 * section[sectionMedications].emptyReason MS
+* section[sectionEncounters] obeys cmp-uspcs-1
+* section[sectionEncounters] ^short = "US-PCS Encounters Section"
+* section[sectionEncounters] ^definition = "The encounters section contains a description of relevant encounters in the context of a summary (e.g. a recent hospitalizations)."
+* section[sectionEncounters].code 1..1 MS
+* section[sectionEncounters].code = $loinc#46240-8
+* section[sectionEncounters].entry only Reference(Encounter or DocumentReference)
+* section[sectionEncounters].entry ^slicing.discriminator[0].type = #type
+* section[sectionEncounters].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionEncounters].entry ^slicing.discriminator[0].type = #profile
+* section[sectionEncounters].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionEncounters].entry ^slicing.rules = #open 
+* section[sectionEncounters].entry ^short = "Relevant encounters of the patient in the context of a patient summary."
+* section[sectionEncounters].entry ^definition = "Relevant encounters of the patient in the context of a patient summary (e.g. a recent hospitalizations)"
+* section[sectionEncounters].entry contains encounter 0..*
+* section[sectionEncounters].entry[encounter] only Reference(us-core-encounter)
+* section[sectionEncounters].entry[encounter] MS
+* section[sectionImmunizations] obeys cmp-uspcs-1
+* section[sectionImmunizations] ^short = "US-PCS Immunizations Section"
+* section[sectionImmunizations] ^definition = "The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes the current immunization status, and may contain the entire immunization history that is relevant to the period of time being summarized."
+* section[sectionImmunizations].code 1..1 MS
+* section[sectionImmunizations].code = $loinc#11369-6
+* section[sectionImmunizations].entry only Reference(Immunization or DocumentReference)
+* section[sectionImmunizations].entry ^slicing.discriminator[0].type = #profile
+* section[sectionImmunizations].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionImmunizations].entry ^slicing.rules = #open
+* section[sectionImmunizations].entry ^short = "Patient's immunization status and pertinent history."
+* section[sectionImmunizations].entry ^definition = "It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nIt may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available, or that no immunizations are known."
+* section[sectionImmunizations].entry contains immunization 0..*
+* section[sectionImmunizations].entry[immunization] only Reference(us-core-immunization)
+* section[sectionImmunizations].entry[immunization] MS
+* section[sectionProceduresHx] obeys cmp-uspcs-1
+* section[sectionProceduresHx] ^short = "US-PCS History of Procedures Section"
+* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
+* section[sectionProceduresHx].code 1..1 MS
+* section[sectionProceduresHx].code = $loinc#47519-4
+* section[sectionProceduresHx].entry only Reference(Procedure or DocumentReference)
+* section[sectionProceduresHx].entry ^slicing.discriminator[0].type = #profile
+* section[sectionProceduresHx].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionProceduresHx].entry ^slicing.rules = #open
+* section[sectionProceduresHx].entry ^short = "Patient past procedures pertinent to the scope of this document."
+* section[sectionProceduresHx].entry ^definition = "It lists the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
+* section[sectionProceduresHx].entry contains procedure 0..*
+* section[sectionProceduresHx].entry[procedure] only Reference(us-core-procedure)
+* section[sectionProceduresHx].entry[procedure] MS
 * section[sectionResults] obeys cmp-uspcs-1
 * section[sectionResults] ^short = "US-PCS Results Section"
 * section[sectionResults] ^definition = "This section assembles relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
@@ -134,93 +179,6 @@ Description: """Content goes here."""
 * section[sectionResults].entry[results-observation-radiology] MS
 * section[sectionResults].entry[results-diagnosticReport] only Reference(us-core-diagnosticreport-lab)
 * section[sectionResults].entry[results-diagnosticReport] MS
-* section[sectionSocialHistory] obeys cmp-uspcs-1
-* section[sectionSocialHistory] ^short = "US-PCS Social History Section"
-* section[sectionSocialHistory] ^definition = "The social history section contains a description of the person’s Health related \"lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
-* section[sectionSocialHistory].code 1..1 MS
-* section[sectionSocialHistory].code = $loinc#29762-2
-* section[sectionSocialHistory].entry only Reference(Observation or DocumentReference)
-* section[sectionSocialHistory].entry ^slicing.discriminator[0].type = #profile
-* section[sectionSocialHistory].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionSocialHistory].entry ^slicing.rules = #open
-* section[sectionSocialHistory].entry ^short = "Health related \"lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
-* section[sectionSocialHistory].entry ^definition = "Description of the person’s Health related “lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
-* section[sectionSocialHistory].entry contains
-    smokingTobaccoUse 0..1 and
-    alcoholUse 0..1
-* section[sectionSocialHistory].entry[smokingTobaccoUse] MS
-* section[sectionSocialHistory].entry[smokingTobaccoUse] only Reference(us-core-smokingstatus)
-* section[sectionSocialHistory].entry[alcoholUse] only Reference(ObservationAlcoholUseUvIps)
-* section[sectionVitalSigns] obeys cmp-uspcs-1
-* section[sectionVitalSigns] ^label = "Vital signs"
-* section[sectionVitalSigns] ^short = "US-PCS Vital Signs Section"
-* section[sectionVitalSigns] ^definition = "The Vital signs section includes blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
-* section[sectionVitalSigns].code 1..1 MS
-* section[sectionVitalSigns].code = $loinc#8716-3
-* section[sectionVitalSigns].entry only Reference(Observation or DocumentReference)
-* section[sectionVitalSigns].entry ^slicing.discriminator[0].type = #profile
-* section[sectionVitalSigns].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionVitalSigns].entry ^slicing.rules = #open
-* section[sectionVitalSigns].entry ^short = "Notable vital signs or physical findings."
-* section[sectionVitalSigns].entry ^definition = "Notable vital signs or physical findings as: blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
-* section[sectionVitalSigns].entry contains vitalSign 0..*
-* section[sectionVitalSigns].entry[vitalSign] MS
-* section[sectionVitalSigns].entry[vitalSign] only Reference(us-core-vital-signs)
-* section[sectionImmunizations] ^short = "US-PCS Immunizations Section"
-* section[sectionImmunizations] ^definition = "The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes the current immunization status, and may contain the entire immunization history that is relevant to the period of time being summarized."
-* section[sectionImmunizations].code 1..1 MS
-* section[sectionImmunizations].code = $loinc#11369-6
-* section[sectionImmunizations].entry only Reference(Immunization or DocumentReference)
-* section[sectionImmunizations].entry ^slicing.discriminator[0].type = #profile
-* section[sectionImmunizations].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionImmunizations].entry ^slicing.rules = #open
-* section[sectionImmunizations].entry ^short = "Patient's immunization status and pertinent history."
-* section[sectionImmunizations].entry ^definition = "It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nIt may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available, or that no immunizations are known."
-* section[sectionImmunizations].entry contains immunization 0..*
-* section[sectionImmunizations].entry[immunization] only Reference(us-core-immunization)
-* section[sectionImmunizations].entry[immunization] MS
-* section[sectionProceduresHx] ^short = "US-PCS History of Procedures Section"
-* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
-* section[sectionProceduresHx].code 1..1 MS
-* section[sectionProceduresHx].code = $loinc#47519-4
-* section[sectionProceduresHx].entry only Reference(Procedure or DocumentReference)
-* section[sectionProceduresHx].entry ^slicing.discriminator[0].type = #profile
-* section[sectionProceduresHx].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionProceduresHx].entry ^slicing.rules = #open
-* section[sectionProceduresHx].entry ^short = "Patient past procedures pertinent to the scope of this document."
-* section[sectionProceduresHx].entry ^definition = "It lists the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
-* section[sectionProceduresHx].entry contains procedure 0..*
-* section[sectionProceduresHx].entry[procedure] only Reference(us-core-procedure)
-* section[sectionProceduresHx].entry[procedure] MS
-* section[sectionMedicalDevices] ^short = "US-PCS Medical Devices Section"
-* section[sectionMedicalDevices] ^definition = "The medical devices section contains narrative text and coded entries describing the patient history of medical device use."
-* section[sectionMedicalDevices].code 1..1 MS
-* section[sectionMedicalDevices].code = $loinc#46264-8
-* section[sectionMedicalDevices].entry only Reference(DeviceUseStatement or DocumentReference)
-* section[sectionMedicalDevices].entry ^slicing.discriminator[0].type = #profile
-* section[sectionMedicalDevices].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionMedicalDevices].entry ^slicing.rules = #open
-* section[sectionMedicalDevices].entry ^short = "Patient history of medical device use."
-* section[sectionMedicalDevices].entry ^definition = "It describes the patient history of medical device use. This entry shall be used to document that no information about medical device use is available, or that no relevant medical device use is known."
-* section[sectionMedicalDevices].entry contains deviceStatement 0..*
-* section[sectionMedicalDevices].entry[deviceStatement] only Reference(DeviceUseStatementUvIps)
-* section[sectionMedicalDevices].entry[deviceStatement] MS
-* section[sectionPlanOfCare] ^short = "US-PCS Plan of Care Section"
-* section[sectionPlanOfCare] ^definition = "The plan of care section contains a narrative description of the expectations for care including proposals, goals, and order requests for monitoring, tracking, or improving the condition of the patient."
-* section[sectionPlanOfCare].code 1..1 MS
-* section[sectionPlanOfCare].code = $loinc#18776-5
-* section[sectionPlanOfCare].entry only Reference(CarePlan or ImmunizationRecommendation or DocumentReference)
-* section[sectionPlanOfCare].entry ^slicing.discriminator[0].type = #profile
-* section[sectionPlanOfCare].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionPlanOfCare].entry ^slicing.rules = #open
-* section[sectionPlanOfCare].entry ^short = "Optional entry used to represent structured care plans"
-* section[sectionPlanOfCare].entry ^definition = "Dynamic, personalized plan including identified needed healthcare activity, health objectives and healthcare goals, relating to one or more specified health issues in a healthcare process [Source EN ISO 13940]"
-* section[sectionPlanOfCare].entry contains 
-    carePlan 0..* and
-    immunizationRecommendation 0..*
-* section[sectionPlanOfCare].entry[carePlan] MS
-* section[sectionPlanOfCare].entry[carePlan] only Reference(us-core-careplan)
-* section[sectionPlanOfCare].entry[immunizationRecommendation] only Reference(ImmunizationRecommendation)
 * section[sectionAdvanceDirectives] ^short = "US-PCS Advance Directives Section"
 * section[sectionAdvanceDirectives] ^definition = "The advance directives section contains a narrative description of patient's advance directive."
 * section[sectionAdvanceDirectives].code 1..1 MS
@@ -260,6 +218,18 @@ Description: """Content goes here."""
     functionalAssessment 0..*
 * section[sectionFunctionalStatus].entry[disability] only Reference(us-core-condition-problems-health-concerns)
 * section[sectionFunctionalStatus].entry[functionalAssessment] only Reference(ClinicalImpression)
+* section[sectionMedicalDevices] ^short = "US-PCS Medical Devices Section"
+* section[sectionMedicalDevices] ^definition = "The medical devices section contains narrative text and coded entries describing the patient history of medical device use."
+* section[sectionMedicalDevices].code 1..1 MS
+* section[sectionMedicalDevices].code = $loinc#46264-8
+* section[sectionMedicalDevices].entry only Reference(DeviceUseStatement or DocumentReference)
+* section[sectionMedicalDevices].entry ^slicing.discriminator[0].type = #profile
+* section[sectionMedicalDevices].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionMedicalDevices].entry ^slicing.rules = #open
+* section[sectionMedicalDevices].entry ^short = "Patient history of medical device use."
+* section[sectionMedicalDevices].entry ^definition = "It describes the patient history of medical device use. This entry shall be used to document that no information about medical device use is available, or that no relevant medical device use is known."
+* section[sectionMedicalDevices].entry contains deviceStatement 0..*
+* section[sectionMedicalDevices].entry[deviceStatement] only Reference(DeviceUseStatementUvIps)
 * section[sectionPastProblems] ^short = "US-PCS History of Past Problems Section"
 * section[sectionPastProblems] ^definition = "The History of Past Problems section contains a description of the conditions the patient suffered in the past but no longer tracked in the Problem List."
 * section[sectionPastProblems].code 1..1 MS
@@ -272,6 +242,21 @@ Description: """Content goes here."""
 * section[sectionPastProblems].entry ^definition = "It contains a description of the conditions the patient suffered in the past."
 * section[sectionPastProblems].entry contains pastProblem 0..*
 * section[sectionPastProblems].entry[pastProblem] only Reference(us-core-condition-problems-health-concerns)
+* section[sectionPlanOfCare] ^short = "US-PCS Plan of Care Section"
+* section[sectionPlanOfCare] ^definition = "The plan of care section contains a narrative description of the expectations for care including proposals, goals, and order requests for monitoring, tracking, or improving the condition of the patient."
+* section[sectionPlanOfCare].code 1..1 MS
+* section[sectionPlanOfCare].code = $loinc#18776-5
+* section[sectionPlanOfCare].entry only Reference(CarePlan or ImmunizationRecommendation or DocumentReference)
+* section[sectionPlanOfCare].entry ^slicing.discriminator[0].type = #profile
+* section[sectionPlanOfCare].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionPlanOfCare].entry ^slicing.rules = #open
+* section[sectionPlanOfCare].entry ^short = "Optional entry used to represent structured care plans"
+* section[sectionPlanOfCare].entry ^definition = "Dynamic, personalized plan including identified needed healthcare activity, health objectives and healthcare goals, relating to one or more specified health issues in a healthcare process [Source EN ISO 13940]"
+* section[sectionPlanOfCare].entry contains 
+    carePlan 0..* and
+    immunizationRecommendation 0..*
+* section[sectionPlanOfCare].entry[carePlan] only Reference(us-core-careplan)
+* section[sectionPlanOfCare].entry[immunizationRecommendation] only Reference(ImmunizationRecommendation)
 * section[sectionPregnancyHx] ^short = "US-PCS History of Pregnancy Section"
 * section[sectionPregnancyHx] ^definition = "The history of pregnancy section shall contain information about whether the patient is currently pregnant or not.\r\nIt may contain addition summarizing information about the outcome of earlier pregnancies."
 * section[sectionPregnancyHx].code 1..1 MS
@@ -293,3 +278,31 @@ Description: """Content goes here."""
 * section[sectionPatientStory].code = $loinc#81338-6
 * section[sectionPatientStory].entry ^short = "Patient Story resources."
 * section[sectionPatientStory].entry ^definition = "Contains resources to support the Patient Story. Instances of DocumentReference or any other suitable resource type may be used."
+* section[sectionSocialHistory] ^short = "US-PCS Social History Section"
+* section[sectionSocialHistory] ^definition = "The social history section contains a description of the person’s Health related \"lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
+* section[sectionSocialHistory].code 1..1 MS
+* section[sectionSocialHistory].code = $loinc#29762-2
+* section[sectionSocialHistory].entry only Reference(Observation or DocumentReference)
+* section[sectionSocialHistory].entry ^slicing.discriminator[0].type = #profile
+* section[sectionSocialHistory].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionSocialHistory].entry ^slicing.rules = #open
+* section[sectionSocialHistory].entry ^short = "Health related \"lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
+* section[sectionSocialHistory].entry ^definition = "Description of the person’s Health related “lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
+* section[sectionSocialHistory].entry contains
+    smokingTobaccoUse 0..1 and
+    alcoholUse 0..1
+* section[sectionSocialHistory].entry[smokingTobaccoUse] only Reference(us-core-smokingstatus)
+* section[sectionSocialHistory].entry[alcoholUse] only Reference(ObservationAlcoholUseUvIps)
+* section[sectionVitalSigns] ^label = "Vital signs"
+* section[sectionVitalSigns] ^short = "US-PCS Vital Signs Section"
+* section[sectionVitalSigns] ^definition = "The Vital signs section includes blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
+* section[sectionVitalSigns].code 1..1 MS
+* section[sectionVitalSigns].code = $loinc#8716-3
+* section[sectionVitalSigns].entry only Reference(Observation or DocumentReference)
+* section[sectionVitalSigns].entry ^slicing.discriminator[0].type = #profile
+* section[sectionVitalSigns].entry ^slicing.discriminator[=].path = "resolve()"
+* section[sectionVitalSigns].entry ^slicing.rules = #open
+* section[sectionVitalSigns].entry ^short = "Notable vital signs or physical findings."
+* section[sectionVitalSigns].entry ^definition = "Notable vital signs or physical findings as: blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
+* section[sectionVitalSigns].entry contains vitalSign 0..*
+* section[sectionVitalSigns].entry[vitalSign] only Reference(us-core-vital-signs)
