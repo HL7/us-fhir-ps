@@ -75,6 +75,8 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and may be subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
+The logic for when specific criteria are used in the creation of a patient summary **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html)
+
 - **Problems (Required)**: Include clinical problems or conditions currently being monitored for the patient. 
   - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clincial relevance
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
