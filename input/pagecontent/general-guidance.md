@@ -59,15 +59,58 @@ The US-PCS aligns with the open-section slicing included in IPS, which also alig
 
 #### Summary Creation
 
+#### Operations for US-PCS Generation
+
 IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
 
 - US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
 
 We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
 
+#### Data Inclusion in Summary Documents
+
+The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data that is relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementater consideration. 
+
+<blockquote class="stu-note">
+	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and may be subject to change based on further feedback and implementation experience. </p>
+</blockquote>
+
+- **Problems (Required)**: Include clinical problems or conditions currently being monitored for the patient. 
+  - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clincial relevance
+  - Exclude `Condition.verificationStatus` of `entered-in-error` 
+- **Allergies (Required)**:
+  - Exclude `AllergyIntorlance.clinicalStatus` of `inactive` or `resolved`, unless specific rationale for clincial relevance
+  - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
+- **Medications (Required)**:
+  - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
+  - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clincial relevance
+  - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes doNotPerform medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
+- **Encounters (Must Support)**:
+  - Include all ambulatory encounters in the past 30 days
+  - Include all emergency room and inpatient encounters in the past 12 months
+  - Exlcude `Encounter.status` of `cancelled`
+  - Note that there is an additional STU note in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
+- **Immunizations (Must Support)**:
+  - Include all immunizations that provide long‑term immunity. While CDC and WHO do not publish a single classification of "long‑term immunity" both organizations provide vaccine‑specific evidence that the following vaccines provide multi-decade immunity: MMR, Hepatitis A/B, Varicella, Polio, and Yellow Fever and Smallpox
+  - Include all other immunizations administered in the past 12 months
+  - Exclude `Immunization.status` of `entered-in-error`
+- **Procedures (Must Support)**:
+  - Include all procedures in the past 90 days
+  - Include all major procedures with lasting clinical implications
+    - Major surgeries (e.g., cardiac bypass, joint replacements)
+    - Implant placements (e.g., pacemakers, orthopedic hardware)
+    - Procedures with lasting clinical implications (e.g., mastectomy, organ transplant)
+  - Exclude `Procedure.status` of `entered-in-error` or `not-done`
+- **Results (Must Support)**:
+  - Include `DiagnosticReport` in the past 30 days 
+  - Include `Observation.category` of `laboratory` and `imaging` in the past 30 days (if not already included above)
+  - Include abonormal clinical results as clinically relevant for the patient
+
+Implementers may include additional section as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional sections.
+
 ### Must Support Definition
 
-The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and also assign Must Support in the profiles. 
+The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and assigns additional Must Support in the profiles. 
 
 The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
@@ -82,8 +125,8 @@ The Profile elements consist of *Mandatory*, *Must Support*, and *USCDI Requirem
 For generating a US-PCS, *Must Support* on any profile data element **SHALL** be interpreted as follows:
 
 * US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.
-* US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. In other words, US-PCS Document Consumers **SHOULD** be capable of displaying the data elements for human use or storing it for other purposes.
-* In situations where information in a particular section is not relevant to the summary, Document Creators **SHALL NOT** include the data elements in the resource instance returned as part of document creation.
+* US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers may fully process and store the discrete resources while others will chose to display the text for for human use.
+* Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary
 * In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.
 * US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.
 * In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.
