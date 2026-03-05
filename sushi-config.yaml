@@ -31,6 +31,66 @@ dependencies:
   hl7.fhir.uv.fhir-clinical-document:
     version: 1.0.1
     uri: http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document
+pages:
+  index.md:
+    extension:
+    - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+      valueCode: informative
+    title: US-PCS Implementation Guide Home
+  guidance.md:
+    general-guidance.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use
+      title: General Guidance
+    terminology-guidance.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: Terminology Guidance
+    use-case.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: Use Case
+    variance.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: US Variance Statement
+  fhir-artifacts.md:
+    title: FHIR Artifacts
+    profiles.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use
+      title: Profiles
+    examples.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: Examples
+  support.md:
+    IG-analysis.md:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: About This Guide and IG Analysis
+    downloads.md:
+      extension:  
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+    copyrights.md:
+      extension:  
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+      title: Copyrights
+  changes.md:
+    extension:  
+    - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+      valueCode: informative
+    title: Change Log
+
 menu:
   Home: index.html
   Table of Contents: toc.html
