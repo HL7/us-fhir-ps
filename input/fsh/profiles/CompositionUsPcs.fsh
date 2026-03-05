@@ -57,7 +57,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
     sectionEncounters 0..1 MS and
     sectionImmunizations 0..1 MS and
     sectionProceduresHx 0..1 MS and
-    sectionResults 0..1 MS and
+    sectionResults 0..1 MS
 * section[sectionProblems] obeys cmp-uspcs-1
 * section[sectionProblems] ^short = "US-PCS Problems Section"
 * section[sectionProblems] ^definition = "The problem section lists and describes clinical problems or conditions currently being monitored for the patient."
