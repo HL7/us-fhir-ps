@@ -77,20 +77,20 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 The logic for when specific criteria are used in the creation of a patient summary **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html)
 
-- **Problems (Required)**: Include clinical problems or conditions currently being monitored for the patient. 
+- **Problems (Required)**:  
   - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clincial relevance
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
-- **Allergies (Required)**:
+- **Allergies (Required)**: 
   - Exclude `AllergyIntorlance.clinicalStatus` of `inactive` or `resolved`, unless specific rationale for clincial relevance
   - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
-- **Medications (Required)**:
+- **Medications (Required)**: 
   - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
   - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clincial relevance
   - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes doNotPerform medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
 - **Encounters (Must Support)**:
   - Include all ambulatory encounters in the past 30 days
   - Include all emergency room and inpatient encounters in the past 12 months
-  - Exlcude `Encounter.status` of `cancelled`
+  - Exclude `Encounter.status` of `cancelled`
   - Note that there is an additional STU note in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
 - **Immunizations (Must Support)**:
   - Include all immunizations that provide long‑term immunity. While CDC and WHO do not publish a single classification of "long‑term immunity" both organizations provide vaccine‑specific evidence that the following vaccines provide multi-decade immunity: MMR, Hepatitis A/B, Varicella, Polio, and Yellow Fever and Smallpox
