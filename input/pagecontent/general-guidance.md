@@ -108,7 +108,7 @@ The logic for when specific criteria are used in the creation of a patient summa
   - Include `Observation.category` of `laboratory` and `imaging` in the past 30 days (if not already included above)
   - Include abonormal clinical results as clinically relevant for the patient
 
-Implementers may include additional section as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional sections.
+Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional or additional sections.
 
 ### Must Support Definition
 
