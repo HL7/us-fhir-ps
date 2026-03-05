@@ -17,7 +17,7 @@ The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](
 
 The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS. These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and should be generally available by most US health information technology vendors and organizations. While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHALL NOT** declare conformance to US-PCS when using US Core versions before 6.1.0. In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions. For example, a US-PCS document creator can include more recent versions such as [US Core 7.0.0](https://hl7.org/fhir/us/core/STU7/) or [US Core 8.0.1](https://hl7.org/fhir/us/core/STU8.0.1/) and still conform to this guide. Regardless of US Core version used, systems are not required to send any items in conflict with [Executive Order 14168](https://www.whitehouse.gov/presidential-actions/2025/01/defending-women-from-gender-ideology-extremism-and-restoring-biological-truth-to-the-federal-government/).
 
-The ["US Variance to IPS"](./variance.html)) portion of this guide compares the clincial profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
+The ["US Variance to IPS"](./variance.html)) portion of this guide compares the clinical profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
 
 <mark>**TBD: What to do with resources that don't fit in IPS section??**</mark>
 
@@ -75,17 +75,15 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and may be subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
-The logic for when specific criteria are used in the creation of a patient summary **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html)
-
 - **Problems (Required)**:  
-  - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clincial relevance
+  - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clinical relevance
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
 - **Allergies (Required)**: 
-  - Exclude `AllergyIntorlance.clinicalStatus` of `inactive` or `resolved`, unless specific rationale for clincial relevance
+  - Exclude `AllergyIntorlance.clinicalStatus` of `inactive` or `resolved`, unless specific rationale for clinical relevance
   - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
 - **Medications (Required)**: 
   - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
-  - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clincial relevance
+  - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clinical relevance
   - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes doNotPerform medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
 - **Encounters (Must Support)**:
   - Include all ambulatory encounters in the past 30 days
@@ -106,9 +104,9 @@ The logic for when specific criteria are used in the creation of a patient summa
 - **Results (Must Support)**:
   - Include `DiagnosticReport` in the past 30 days 
   - Include `Observation.category` of `laboratory` and `imaging` in the past 30 days (if not already included above)
-  - Include abonormal clinical results as clinically relevant for the patient
+  - Include abnormal clinical results as clinically relevant for the patient
 
-Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional or additional sections.
+Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional or additional sections. The logic for when specific criteria are used in the creation of a patient summary **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
 
 ### Must Support Definition
 
