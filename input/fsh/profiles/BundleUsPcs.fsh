@@ -21,7 +21,6 @@ Description: "This profile represents the constraints applied to the Bundle reso
     immunization 0..* and
     medication 0..* and
     medicationrequest 0..* and
-    medicationstatement 0..* and
     practitioner 0..* and
     practitionerrole 0..* and
     procedure 0..* and
@@ -47,8 +46,6 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[medication].resource only us-core-medication
 * entry[medicationrequest].resource 1..
 * entry[medicationrequest].resource only us-core-medicationrequest
-* entry[medicationstatement].resource 1..
-* entry[medicationstatement].resource only MedicationStatementIPS
 * entry[practitioner].resource 1..
 * entry[practitioner].resource only us-core-practitioner
 * entry[practitionerrole].resource 1..

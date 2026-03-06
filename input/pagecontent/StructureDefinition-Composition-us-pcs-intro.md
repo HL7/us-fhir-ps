@@ -34,7 +34,7 @@
 
 ### Mandatory and Must Support Data Elements
 
-The following data elements must always be present (Mandatory definition) or must be supported if the data is present in the sending system and handled by the receiving system (see [US-PCS Must Support definition](./general-guidance.html#must-support-elements)). They are presented below in a simple human-readable explanation. Profile specific guidance and the formal summary, definitions then follow.
+The following data elements must always be present (Mandatory definition) or must be supported if the data is present in the sending system and handled by the receiving system (see [US-PCS Must Support definition](./general-guidance.html#must-support-elements)). They are presented below in a simple human-readable explanation. Profile specific guidance and the formal summary, and definitions then follow.
 
 **Each US-PCS Composition Must Have:**
 1. a status
@@ -68,7 +68,7 @@ The following data elements must always be present (Mandatory definition) or mus
     1. a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))
     1. at least one entry referencing a US Core resource or an emptyReason
 
-'* All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-ChangeMade.html) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
+'* All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
  
 ### Profile Specific Implementation Guidance
 
