@@ -15,7 +15,7 @@ For "recommended" sections in IPS that where support is specified through obliga
 - The US-PCS Immunizations, Procedures, and Results sections have been flagged as ["Must Support" as defined in US-PCS](./general-guidance.html#must-support-elements) which varies from the obligations defined in IPS
 - The US-PCS has removed Must Support from the Medical Devices section, which is considered optional and not profiled in this guide
 
-All other "optional" section in IPS are not profiled in this guide, although resources from US Core resources have been recommended for use when available. 
+All other "optional" sections in IPS are not profiled in this guide, although resources from US Core resources have been recommended for use when available. 
 
 Finally the US-PCS introduces an "Encounters" section to its [Composition profile](./StructureDefinition-Composition-us-pcs.html). This section contains the same Must Support flags as the sections of Immunizations, Procedures, and Results.
 
