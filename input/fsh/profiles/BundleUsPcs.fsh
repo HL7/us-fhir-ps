@@ -6,7 +6,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * ^date = "2026-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
-* ^contact.telecom.value = "http://www.hl7.org/Special/committees/structure"
+* ^contact.telecom.value = "http://www.hl7.org/Special/committees/cgp"
 * ^jurisdiction = urn:iso:std:iso:3166#US
 * ^purpose = "This profile represents the constraints applied to the Bundle resource by the United States Patient Care Summary (US-PCS) FHIR Implementation Guide. \r\n The Bundle is of type document and outlines resources that may be commonly included, but the specific organization of US-PCS sections and document information is contained in the US-PCS Composition profile."
 * obeys bdl-uspcs-1

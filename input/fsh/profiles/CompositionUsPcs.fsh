@@ -7,7 +7,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * ^date = "2025-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
-* ^contact.telecom.value = "http://www.hl7.org/Special/committees/structure"
+* ^contact.telecom.value = "http://www.hl7.org/Special/committees/cgp"
 * ^jurisdiction = urn:iso:std:iso:3166#US
 * ^purpose = "An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
 * ^copyright = "HL7 International"
