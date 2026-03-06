@@ -46,7 +46,7 @@ The following data elements must always be present (Mandatory definition) or mus
 1. a title
 1. a confidentiality code
 1. a custodian (referencing a US Core Organization)
-1. allergies, medications and problems sections each with: 
+1. allergies, medications and problems sections'* each with: 
     1. a title
     1. a code
     1. a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))
@@ -62,11 +62,13 @@ The following data elements must always be present (Mandatory definition) or mus
 1. attester information
 1. relations to other documents
 1. clinical services (`event`) being documented
-1. encounters, immunization, procedures and results sections each with:
+1. encounters, immunization, procedures and results sections'* each with:
     1. a title
     1. a code
     1. a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))
     1. at least one entry referencing a US Core resource or an emptyReason
+
+'* All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-ChangeMade.html) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
  
 ### Profile Specific Implementation Guidance
 
