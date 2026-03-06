@@ -1,6 +1,6 @@
 ## US Variance to IPS
 
-The US-PCS attempts to strongly align with the IPS but it does not derive its Bundle or Composition profiles from the IPS. All 16 sections of the IPS are profiled in US-PCS, but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
+The US-PCS attempts to strongly align with the IPS but it does not derive its Bundle or Composition profiles from the IPS. Only 6 sections of the IPS are profiled in US-PCS (with one new Encounters section available not from IPS), but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
 
 ### US Variance in Must Support, Obligation and Actors
 
@@ -13,9 +13,9 @@ There are no variances in the cardinality of IPS mandatory sections (i.e. Allerg
 For "recommended" sections in IPS that where support is specified through obligations, the following changes have been introduced: 
 
 - The US-PCS Immunizations, Procedures, and Results sections have been flagged as ["Must Support" as defined in US-PCS](./general-guidance.html#must-support-elements) which varies from the obligations defined in IPS
-- The US-PCS has removed Must Support from the Medical Devices section, which is considered optional in this guide
+- The US-PCS has removed Must Support from the Medical Devices section, which is considered optional and not profiled in this guide
 
-All other "optional" section in IPS are represented throughout this guide, although resources have been adjusted to use US Core resources when available. 
+All other "optional" section in IPS are not profiled in this guide, although resources from US Core resources have been recommended for use when available. 
 
 Finally the US-PCS introduces an "Encounters" section to its [Composition profile](./StructureDefinition-Composition-us-pcs.html). This section contains the same Must Support flags as the sections of Immunizations, Procedures, and Results.
 
@@ -25,7 +25,7 @@ The following provides a comparison of IPS 2.0.0 Profiles to US Core 6.1.0 profi
 
 All elements vary in the definition of [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html) vs. definition of [Must Support in US Core](https://hl7.org/fhir/us/core/STU6.1/must-support.html). Items with additional cardinality or Must Support flags and differences in terminology bindings are shown below: 
 
-1. [US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
+1. **AllergyIntolerance**: [US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html) 
 
     Additional requirements in [IPS AllergyIntolerance](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/AllergyIntolerance-uv-ips.html):
 
@@ -40,10 +40,10 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `AllergyIntolerance.reaction.manifestation` Valueset binding varies from [Allergy Reaction - IPS](https://hl7.org/fhir/uv/ips/ValueSet-allergy-reaction-uv-ips.html) vs. [SNOMEDCTClinicalFindings](http://hl7.org/fhir/R4/valueset-clinical-findings.html)
    - `AllergyIntolerance.reaction.severity` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Care Plan](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
+1. **CarePlan**: [US Core Care Plan](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
    - No differences since IPS references FHIR R4 Base CarePlan
 
-1. [US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+1. **Condition**: [US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
 
     Additional requirements in [IPS Condition](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Condition-uv-ips.html):
 
@@ -67,7 +67,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Condition.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Condition.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
+1. **Device**: [US Core Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
 
     There is a fundamental difference that US Core 6.1.0 only covers implantable devices, while IPS is larger in scope (i.e. non-implantable devices) Additional requirements in [IPS Device](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-Device-uv-ips.html):
 
@@ -77,7 +77,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Device.type.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Device.type.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)
+1. **DiagnosticReport**: [US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)
 
     Additional requirements in [IPS DiagnosticReport](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/DiagnosticReport-uv-ips.html):
 
@@ -88,7 +88,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `DiagnosticReport.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `DiagnosticReport.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
+1. **Immunization** [US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
 
     Additional requirements in [IPS Immunization](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Immunization-uv-ips.html):
 
@@ -99,7 +99,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Immunization.vaccineCode.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Immunization.vaccineCode.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Medication Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medication.html)
+1. **Medication**: [US Core Medication Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medication.html)
 
     Additional requirements in [IPS Medication](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Medication-uv-ips.html):
 
@@ -121,7 +121,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Medication.ingredient.item[x].text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Medication.ingredient.strength` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
+1. **MedicationRequest**: [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
 
    Additional requirements in [IPS MedicationRequest](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/MedicationRequest-uv-ips.html):
 
@@ -133,57 +133,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `MedicationRequest.medication[x].text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `MedicationRequest.subject.reference` Element minimum cardinalities differ: '1' vs '0'
 
-1. [US Core Patient Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient.html)
-
-    Additional requirements in [IPS Patient](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Patient-uv-ips.html):
-
-   - `Patient.name.use` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Patient.name.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Patient.telecom` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Patient.gender` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Patient.birthDate` Element minimum cardinalities differ: '1' vs '0'
-   - `Patient.generalPractitioner` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-
-1. [US Core Practitioner Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-practitioner.html)
-
-    Additional requirements in [IPS Practitioner](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Practitioner-uv-ips.html):
-
-   - `Practitioner.name.given` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-
-1. [US Core PractitionerRole Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-practitionerrole.html)
-   - `PractitionerRole.code` Binding varies between [Care Team Member Function](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.30/expansion) and [Healthcare Professional Roles - IPS](https://hl7.org/fhir/uv/ips/ValueSet-healthcare-professional-roles-uv-ips.html)
-
-1. [US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)
-
-    Additional requirements in [IPS Observation Pregnancy Status](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-pregnancy-status-uv-ips.html):
-
-   - `Observation.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.subject.reference` Element minimum cardinalities differ: '1' vs '0'
-   - `Observation.bodySite` Element maximum cardinalities differ: '0' vs '*'
-   - `Observation.specimen` Element maximum cardinalities differ: '0' vs '*'
-   - `Observation.device` Element maximum cardinalities differ: '0' vs '*'
-   - `Observation.referenceRange` Element maximum cardinalities differ: '0' vs '*'
-   - `Observation.hasMember` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.hasMember.reference` Element minimum cardinalities differ: '1' vs '0'
-   - `Observation.hasMember.reference` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.component` Element maximum cardinalities differ: '0' vs '*'
-
-1. [US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
-
-    Additional requirements in [IPS Procedure](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Procedure-uv-ips.html):
-
-   - `Procedure.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Procedure.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Procedure.code.coding.system` ValueSet varies from [Procedures - IPS](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) vs. (US Core Procedure Codes)[https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-procedure-code.html]
-   - `Procedure.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Procedure.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Procedure.subject.reference` Element minimum cardinalities differ: '1' vs '0'
-   - `Procedure.performed[x]` Element minimum cardinalities differ: '1' vs '0'
-
-1. [US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html) and [US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html) 
+1. **Observation**: [US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html) and [US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html) 
 
     Additional requirements in [IPS Observation Results - Laboratory/Pathology](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-results-laboratory-pathology-uv-ips.html):
 
@@ -207,7 +157,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.valueCodeableConcept.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.component` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
+1. **Observation**: [US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
 
     Additional requirements in [IPS Observation Results - Radiology](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-results-radiology-uv-ips.html):
 
@@ -224,10 +174,25 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.performer` Element minimum cardinalities differ: '1' vs '0'
    - `Observation.component` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
-1. [US Core Organization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-organization.html)
-   - No additional requirements in IPS Profile
+1. **Observation**: [US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)
 
-1. [US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)
+    Additional requirements in [IPS Observation Pregnancy Status](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-pregnancy-status-uv-ips.html):
+
+   - `Observation.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.subject.reference` Element minimum cardinalities differ: '1' vs '0'
+   - `Observation.bodySite` Element maximum cardinalities differ: '0' vs '*'
+   - `Observation.specimen` Element maximum cardinalities differ: '0' vs '*'
+   - `Observation.device` Element maximum cardinalities differ: '0' vs '*'
+   - `Observation.referenceRange` Element maximum cardinalities differ: '0' vs '*'
+   - `Observation.hasMember` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.hasMember.reference` Element minimum cardinalities differ: '1' vs '0'
+   - `Observation.hasMember.reference` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Observation.component` Element maximum cardinalities differ: '0' vs '*'
+
+1. **Observation**: [US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)
 
     Additional requirements in [IPS Observation Alcohol Use](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-alcoholuse-uv-ips.html):
 
@@ -241,7 +206,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.effective[x]` Element minimum cardinalities differ: '1' vs '0'
    - `Observation.component` Element maximum cardinalities differ: '0' vs '*'
 
-1. [US Core Smoking Status Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)
+1. **Observation**: [US Core Smoking Status Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)
 
     Additional requirements in [IPS Observation Tobacco Use](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-tobaccouse-uv-ips.html):
 
@@ -254,7 +219,46 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.subject.reference` Element minimum cardinalities differ: '1' vs '0'
    - `Observation.component` Element maximum cardinalities differ: '0' vs '*'
 
-1. [US Core Specimen Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-specimen.html)
+1. **Observation**: [US Core Vital Signs Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-vital-signs.html)
+   - No differences since IPS references FHIR R4 Base Vital Signs Profile
+
+1. **Organization**: [US Core Organization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-organization.html)
+   - No additional requirements in IPS Profile
+
+1. **Patient** [US Core Patient Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient.html)
+
+    Additional requirements in [IPS Patient](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Patient-uv-ips.html):
+
+   - `Patient.name.use` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Patient.name.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Patient.telecom` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Patient.gender` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Patient.birthDate` Element minimum cardinalities differ: '1' vs '0'
+   - `Patient.generalPractitioner` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+
+1. **Practitioner** [US Core Practitioner Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-practitioner.html)
+
+    Additional requirements in [IPS Practitioner](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Practitioner-uv-ips.html):
+
+   - `Practitioner.name.given` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+
+1. **PractitionerRole** [US Core PractitionerRole Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-practitionerrole.html)
+   - `PractitionerRole.code` Binding varies between [Care Team Member Function](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.30/expansion) and [Healthcare Professional Roles - IPS](https://hl7.org/fhir/uv/ips/ValueSet-healthcare-professional-roles-uv-ips.html)
+
+
+1. **Procedure**: [US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
+
+    Additional requirements in [IPS Procedure](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Procedure-uv-ips.html):
+
+   - `Procedure.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Procedure.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Procedure.code.coding.system` ValueSet varies from [Procedures - IPS](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) vs. (US Core Procedure Codes)[https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-procedure-code.html]
+   - `Procedure.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Procedure.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
+   - `Procedure.subject.reference` Element minimum cardinalities differ: '1' vs '0'
+   - `Procedure.performed[x]` Element minimum cardinalities differ: '1' vs '0'
+
+1. **Specimen**: [US Core Specimen Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-specimen.html)
 
     Additional requirements in [IPS Specimen](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Specimen-uv-ips.html):
 
@@ -264,8 +268,5 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Specimen.type.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Specimen.type.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Specimen.subject.reference` Element minimum cardinalities differ: '1' vs '0'
-
-
-
 
 

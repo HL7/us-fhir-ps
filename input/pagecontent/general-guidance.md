@@ -21,9 +21,9 @@ The ["US Variance to IPS"](./variance.html)) portion of this guide compares the 
 
 #### Aligning US-PCS Sections with IPS, C-CDA and US Core
 
-The US-PCS profiles 16 sections to align with the sections in the IPS Implementation Guide. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections may be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires three section of Problems, Allergies and Medications. This provides the opportunity for concise summaries when appropriate, although implementers are encouraged to include all sections that are clinically relevant. For more guidance about what content should be included in IPS-aligned US-PCS sections, we refer readings to [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
+The US-PCS profiles 6 sections to align with the sections in the IPS Implementation Guide and adds a section on encounters not profiled in IPS. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections may be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires a summary to have the three section of Problems, Allergies and Medications. This provides the opportunity for concise summaries when appropriate, although implementers are encouraged to include all sections that are clinically relevant. For more guidance about what content can be included in IPS-aligned US-PCS sections, we refer readings to [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
 
-The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us/ccda/) is a library of clinical documents in wide usage in the United States. The US-PCS is not intended to directly replace any of these documents, although it is most closely related to the [Continuity of Care Document (CCD)](https://hl7.org/cda/us/ccda/StructureDefinition-ContinuityofCareDocumentCCD.html). As published in 2007, the original CCD standard profiled 16 different sections although none were required. Over time through inclusion in the C-CDA standard, 6 of the CCD sections became required as CCD serves a primary mechanism to communicate information across US providers and health information technology.  A comparison of CCD sections (C-CDA 2.1) to the FHIR IPS (2.0) and US-PCS sections is shown below: 
+The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us/ccda/) is a library of clinical documents in wide usage in the United States. The US-PCS is not intended to directly replace any of these documents, although it is most closely related to the [Continuity of Care Document (CCD)](https://hl7.org/cda/us/ccda/StructureDefinition-ContinuityofCareDocumentCCD.html). As published in 2007, the original CCD standard profiled 16 different sections although none were required. Over time through inclusion in the C-CDA standard, 6 of the CCD sections became required as CCD serves a primary mechanism to communicate information across US providers and health information technology.  A comparison of CCD sections (C-CDA 2.1) to the FHIR IPS (2.0) and US-PCS sections is shown below with guidance about US Core profiles appropriate for each section: 
 
 |Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|US-PCS Guidance|US Core Resources| 
 |-----|-----|-----|-----|----|
@@ -49,11 +49,9 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 |Patient Story (81338-6)|Not Profiled|Optional|Not Profiled|Any resource permitted
 |Pregnancy (10162-6)|Not Profiled|Optional|Not Profiled|[US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)<br/>[US Core Observation Pregnancy Intent Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html)
 
-The US-PCS aligns with the IPS by only requiring three sections. Since there is a strong precedence of sending social history and vital sign sections in the United States, those two sections are added to the four recommended sections of the IPS. All other sections of the US-PCS remain aligned with the IPS. 
-
 ##### Additional Sections in US-PCS  
 
-The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while 16 sections are profiled in this guide, other sections can be added to US-PCS to support care. While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.  For example, a local code of "PAYERS" should not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. 
+The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while only 7 sections are profiled in this guide, other sections can be added to US-PCS to support care. While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.  For example, a local code of "PAYERS" should not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. When sending sections beyond the seven profiled in this guide, the table above provides a reference for what US Core Implementation Guide 6.1.0 resources to consider for each section.  
 
 #### Summary Creation
 
@@ -104,7 +102,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Include `Observation.category` of `laboratory` and `imaging` in the past 30 days (if not already included above)
   - Include abnormal clinical results as clinically relevant for the patient
 
-Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific recommendations are provided for optional or additional sections. The logic for when specific criteria are used in the creation of a patient summary **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
+Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
 
 ### Must Support Definition
 
@@ -112,7 +110,7 @@ The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https
 
 The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
-The Profile elements consist of *Mandatory*, *Must Support*, and *USCDI Requirements* elements. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
+The Profile elements consist of *Mandatory* and *Must Support*. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
 #### Mandatory Elements
 
@@ -130,7 +128,7 @@ For generating a US-PCS, *Must Support* on any profile data element **SHALL** be
 * In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.
 * US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.
 
-The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but should not be considered equivalent.
+The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but are not complete equivalents.
 
 
 ...

@@ -17,11 +17,11 @@ US-PCS inherits its Bundle and Composition profiles from [FHIR Clinical Document
 
 #### Alignment to International Patient Summary 
 
-US-PCS seeks to align with the [FHIR IPS International Patient Summary Implementation Guide 2.0.0](https://hl7.org/fhir/uv/ips/STU2/)
+US-PCS seeks to align with the [FHIR IPS International Patient Summary Implementation Guide 2.0.0](https://hl7.org/fhir/uv/ips/STU2/). The definition of "align" for purposes of US-PCS is *"to structure a specification so it is consistent with IPS intent and structure, without formal derivation and without introducing conflicting requirements."*
 
 #### Profile Differences between IPS and US-PCS
 
-Specific differences between IPS and US-PCS are described in the [US Variance to IPS page](./variance.html)
+Specific differences between IPS and US-PCS are described in the [US Variance to IPS page](./variance.html).
 
 ### Dependencies Table 
 
