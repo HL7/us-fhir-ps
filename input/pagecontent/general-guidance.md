@@ -67,7 +67,7 @@ We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6
 
 The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data that is relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementater consideration. 
 
-<blockquote class="stu-note">
+<blockquote class="note-to-balloters">
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and may be subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
@@ -82,20 +82,20 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clinical relevance
   - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes `doNotPerform` medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
 - **Encounters (Must Support)**:
-  - Include all ambulatory encounters in the past 30 days
   - Include all emergency room and inpatient encounters in the past 12 months
+  - Include all ambulatory encounters in the past 30 days
   - Exclude `Encounter.status` of `cancelled`
-  - Note that there is an additional STU note in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
+  - Note that there is an additional "note to balloters" in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
 - **Immunizations (Must Support)**:
   - Include all immunizations that provide long‑term immunity. While CDC and WHO do not publish a single classification of "long‑term immunity" both organizations provide vaccine‑specific evidence that the following vaccines provide multi-decade immunity: MMR, Hepatitis A/B, Varicella, Polio, and Yellow Fever and Smallpox
   - Include all other immunizations administered in the past 12 months
   - Exclude `Immunization.status` of `entered-in-error`
 - **Procedures (Must Support)**:
-  - Include all procedures in the past 90 days
   - Include all major procedures with lasting clinical implications
     - Major surgeries (e.g., cardiac bypass, joint replacements)
     - Implant placements (e.g., pacemakers, orthopedic hardware)
     - Procedures with lasting clinical implications (e.g., mastectomy, organ transplant)
+  - Include all other procedures in the past 90 days
   - Exclude `Procedure.status` of `entered-in-error` or `not-done`
 - **Results (Must Support)**:
   - Include `DiagnosticReport` in the past 30 days 
