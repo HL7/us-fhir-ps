@@ -54,4 +54,5 @@ The separation of **business principles** from **technical capabilities** in the
 | **Editor** | John D'Amore | More Informatics | johnd@moreinformatics.com |
 | **Editor** | Brett Marquard | Wave One Associates | brett@waveoneassociates.com |
 | **Editor** | Gay Dolin | Namaste Informatics | gdolin@namasteinformatics.com |
+| **Contributor** | Eric Haas | Health eData | ehaas@healthedatainc.com |
 
