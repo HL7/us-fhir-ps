@@ -38,20 +38,15 @@ The following data elements must always be present (Mandatory definition) or mus
 
 **Each US-PCS Composition Must Have:**
 1. a status
-1. a type specifying that it is a patient summary (LOINC: 60591-5)
-1. a category specifying that is it a clinical note (LOINC: 107903-7)
-1. a subject (referencing a US Core Patient)
+1. a type specifying that it is a patient summary
+1. a category specifying that is it a clinical note
+1. a subject 
 1. a date
-1. an author (referencing a Device or US Core Practitioner, PractitionerRole, Patient, RelatedPerson or Organization)
+1. an author 
 1. a title
 1. a confidentiality code
 1. a custodian (referencing a US Core Organization)
-1. allergies, medications and problems sections'* each with: 
-    1. a title
-    1. a code
-    1. a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))
-    1. at least one entry referencing a US Core resource or an emptyReason
-  
+1. Sections representing: allergies, medications and problems
 
 **Each US-PCS Composition Must Support:**
 1. a `meta.profile` to share profile and version information
@@ -62,18 +57,18 @@ The following data elements must always be present (Mandatory definition) or mus
 1. attester information
 1. relations to other documents
 1. clinical services (`event`) being documented
-1. encounters, immunization, procedures and results sections'* each with:
+1. Sections respresenting: encounters, immunization, procedures and results
+
+### Profile Specific Implementation Guidance
+This section provides detailed implementation guidance for the US-PCS Profile. 
+The US-PCS Composition includes seven priority sections which is a subset of all sections profiled in the IPS FHIR Implementation Guide. Implementers may send additional sections so long as: 
+
+- All sections sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
+- Each section **SHALL** Include
     1. a title
     1. a code
     1. a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))
     1. at least one entry referencing a US Core resource or an emptyReason
-
-'* All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
- 
-### Profile Specific Implementation Guidance
-
-The seven sections profiled in the US-PCS Composition do not include all sections profiled in the IPS FHIR Implementation Guide. Implementers may send additional sections so long as: 
-
 - The corresponding US Core Implementation Guide resource **SHALL** be sent in given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide  
 - Each section **SHALL** contain a unique code to identify that section. For example, it would not be appropriate to send two separate Advance Directives sections (LOINC: 42348-3). This is enforced through the discriminator profiling on `section.code`
 

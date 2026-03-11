@@ -17,24 +17,27 @@ The following data elements must always be present (Mandatory definition) or mus
 1. an identifier
 1. a type specifying that it is document
 1. a timestamp
-1. a mininum of two entries that include: 
-    1. the US-PCS Composition reference
-    1. The US Core Patient Reference
-1. all entries in the Bundle must include: 
-    1. a fullUrl 
-    1. a resource
-1. all entries in the Bundle must **NOT** include: 
-    1. any Composition resource other than the first
-    1. a search attribute
-    1. a request attribute
-    1. a response attribute 
+1. a US-PCS Composition 
+1. a US Core Patient 
 
 **Each US-PCS Bundle Must Support:**
 1. a signature for the entire document when attested
 
  
 ### Profile Specific Implementation Guidance
+This section provides detailed implementation guidance for the US-PCS Profile.
 
-The seven sections profiled in the US-PCS Composition do not include all sections profiled in the IPS FHIR Implementation Guide. These other sections may include resources not listed in this US-PCS Bundle profile. 
+-  Senders are expected to include more than just the required US PCS Composition and US Core Patient resources. The US PCS Composition profiles seven specific sections, which is a subset of the sections available in the IPS FHIR Implementation Guide. Systems are allowed to extend beyond what is included in this profile, or IPS, to support a more comprehensive patient summary.
+-  All entries in the Bundle **SHALL** include a fullUrl, and a resource.
+-  All entries in the Bundle **SHALL NOT** include:
+    - any Composition resource other than the first
+    - a search attribute
+    - a request attribute
+    - a response attribute
+
 
 The US-PCS [General Guidance](./general-guidance.html) page includes the definition of Must Support for this guide and additional guidance on populating sections. 
+
+
+
+
