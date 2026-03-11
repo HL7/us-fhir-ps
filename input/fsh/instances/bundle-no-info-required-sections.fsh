@@ -8,17 +8,17 @@ Usage: #example
 * identifier.value = "59f51f0b-2005-485c-858e-3d3ae9657287"
 * type = #document
 * timestamp = "2026-02-02T20:42:11+00:00"
-* entry[0].fullUrl = "https://fhir.example.org/fhir/Composition/514af4c1-194d-48b4-8afe-7be09d3f895a"
-* entry[=].resource = 514af4c1-194d-48b4-8afe-7be09d3f895a
+* entry[0].fullUrl = "https://fhir.example.org/fhir/Composition/e8549cb6-20ee-4c21-89c7-dd02f605a57c"
+* entry[=].resource = e8549cb6-20ee-4c21-89c7-dd02f605a57c
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Patient/ABC4321"
 * entry[=].resource = ABC4321
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Organization/d9b97b04-b606-4f07-baf2-7eb3dcae0a2a"
 * entry[=].resource = d9b97b04-b606-4f07-baf2-7eb3dcae0a2a
-* entry[+].fullUrl = "https://fhir.example.org/fhir/Practitioner/19c24876-ccf8-45e7-8b66-462317e970f1"
-* entry[=].resource = 19c24876-ccf8-45e7-8b66-462317e970f1
+* entry[+].fullUrl = "https://fhir.example.org/fhir/Practitioner/aede2fef-ac9d-4a06-b2ed-40868ed7e93d"
+* entry[=].resource = aede2fef-ac9d-4a06-b2ed-40868ed7e93d
  
-Instance: 514af4c1-194d-48b4-8afe-7be09d3f895a
-InstanceOf: CompositionUsPcs
+Instance: e8549cb6-20ee-4c21-89c7-dd02f605a57c
+InstanceOf: Composition-us-pcs
 Usage: #inline
 * meta.versionId = "1"
 * language = #en-US
@@ -34,7 +34,7 @@ Usage: #inline
 * confidentiality = #N
 * attester.mode = #professional
 * attester.time = "2026-02-01T20:42:11+00:00"
-* attester.party = Reference(19c24876-ccf8-45e7-8b66-462317e970f1)
+* attester.party = Reference(aede2fef-ac9d-4a06-b2ed-40868ed7e93d)
 * custodian = Reference(d9b97b04-b606-4f07-baf2-7eb3dcae0a2a)
 * event.code = $v3-ActClass#PCPR
 * event.period.end = "2026-02-01"
@@ -148,7 +148,7 @@ Usage: #inline
 * address.postalCode = "01002"
 * address.country = "USA"
 
-Instance: 19c24876-ccf8-45e7-8b66-462317e970f1
+Instance: aede2fef-ac9d-4a06-b2ed-40868ed7e93d
 InstanceOf: Practitioner
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"

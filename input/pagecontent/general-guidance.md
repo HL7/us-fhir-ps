@@ -72,10 +72,10 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 </blockquote>
 
 - **Problems (Required)**:  
-  - Exclude `Condition.clinicalStatus` of: `inactive` or `resolved`, unless specific rationale for clinical relevance
+  - Include `Condition.clinicalStatus` of: `active`, `recurrence`, `relapse` or `remission`. Resolved or inactive problems may be included when clinically relevant
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
 - **Allergies (Required)**: 
-  - Exclude `AllergyIntorlance.clinicalStatus` of `inactive` or `resolved`, unless specific rationale for clinical relevance
+  - Include `AllergyIntorlance.clinicalStatus` of `active`.  Resolved or inactive allaergies may be included when clinically relevant.
   - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
 - **Medications (Required)**: 
   - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
@@ -83,26 +83,30 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes `doNotPerform` medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
 - **Encounters (Must Support)**:
   - Include all emergency room and inpatient encounters in the past 12 months
-  - Include all ambulatory encounters in the past 30 days
+  - Include all ambulatory encounters in the past 6 months
   - Exclude `Encounter.status` of `cancelled`
   - Note that there is an additional "note to balloters" in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
 - **Immunizations (Must Support)**:
-  - Include all immunizations that provide long‑term immunity. While CDC and WHO do not publish a single classification of "long‑term immunity" both organizations provide vaccine‑specific evidence that the following vaccines provide multi-decade immunity: MMR, Hepatitis A/B, Varicella, Polio, and Yellow Fever and Smallpox
-  - Include all other immunizations administered in the past 12 months
+  - For immunizations that provide short-term immunity (e.g. flu and COVID vaccines), include only when `occurenceDateTime` is in the past 24 months
+  - Include all other immunizations administered in lifetime of patient
   - Exclude `Immunization.status` of `entered-in-error`
 - **Procedures (Must Support)**:
   - Include all major procedures with lasting clinical implications
-    - Major surgeries (e.g., cardiac bypass, joint replacements)
-    - Implant placements (e.g., pacemakers, orthopedic hardware)
-    - Procedures with lasting clinical implications (e.g., mastectomy, organ transplant)
+    - Major surgeries (e.g. cardiac bypass, bowel resection)
+    - Implant placements (e.g. pacemakers, orthopedic hardware which may be determined through `Procedure.focalDevice`)
+    - Procedures with lasting clinical implications (e.g. mastectomy, organ transplant)
   - Include all other procedures in the past 90 days
   - Exclude `Procedure.status` of `entered-in-error` or `not-done`
 - **Results (Must Support)**:
-  - Include `DiagnosticReport` in the past 30 days 
-  - Include `Observation.category` of `laboratory` and `imaging` in the past 30 days (if not already included above)
+  - Include `DiagnosticReport` in the past 90 days 
+  - Include `Observation.category` of `laboratory` and `imaging` in the past 90 days (if not already included above)
   - Include abnormal clinical results as clinically relevant for the patient
 
 Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
+
+### Authorship and Provenance in US-PCS
+
+The author and custodian of a US-PCS document are required in US-PCS as detailed in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) profile. While not required in US-PCS, there may be use cases where more information is appropriate at a granular level, often through the use of [US Core Provenance](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-provenance.html) resources. This guide recommends implementers review [Basic Provenance from the US Core Implementation Guide](https://hl7.org/fhir/us/core/STU6.1/basic-provenance.html) for further guidance.
 
 ### Must Support Definition
 
