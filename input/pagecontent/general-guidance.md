@@ -102,6 +102,26 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Include `Observation.category` of `laboratory` and `imaging` in the past 90 days (if not already included above)
   - Include abnormal clinical results as clinically relevant for the patient
 
+
+##### Required Sections
+
+| Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
+| :--- | :--- | :--- |
+| **Problems** | `Condition.clinicalStatus` of `active`, `recurrence`, `relapse`, or `remission`. (Inactive or resolved problems may be included when clinically relevant.) | `Condition.verificationStatus` of `entered-in-error` |
+| **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies may be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
+| **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to US Core Guidance for active medication lists.) | `MedicationRequest.doNotPerform` if `true` |
+
+##### Must Support Sections
+
+| Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
+| :--- | :--- | :--- |
+| **Encounters** | All Emergency Room and Inpatient encounters (past 12 months).<br>All ambulatory encounters (past 6 months). | `Encounter.status` of `cancelled` |
+| **Immunizations** | Short-term immunity (e.g., flu, COVID) if `occurrenceDateTime` is in the past 24 months.<br>All other immunizations administered in lifetime of patient. | `Immunization.status` of `entered-in-error` |
+| **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant).<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
+| **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results. | N/A |
+
+
+
 Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
 
 ### Authorship and Provenance in US-PCS
