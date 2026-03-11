@@ -98,7 +98,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Include all other procedures in the past 90 days
   - Exclude `Procedure.status` of `entered-in-error` or `not-done`
 - **Results (Must Support)**:
-  - Include `DiagnosticReport` in the past 90 days 
+  - Include `DiagnosticReport` in the past 90 days (and corresponding `DiagnosticReport.result` observations)
   - Include `Observation.category` of `laboratory` and `imaging` in the past 90 days (if not already included above)
   - Include abnormal clinical results as clinically relevant for the patient
 
