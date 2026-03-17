@@ -250,8 +250,8 @@ Usage: #inline
 * code.coding[+] = $provider-taxonomy#261QP2300X "Primary Care Clinic/Center"
 * specialty = $provider-taxonomy#208D00000X "General Practice Physician"
 * location = Reference(https://fhir.example.org/fhir/Location/hl7east) "Health Level Seven International"
-* endpoint[0] = Reference(https://fhir.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
-* endpoint[+] = Reference(https://fhir2.example.org//fhir/R4/Endpoint/Endpoint-71) "Brenda.Jennings.Richard.MD@direct.example.org"
+* endpoint[0] = Reference(https://fhir1.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
+* endpoint[+] = Reference(https://fhir2.example.org/fhir/R4/Endpoint/Endpoint-71) "Brenda.Jennings.Richard.MD@direct.example.org"
 
 Instance: 19c24876-ccf8-45e7-8b66-462317e970f1
 InstanceOf: Practitioner
