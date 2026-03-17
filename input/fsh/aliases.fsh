@@ -23,3 +23,5 @@ Alias: $provider-taxonomy = http://nucc.org/provider-taxonomy
 Alias: $cpt = http://www.ama-assn.org/go/cpt
 Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias: $PatDischargeStatus = https://www.nubc.org/CodeSystem/PatDischargeStatus
+Alias: $us-core-observation-clinical-result = http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result 
+Alias: $us-core-observation-lab =  http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab

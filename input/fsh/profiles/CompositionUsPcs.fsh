@@ -152,20 +152,15 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * section[sectionResults].code 1..1 MS
 * section[sectionResults].code = $loinc#30954-2
 * section[sectionResults].entry only Reference(Observation or DiagnosticReport or DocumentReference)
-* section[sectionResults].entry ^slicing.discriminator[0].type = #type
-* section[sectionResults].entry ^slicing.discriminator[=].path = "resolve()"
-* section[sectionResults].entry ^slicing.discriminator[+].type = #profile
+* section[sectionResults].entry ^slicing.discriminator[0].type = #profile
 * section[sectionResults].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionResults].entry ^slicing.rules = #open
 * section[sectionResults].entry ^short = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient."
 * section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
 * section[sectionResults].entry contains
-    results-observation-laboratory-pathology 0..* and
-    results-observation-radiology 0..* and
+    results-observation 0..* and
     results-diagnosticReport 0..*
-* section[sectionResults].entry[results-observation-laboratory-pathology] only Reference(us-core-observation-lab)
-* section[sectionResults].entry[results-observation-laboratory-pathology] MS
-* section[sectionResults].entry[results-observation-radiology] only Reference(us-core-observation-clinical-result)
-* section[sectionResults].entry[results-observation-radiology] MS
+* section[sectionResults].entry[results-observation] only Reference($us-core-observation-lab or $us-core-observation-clinical-result)
+* section[sectionResults].entry[results-observation] MS
 * section[sectionResults].entry[results-diagnosticReport] only Reference(us-core-diagnosticreport-lab)
 * section[sectionResults].entry[results-diagnosticReport] MS
