@@ -1,10 +1,10 @@
-Instance: bundle-no-info-required-sections
+Instance: US-PCS-Bundle-No-Info-Required-Sections
 InstanceOf: Bundle-us-pcs
 Title: "Bundle - No Information in Required Sections"
 Description: "Bundle - No Information in Required Sections"
 Usage: #example
 * language = #en-US
-* identifier.system = "urn:oid:2.16.724.4.8.10.200.10"
+* identifier.system = "https://example.org/fhir/identifier/bundle-id"
 * identifier.value = "59f51f0b-2005-485c-858e-3d3ae9657287"
 * type = #document
 * timestamp = "2026-02-02T20:42:11+00:00"
@@ -22,7 +22,7 @@ InstanceOf: Composition-us-pcs
 Usage: #inline
 * meta.versionId = "1"
 * language = #en-US
-* identifier.system = "urn:oid:2.16.840.1.113883.2.18.7.2"
+* identifier.system = "https://example.org/fhir/identifier/composition-id"
 * identifier.value = "59f51f0b-2005-485c-858e-3d3ae9657287"
 * status = #final
 * type = $loinc#60591-5 "Patient summary Document"
@@ -91,7 +91,7 @@ Usage: #inline
 * identifier.use = #usual
 * identifier.type = $v2-0203#MR "Medical Record Number"
 * identifier.type.text = "Medical Record Number"
-* identifier.system = "http://hospital.smarthealthit.org"
+* identifier.system = "https://example.org/fhir/identifier/medical-record-number"
 * identifier.value = "1032702"
 * active = true
 * name[0].use = #old
@@ -133,8 +133,10 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "1407071236"
-* identifier[+].system = "http://example.org/fhir/sid/us-tin"
-* identifier[=].value = "121111111"
+* identifier[+].system = "urn:oid:2.16.840.1.113883.6.300"
+* identifier[=].value = "55555"
+* identifier[+].system = "urn:oid:2.16.840.1.113883.4.7"
+* identifier[=].value = "66D6666666"
 * active = true
 * type = $organization-type#prov "Healthcare Provider"
 * name = "Acme Clinic"
@@ -154,11 +156,6 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "9941339100"
-* identifier[+].extension.url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-jurisdiction"
-* identifier[=].extension.valueCodeableConcept = $usps#MA
-* identifier[=].extension.valueCodeableConcept.text = "Massachusetts"
-* identifier[=].system = "http://www.acme.org/practitioners"
-* identifier[=].value = "25456"
 * name.family = "Bone"
 * name.given = "Ronald"
 * name.prefix = "Dr"

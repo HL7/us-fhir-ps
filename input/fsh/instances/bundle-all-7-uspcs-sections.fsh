@@ -1,8 +1,8 @@
-Instance: IPS-20240921185300
+Instance: US-PCS-Bundle-All-7-Sections
 InstanceOf: Bundle-us-pcs
 Usage: #example
 * language = #en-US
-* identifier.system = "urn:oid:2.16.724.4.8.10.200.10"
+* identifier.system = "https://example.org/fhir/identifier/bundle-id"
 * identifier.value = "ac7a747c-a2c9-493c-ba39-4ac6997eed1e"
 * type = #document
 * timestamp = "2026-03-21T18:53:00.8116604+00:00"
@@ -43,7 +43,7 @@ Usage: #inline
 * language = #en-US
 * text.status = #generated
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>US Patient Care Summary for John Shaw</div>"
-* identifier.system = "urn:oid:2.16.840.1.113883.2.18.7.2"
+* identifier.system = "https://example.org/fhir/identifier/composition-id"
 * identifier.value = "ac7a747c-a2c9-493c-ba39-4ac6997eed1e"
 * status = #final
 * type = $loinc#60591-5 "Patient summary Document"
@@ -192,7 +192,7 @@ Usage: #inline
 * identifier.use = #usual
 * identifier.type = $v2-0203#MR "Medical Record Number"
 * identifier.type.text = "Medical Record Number"
-* identifier.system = "http://hospital.smarthealthit.org"
+* identifier.system = "https://example.org/fhir/identifier/medical-record-number"
 * identifier.value = "3104721"
 * active = true
 * name.use = #old
@@ -227,8 +227,6 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "1407071236"
-* identifier[+].system = "http://example.org/fhir/sid/us-tin"
-* identifier[=].value = "121111111"
 * active = true
 * type = $organization-type#prov "Healthcare Provider"
 * name = "Acme Clinic"
@@ -262,11 +260,6 @@ Usage: #inline
 * language = #en
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "9941339100"
-* identifier[+].extension.url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-jurisdiction"
-* identifier[=].extension.valueCodeableConcept = $usps#MA
-* identifier[=].extension.valueCodeableConcept.text = "Massachusetts"
-* identifier[=].system = "http://www.acme.org/practitioners"
-* identifier[=].value = "25456"
 * name.family = "Bone"
 * name.given = "Ronald"
 * name.prefix = "Dr"
@@ -374,6 +367,7 @@ Usage: #inline
 * code.text = "Sodium SerPl-sCnc"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
 * effectiveDateTime = "2005-07-05"
+* performer = Reference(https://fhir.example.org/fhir/Practitioner/practitioner-1) "Ronald Bone, MD"
 * valueQuantity.value = 137
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.unit = "mmol/L"
