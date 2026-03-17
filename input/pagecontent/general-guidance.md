@@ -75,8 +75,8 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
   - Include `Condition.clinicalStatus` of: `active`, `recurrence`, `relapse` or `remission`. Resolved or inactive problems may be included when clinically relevant
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
 - **Allergies (Required)**: 
-  - Include `AllergyIntorlance.clinicalStatus` of `active`.  Resolved or inactive allaergies may be included when clinically relevant.
-  - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
+  - Include `AllergyIntolerance.clinicalStatus` of `active`.  Resolved or inactive allaergies may be included when clinically relevant.
+  - Exclude `AllergyIntolerance.verificationStatus` of `entered-in-error`
 - **Medications (Required)**: 
   - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
   - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clinical relevance
