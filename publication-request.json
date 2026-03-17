@@ -1,6 +1,6 @@
 {
   "package-id" : "hl7.fhir.us.pcs",
-  "version" : "1.0.0",
+  "version" : "1.0.0-ballot",
   "path" : "http://hl7.org/fhir/us/pcs/1.0.0-ballot",
   "mode" : "working",
   "status" : "ballot",
