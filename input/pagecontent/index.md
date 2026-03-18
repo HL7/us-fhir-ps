@@ -55,4 +55,10 @@ The separation of **business principles** from **technical capabilities** in the
 | **Editor** | Brett Marquard | Wave One Associates | brett@waveoneassociates.com |
 | **Editor** | Gay Dolin | Namaste Informatics | gdolin@namasteinformatics.com |
 | **Contributor** | Eric Haas | Health eData | ehaas@healthedatainc.com |
+| **Contributor** | Rob Hausam | Hausam Consulting | rob@hausamconsulting.com |
+| **Contributor** | Josh Hemmesch | MEDITECH | jhemmesch@meditech.com |
+| **Contributor** | James Jahns | Epic | jjahns@epic.com |
+| **Contributor** | Bryant Karras | Washington Department of Health | Bryant.Karras@DOH.WA.GOV |
+| **Contributor** | Isaac Vetter | Epic | Isaac@epic.com |
+| **Contributor** | Jason Vogt | MEDITECH | jvogt@meditech.com |
 
