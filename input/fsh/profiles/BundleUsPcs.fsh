@@ -55,4 +55,3 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[organization].resource only us-core-organization
 * entry[observation-results].resource 1..
 * entry[observation-results].resource only Observation or $us-core-observation-clinical-result or $us-core-observation-lab
-* signature 0..1 MS

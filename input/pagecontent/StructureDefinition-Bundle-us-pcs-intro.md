@@ -4,7 +4,7 @@
 </blockquote>
 
 <blockquote class="note-to-balloters">
-  <p> The US-PCS flags the <code>Bundle.signature</code> as Must Support as representing a signature for the entire patient summary. Many real‑world IGs (e.g., XDS‑on‑FHIR, IHE profiles) prefer <code>Bundle.signature</code> for document‑level attestation. We recognize that <code>Provenance.signature</code> is also a means to provide signatures. The US Core Provenance resource is not listed in this Bundle profile. We seek implementer feedback on these design choices and guidance regarding digital signatures.    
+  <p> The US-PCS does not profile <code>Bundle.signature</code> for document signatures in part since FHIR R6 will likely remove <code>Bundle.signature</code>. Many real‑world IGs (e.g., XDS‑on‑FHIR, IHE profiles) prefer <code>Bundle.signature</code> for document‑level attestation. We recognize that <code>Provenance.signature</code> is also a means to provide signatures. The US Core Provenance resource is not listed in this Bundle profile. We seek implementer feedback on these design choices and guidance regarding digital signatures.    
   </p>
 </blockquote>
 
