@@ -1,0 +1,16 @@
+{
+  "package-id" : "hl7.fhir.us.pcs",
+  "version" : "1.0.0-ballot",
+  "path" : "http://hl7.org/fhir/us/pcs/1.0.0-ballot",
+  "mode" : "working",
+  "status" : "ballot",
+  "sequence" : "STU 1 Ballot",
+  "desc" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
+  "descmd" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
+  "changes" : "changes.html",
+  "first": true,
+  "title": "US Patient Care Summary (US-PCS) Implementation Guide",
+  "ci-build": "https://build.fhir.org/ig/HL7/us-fhir-ps/",
+  "category": "Patient Summary",
+  "introduction": "This project will develop and maintain a U.S. International Patient Summary (US IPS) Implementation Guide based on FHIR, aligned with US Core and USCDI. The US IPS will align with the international IPS standard while incorporating U.S.-specific clinical and regulatory requirements. The IPS, by design, is a minimal, non-exhaustive set of essential clinical data that is specialty-agnostic, condition-independent, and immediately usable by any clinician. Its core purpose is to provide a concise, trusted summary of key patient information, such as allergies, medications, and problems, to support unexpected or unscheduled care, including emergencies or accidents. Although optimized for urgent, unplanned encounters, the IPS can also support planned care, such as travel, citizen mobility, or cross-organizational care pathways. The U.S. version will preserve these foundational principles. As part of this work, the project will also examine vocabulary and terminology challenges that affect cross-border interoperability to ensure semantic consistency and safe interpretation of patient summary data when exchanged internationally. Additionally, this project will include guidance on the relationship to the existing CDA based CCD exchange. The project will include testing and validation through HL7 Connectathons, pilot implementations, and the development of tooling to support conformance. Deliverables will include the US IPS Implementation Guide, validation and testing artifacts, and a defined maintenance process to support ongoing updates. This FHIR implementation guide will use the US Core profiles. If this FHIR implementation guide is unable to use a US Core profile, we will follow the Cross Group Projects WG's variance request process, and provide the US Realm Steering Committee an approved rationale for deviation in the implementation guide where applicable."
+}

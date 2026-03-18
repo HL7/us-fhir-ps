@@ -19,7 +19,7 @@ copyrightYear: 2026+
 releaseLabel: STU 1
 publisher:
   name: HL7 International / Cross-Group Projects
-  url: http://www.hl7.org/Special/committees/structure
+  url: http://www.hl7.org/Special/committees/cgp
 jurisdiction: 'urn:iso:std:iso:3166#US'
 dependencies:
   hl7.fhir.uv.ips:
@@ -31,6 +31,12 @@ dependencies:
   hl7.fhir.uv.fhir-clinical-document:
     version: 1.0.1
     uri: http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document
+definition: 
+  extension: 
+    - url: http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency
+      valueCode: hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1
+parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
+  pin-canonicals: pin-multiples
 pages:
   index.md:
     extension:
@@ -83,7 +89,7 @@ pages:
     copyrights.md:
       extension:  
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-        valueCode: informative
+        valueCode: trial-use
       title: Copyrights
   changes.md:
     extension:  
@@ -107,3 +113,14 @@ menu:
     Downloads: downloads.html
     Copyrights: copyrights.html
   Change Log: changes.html
+
+  
+resources:
+  Bundle/US-PCS-Bundle-All-7-Sections:
+    name: Example US-PCS Bundle with Data in All 7 Sections
+    description: >
+      Example US-PCS Bundle demonstrating the expected structure and populated content for this implementation guide.
+  Bundle/US-PCS-Bundle-No-Info-Required-Sections:
+    name: Example US-PCS Bundle with No Information in Required Sections
+    description: >
+      Example US-PCS Bundle demonstrating the expected structure and lack of information in required sections for this implementation guide.

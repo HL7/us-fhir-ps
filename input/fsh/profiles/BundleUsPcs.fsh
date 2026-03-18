@@ -24,8 +24,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
     practitioner 0..* and
     practitionerrole 0..* and
     procedure 0..* and
-    observation-results-laboratory-pathology 0..* and
-    observation-results-radiology 0..* and
+    observation-results 0..* and
     organization 0..* 
 * entry[clinical-document-composition].resource only CompositionUsPcs
 * entry[patient].resource 1..
@@ -54,8 +53,6 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[procedure].resource only us-core-procedure
 * entry[organization].resource 1..
 * entry[organization].resource only us-core-organization
-* entry[observation-results-laboratory-pathology].resource 1..
-* entry[observation-results-laboratory-pathology].resource only us-core-observation-lab
-* entry[observation-results-radiology].resource 1..
-* entry[observation-results-radiology].resource only us-core-observation-clinical-result
+* entry[observation-results].resource 1..
+* entry[observation-results].resource only Observation or $us-core-observation-clinical-result or $us-core-observation-lab
 * signature 0..1 MS

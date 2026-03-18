@@ -15,43 +15,45 @@ The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](
 
 #### US Core Version 6.1.0
 
-The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS. These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and should be generally available by most US health information technology vendors and organizations. While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHALL NOT** declare conformance to US-PCS when using US Core versions before 6.1.0. In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions. For example, a US-PCS document creator can include more recent versions such as [US Core 7.0.0](https://hl7.org/fhir/us/core/STU7/) or [US Core 8.0.1](https://hl7.org/fhir/us/core/STU8.0.1/) and still conform to this guide. Regardless of US Core version used, systems are not required to send any items in conflict with [Executive Order 14168](https://www.whitehouse.gov/presidential-actions/2025/01/defending-women-from-gender-ideology-extremism-and-restoring-biological-truth-to-the-federal-government/).
+§guidance-1: The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS.§ These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and are generally available by most US health information technology vendors and organizations. §guidance-2: While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHALL NOT** declare conformance to US-PCS when using US Core versions before 6.1.0.§ §guidance-3:In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions.§ For example, a US-PCS document creator can include more recent versions such as [US Core 7.0.0](https://hl7.org/fhir/us/core/STU7/) or [US Core 8.0.1](https://hl7.org/fhir/us/core/STU8.0.1/) and still conform to this guide. Regardless of US Core version used, systems are not required to send any items in conflict with [Executive Order 14168](https://www.whitehouse.gov/presidential-actions/2025/01/defending-women-from-gender-ideology-extremism-and-restoring-biological-truth-to-the-federal-government/).
 
 The ["US Variance to IPS"](./variance.html)) portion of this guide compares the clinical profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
 
 #### Aligning US-PCS Sections with IPS, C-CDA and US Core
 
-The US-PCS profiles 6 sections to align with the sections in the IPS Implementation Guide and adds a section on encounters not profiled in IPS. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections may be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires a summary to have the three section of Problems, Allergies and Medications. This provides the opportunity for concise summaries when appropriate, although implementers are encouraged to include all sections that are clinically relevant. For more guidance about what content can be included in IPS-aligned US-PCS sections, we refer readings to [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
+The US-PCS profiles 6 sections to align with the sections in the IPS Implementation Guide and adds a section on encounters not profiled in IPS. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections can be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires a summary to have the three section of Problems, Allergies and Medications. This provides the opportunity for concise summaries when appropriate, although implementers are encouraged to include all sections that are clinically relevant. For more guidance about what content can be included in IPS-aligned US-PCS sections, we refer readings to [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
 
 The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us/ccda/) is a library of clinical documents in wide usage in the United States. The US-PCS is not intended to directly replace any of these documents, although it is most closely related to the [Continuity of Care Document (CCD)](https://hl7.org/cda/us/ccda/StructureDefinition-ContinuityofCareDocumentCCD.html). As published in 2007, the original CCD standard profiled 16 different sections although none were required. Over time through inclusion in the C-CDA standard, 6 of the CCD sections became required as CCD serves a primary mechanism to communicate information across US providers and health information technology.  A comparison of CCD sections (C-CDA 2.1) to the FHIR IPS (2.0) and US-PCS sections is shown below with guidance about US Core profiles appropriate for each section: 
 
 |Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|US-PCS Guidance|US Core Resources| 
 |-----|-----|-----|-----|----|
-|Problems (11450-4)|SHALL|Required|Required|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
-|Allergies (48765-2)|SHALL|Required|Required|[US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
-|Medications (10160-0)|SHALL|Required|Required|[US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
-|Results(30954-2)|SHALL|Recommended|Must Support|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
-|Social History (29762-2)|SHALL|Optional|Not Profiled|[US Core Smoking Status Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)<br/>[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)
-|Vital Signs (8716-3)|SHALL|Optional|Not Profiled|[US Core Blood Pressure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)<br/>[US Core Body Height Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)<br/>[US Core Body Weight Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)<br/>[US Core Heart Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)<br/>[US Core Respiratory Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)<br/>[US Core Body Temperature Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)<br/>[US Core Pulse Oximetry Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)<br/>[US Core Pediatric BMI for Age Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)<br/>[Pediatric Weight for Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)<br/>[US Core Pediatric Head Occipital Frontal Circumference Percentile Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
-|Care Plan (18776-5)|SHOULD|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
-|Procedures (47519-4)|SHOULD|Recommended|Must Support|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
-|Advance Directives (42348-3)|MAY|Optional|Not Profiled|Not available in 6.1.0
-|Encounters(46240-8)|MAY|Not Profiled|Must Support|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
-|Family History (10157-6)|MAY|Not Profiled|Not Profiled|Not available in 6.1.0
-|Functional Status (47420-5)|MAY|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
-|Immunizations (11369-6)|MAY|Recommended|Must Support|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
-|Medical Devices (46264-8)|MAY|Recommended|Not Profiled|Device Use not available in 6.1.0<br/>[US Core Implantable Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
-|Payers (48768-6)|MAY|Not Profiled|Not Profiled|[US Core Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html)
-|Mental Status (10190-7)|MAY|Not Profiled|Not Profiled|[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[US Core Observation Screening Assessment Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[US Core QuestionnaireResponse Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-questionnaireresponse.html)
-|Nutrition (61144-2)|MAY|Not Profiled|Not Profiled|Not Profiled in 6.1.0
+|Problems (11450-4)|SHALL¹|Required|Required|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+|Allergies (48765-2)|SHALL¹|Required|Required|[US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
+|Medications (10160-0)|SHALL¹|Required|Required|[US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
+|Results(30954-2)|SHALL¹|Recommended|Must Support|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
+|Social History (29762-2)|SHALL¹|Optional|Not Profiled|[US Core Smoking Status Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)<br/>[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)
+|Vital Signs (8716-3)|SHALL¹|Optional|Not Profiled|[US Core Blood Pressure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)<br/>[US Core Body Height Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)<br/>[US Core Body Weight Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)<br/>[US Core Heart Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)<br/>[US Core Respiratory Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)<br/>[US Core Body Temperature Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)<br/>[US Core Pulse Oximetry Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)<br/>[US Core Pediatric BMI for Age Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)<br/>[Pediatric Weight for Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)<br/>[US Core Pediatric Head Occipital Frontal Circumference Percentile Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+|Care Plan (18776-5)|SHOULD¹|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
+|Procedures (47519-4)|SHOULD¹|Recommended|Must Support|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
+|Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not available in 6.1.0
+|Encounters(46240-8)|MAY¹|Not Profiled|Must Support|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
+|Family History (10157-6)|MAY¹|Not Profiled|Not Profiled|Not available in 6.1.0
+|Functional Status (47420-5)|MAY¹|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
+|Immunizations (11369-6)|MAY¹|Recommended|Must Support|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
+|Medical Devices (46264-8)|MAY¹|Recommended|Not Profiled|Device Use not available in 6.1.0<br/>[US Core Implantable Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
+|Payers (48768-6)|MAY¹|Not Profiled|Not Profiled|[US Core Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html)
+|Mental Status (10190-7)|MAY¹|Not Profiled|Not Profiled|[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[US Core Observation Screening Assessment Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[US Core QuestionnaireResponse Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-questionnaireresponse.html)
+|Nutrition (61144-2)|MAY¹|Not Profiled|Not Profiled|Not Profiled in 6.1.0
 |Alerts (104605-1)|Not Profiled|Optional|Not Profiled|Not Profiled in 6.1.0
 |History of Past Problems (11348-0)|Not Profiled|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
 |Patient Story (81338-6)|Not Profiled|Optional|Not Profiled|Any resource permitted
 |Pregnancy (10162-6)|Not Profiled|Optional|Not Profiled|[US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)<br/>[US Core Observation Pregnancy Intent Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html)
 
+¹=These are not conformance statements for US-PCS 
+
 ##### Additional Sections in US-PCS  
 
-The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while only 7 sections are profiled in this guide, other sections can be added to US-PCS to support care. While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.  For example, a local code of "PAYERS" should not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. When sending sections beyond the seven profiled in this guide, the table above provides a reference for what US Core Implementation Guide 6.1.0 resources to consider for each section.  
+The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while only 7 sections are profiled in this guide, other sections can be added to US-PCS to support care. §guidance-4: While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section.§  For example, a local code of "PAYERS" would not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. When sending sections beyond the seven profiled in this guide, the table above provides a reference for what US Core Implementation Guide 6.1.0 resources to consider for each section.  
 
 #### Summary Creation
 
@@ -59,7 +61,7 @@ The US-PCS aligns with the open-section slicing included in IPS, which also alig
 
 IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
 
-- US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.
+- §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.§
 
 We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
 
@@ -68,19 +70,19 @@ We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6
 The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data that is relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementater consideration. 
 
 <blockquote class="note-to-balloters">
-	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and may be subject to change based on further feedback and implementation experience. </p>
+	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and is subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
 - **Problems (Required)**:  
-  - Include `Condition.clinicalStatus` of: `active`, `recurrence`, `relapse` or `remission`. Resolved or inactive problems may be included when clinically relevant
+  - Include `Condition.clinicalStatus` of: `active`, `recurrence`, `relapse` or `remission`. Resolved or inactive problems can be included when clinically relevant
   - Exclude `Condition.verificationStatus` of `entered-in-error` 
 - **Allergies (Required)**: 
-  - Include `AllergyIntorlance.clinicalStatus` of `active`.  Resolved or inactive allaergies may be included when clinically relevant.
-  - Exclude `AllergyIntorlance.verificationStatus` of `entered-in-error`
+  - Include `AllergyIntolerance.clinicalStatus` of `active`.  Resolved or inactive allaergies can be included when clinically relevant.
+  - Exclude `AllergyIntolerance.verificationStatus` of `entered-in-error`
 - **Medications (Required)**: 
   - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
   - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clinical relevance
-  - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes `doNotPerform` medications. Medications that should not be administered can be communicated in Alerts or Allergies section as appropriate.)
+  - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes `doNotPerform` medications. Medications to not be administered can be communicated in Alerts or Allergies section as appropriate.)
 - **Encounters (Must Support)**:
   - Include all emergency room and inpatient encounters in the past 12 months
   - Include all ambulatory encounters in the past 6 months
@@ -93,7 +95,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 - **Procedures (Must Support)**:
   - Include all major procedures with lasting clinical implications
     - Major surgeries (e.g. cardiac bypass, bowel resection)
-    - Implant placements (e.g. pacemakers, orthopedic hardware which may be determined through `Procedure.focalDevice`)
+    - Implant placements (e.g. pacemakers, orthopedic hardware which can be determined through `Procedure.focalDevice`)
     - Procedures with lasting clinical implications (e.g. mastectomy, organ transplant)
   - Include all other procedures in the past 90 days
   - Exclude `Procedure.status` of `entered-in-error` or `not-done`
@@ -107,8 +109,8 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
-| **Problems** | `Condition.clinicalStatus` of `active`, `recurrence`, `relapse`, or `remission`. (Inactive or resolved problems may be included when clinically relevant.) | `Condition.verificationStatus` of `entered-in-error` |
-| **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies may be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
+| **Problems** | `Condition.clinicalStatus` of `active`, `recurrence`, `relapse`, or `remission`. (Inactive or resolved problems can be included when clinically relevant.) | `Condition.verificationStatus` of `entered-in-error` |
+| **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies can be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
 | **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to US Core Guidance for active medication lists.) | `MedicationRequest.doNotPerform` if `true` |
 
 ##### Must Support Sections
@@ -122,11 +124,11 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 
 
-Implementers may include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).
+Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. §guidance-6: When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).§
 
 ### Authorship and Provenance in US-PCS
 
-The author and custodian of a US-PCS document are required in US-PCS as detailed in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) profile. While not required in US-PCS, there may be use cases where more information is appropriate at a granular level, often through the use of [US Core Provenance](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-provenance.html) resources. This guide recommends implementers review [Basic Provenance from the US Core Implementation Guide](https://hl7.org/fhir/us/core/STU6.1/basic-provenance.html) for further guidance.
+The author and custodian of a US-PCS document are required in US-PCS as detailed in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) profile. While not required in US-PCS, more information is often appropriate at a granular level, often through the use of [US Core Provenance](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-provenance.html) resources. This guide recommends implementers review [Basic Provenance from the US Core Implementation Guide](https://hl7.org/fhir/us/core/STU6.1/basic-provenance.html) for further guidance.
 
 ### Must Support Definition
 
@@ -138,21 +140,23 @@ The Profile elements consist of *Mandatory* and *Must Support*. The sections bel
 
 #### Mandatory Elements
 
-*Mandatory* elements are elements with a minimum cardinality of 1 (min=1). When an element is Mandatory, the data is expected to always be present. Very rarely, it may not be, and guidance for when data is missing is provided in [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data). 
+*Mandatory* elements are elements with a minimum cardinality of 1 (min=1). When an element is Mandatory, the data is expected to always be present. Very rarely when unavailable, guidance for missing data is provided in [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data). 
 
 #### Must Support Elements
 
-For generating a US-PCS, *Must Support* on any profile data element **SHALL** be interpreted as follows:
+For generating a US-PCS, *Must Support* on any profile data element is to be interpreted as follows:
 
-* US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.
-* US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers may fully process and store the discrete resources while others will chose to display the text for for human use.
-* Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary
-* In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.
-* US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.
-* In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.
-* US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.
+* §guidance-7:US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.§
+* §guidance-8:US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will chose to display the text for for human use.§
+* §guidance-9:Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary.§
+* §guidance-10:In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.§
+* §guidance-11:US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.§
+* §guidance-12:In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.§
+* §guidance-13:US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.§
 
 The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but are not complete equivalents.
 
 
-...
+### Conformance
+
+§§§

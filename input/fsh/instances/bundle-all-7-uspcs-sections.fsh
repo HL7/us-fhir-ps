@@ -1,11 +1,11 @@
-Instance: IPS-20240921185300
+Instance: US-PCS-Bundle-All-7-Sections
 InstanceOf: Bundle-us-pcs
 Usage: #example
 * language = #en-US
-* identifier.system = "urn:oid:2.16.724.4.8.10.200.10"
+* identifier.system = "https://example.org/fhir/identifier/bundle-id"
 * identifier.value = "ac7a747c-a2c9-493c-ba39-4ac6997eed1e"
 * type = #document
-* timestamp = "2024-09-21T18:53:00.8116604+00:00"
+* timestamp = "2026-03-21T18:53:00.8116604+00:00"
 * entry[0].fullUrl = "https://fhir.example.org/fhir/Composition/514af4c1-194d-48b4-8afe-7be09d3f895a"
 * entry[=].resource = 514af4c1-194d-48b4-8afe-7be09d3f895a
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Patient/DEF1234"
@@ -43,59 +43,117 @@ Usage: #inline
 * language = #en-US
 * text.status = #generated
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>US Patient Care Summary for John Shaw</div>"
-* identifier.system = "urn:oid:2.16.840.1.113883.2.18.7.2"
+* identifier.system = "https://example.org/fhir/identifier/composition-id"
 * identifier.value = "ac7a747c-a2c9-493c-ba39-4ac6997eed1e"
 * status = #final
 * type = $loinc#60591-5 "Patient summary Document"
 * subject.reference = "https://fhir.example.org/fhir/Patient/DEF1234"
-* date = "2024-09-13"
+* date = "2026-03-21T18:53:00.8116604+00:00"
 * author.reference = "https://fhir.example.org/fhir/Organization/8dcf67a5-b677-4c4f-94c6-a4cf41c9a522"
 * title = "US Patient Care Summary"
 * confidentiality = #N
 * attester.mode = #professional
-* attester.time = "2024-09-13"
+* attester.time = "2026-03-21T18:53:00.8116604+00:00"
 * attester.party.reference = "https://fhir.example.org/fhir/PractitionerRole/75ed6f24-9a7e-4568-9c05-91b6d4786743"
 * custodian.reference = "https://fhir.example.org/fhir/Organization/8dcf67a5-b677-4c4f-94c6-a4cf41c9a522"
 * event.code.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActClass"
 * event.code.coding.code =  $v3-ActClass#PCPR
-* event.period.end = "2024-09-13"
+* event.period.end = "2026-03-21T18:53:00.8116604+00:00"
+* section[sectionAllergies].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionAllergies].extension[=].valueAnnotation.text = "Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntorlance.verificationStatus of entered-in-error"
 * section[sectionAllergies].title = "Allergies and Intolerances"
 * section[sectionAllergies].code = $loinc#48765-2 "Allergies and adverse reactions Document"
 * section[sectionAllergies].text.status = #generated
-* section[sectionAllergies].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionAllergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntorlance.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Allergy Type</th><th>Substance</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Reaction</th></tr><tr id=\"9838cf73-c30d-4aa5-8ed8-36a079060b81\"><td></td><td>sulfonamide antibacterial</td><td></td><td></td><td></td><td>skin rash: mild<br/></td></tr></table></div>"
+* section[sectionAllergies].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionAllergies].text.extension[=].extension[0].url = "htmlid"
+* section[sectionAllergies].text.extension[=].extension[=].valueString = "9838cf73-c30d-4aa5-8ed8-36a079060b81"
+* section[sectionAllergies].text.extension[=].extension[+].url = "data"
+* section[sectionAllergies].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/AllergyIntolerance/9838cf73-c30d-4aa5-8ed8-36a079060b81"
 * section[sectionAllergies].entry.reference = "https://fhir.example.org/fhir/AllergyIntolerance/9838cf73-c30d-4aa5-8ed8-36a079060b81"
-* section[sectionAllergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table border=\"1\"><tr><th>Allergy Type</th><th>Substance</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Reaction</th></tr></table></div>"
+* section[sectionProblems].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionProblems].extension[=].valueAnnotation.text = "Includes Condition.clinicalStatus of: active, recurrence, relapse or remission; Excludes Condition.verificationStatus of entered-in-error"
 * section[sectionProblems].title = "Problem List"
 * section[sectionProblems].code = $loinc#11450-4 "Problem list - Reported"
 * section[sectionProblems].text.status = #generated
-* section[sectionProblems].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionProblems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes Condition.clinicalStatus of: active, recurrence, relapse or remission; Excludes Condition.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Problem</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Severity</th></tr><tr id=\"8039e4a7-d459-454c-92a5-6c17ca2a824b\"><td>Active Duodenal Ulcer</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr><tr id=\"f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1\"><td>Active Duodenal Ulcer</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr></table></div>"
+* section[sectionProblems].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionProblems].text.extension[=].extension[0].url = "htmlid"
+* section[sectionProblems].text.extension[=].extension[=].valueString = "8039e4a7-d459-454c-92a5-6c17ca2a824b"
+* section[sectionProblems].text.extension[=].extension[+].url = "data"
+* section[sectionProblems].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Condition/8039e4a7-d459-454c-92a5-6c17ca2a824b"
+* section[sectionProblems].text.extension[+].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionProblems].text.extension[=].extension[0].url = "htmlid"
+* section[sectionProblems].text.extension[=].extension[=].valueString = "f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1"
+* section[sectionProblems].text.extension[=].extension[+].url = "data"
+* section[sectionProblems].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Condition/f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1"
 * section[sectionProblems].entry[0].reference = "https://fhir.example.org/fhir/Condition/8039e4a7-d459-454c-92a5-6c17ca2a824b"
 * section[sectionProblems].entry[+].reference = "https://fhir.example.org/fhir/Condition/f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1"
-* section[sectionProblems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table border=\"1\"><tr><th>Problem</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Severity</th></tr></table></div>"
+* section[sectionMedications].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionMedications].extension[=].valueAnnotation.text = "Include MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true"
 * section[sectionMedications].title = "Medication Summary"
 * section[sectionMedications].code = $loinc#10160-0 "History of Medication use Narrative"
 * section[sectionMedications].text.status = #generated
-* section[sectionMedications].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionMedications].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true</div><table border=\"1\"><tr><th>Medication</th><th>Dates</th><th>Dosage-Timing</th><th>Status</th><th>Route</th></tr><tr id=\"c3d31980-2a88-45b6-a7af-3fe8d32cc6fa\"><td>Nizatidine 15 MG/ML Oral Solution [Axid]</td><td></td><td>active</td><td></td></tr></table></div>"
+* section[sectionMedications].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionMedications].text.extension[=].extension[0].url = "htmlid"
+* section[sectionMedications].text.extension[=].extension[=].valueString = "c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
+* section[sectionMedications].text.extension[=].extension[+].url = "data"
+* section[sectionMedications].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
 * section[sectionMedications].entry.reference = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
+* section[sectionImmunizations].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionImmunizations].extension[=].valueAnnotation.text = "Includes short-terms immunizations within past 24 months. Includes lifetime of immunization with long-duration"
 * section[sectionImmunizations].title = "Immunizations"
 * section[sectionImmunizations].code = $loinc#11369-6 "History of Immunization note"
 * section[sectionImmunizations].text.status = #generated
-* section[sectionImmunizations].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionImmunizations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes short-terms immunizations within past 24 months. Includes lifetime of immunization with long-duration</div><table border=\"1\"><tr><th>Vaccine</th><th>Date</th><th>Status</th><th>Lot Number</th></tr><tr id=\"17b5a6d7-307b-4726-8c8c-0031e61582ce\"><td>Influenza, high-dose, quadrivalent, PF</td><td>Nov 19 2020 15:46</td><td>Completed</td><td></td></tr></table></div>"
+* section[sectionImmunizations].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionImmunizations].text.extension[=].extension[0].url = "htmlid"
+* section[sectionImmunizations].text.extension[=].extension[=].valueString = "17b5a6d7-307b-4726-8c8c-0031e61582ce"
+* section[sectionImmunizations].text.extension[=].extension[+].url = "data"
+* section[sectionImmunizations].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Immunization/17b5a6d7-307b-4726-8c8c-0031e61582ce"
 * section[sectionImmunizations].entry.reference = "https://fhir.example.org/fhir/Immunization/17b5a6d7-307b-4726-8c8c-0031e61582ce"
+* section[sectionResults].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionResults].extension[=].valueAnnotation.text = "Includes diagnostic reports, laboratory and imaging observations from the past 90 days"
 * section[sectionResults].title = "Results"
 * section[sectionResults].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
 * section[sectionResults].text.status = #generated
-* section[sectionResults].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionResults].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes diagnostic reports, laboratory and imaging observations from the past 90 days</div><table border=\"1\"><tr><th>Result</th><th>Value</th><th>Date</th><th>Status</th></tr><tr id=\"b0187efd-5f9b-474d-87bc-efebf877449a\"><td>Sodium SerPl-sCnc</td><td>137 mmol/L</td><td>Jul 4 2005 20:00</td><td>final</td></tr></table></div>"
+* section[sectionResults].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionResults].text.extension[=].extension[0].url = "htmlid"
+* section[sectionResults].text.extension[=].extension[=].valueString = "b0187efd-5f9b-474d-87bc-efebf877449a"
+* section[sectionResults].text.extension[=].extension[+].url = "data"
+* section[sectionResults].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Observation/b0187efd-5f9b-474d-87bc-efebf877449a"
 * section[sectionResults].entry.reference = "https://fhir.example.org/fhir/Observation/b0187efd-5f9b-474d-87bc-efebf877449a"
+* section[sectionProceduresHx].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionProceduresHx].extension[=].valueAnnotation.text = "Includes all major procedures with lasting clinical implications and all procedures from last 90 days"
 * section[sectionProceduresHx].title = "History of Procedures"
 * section[sectionProceduresHx].code = $loinc#47519-4 "History of Procedures Document"
 * section[sectionProceduresHx].text.status = #generated
-* section[sectionProceduresHx].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
+* section[sectionProceduresHx].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes all major procedures with lasting clinical implications and all procedures from last 90 days</div><table border=\"1\"><tr><th>Procedure</th><th>Date</th><th>Status</th></tr><tr id=\"fb04f2f5-d5b6-4031-85e9-547c78deb658\"><td>Insertion or replacement of permanent implantable defibrillator system with transvenous lead(s), single or dual chamber</td><td></td><td>Completed</td></tr></table></div>"
+* section[sectionProceduresHx].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionProceduresHx].text.extension[=].extension[0].url = "htmlid"
+* section[sectionProceduresHx].text.extension[=].extension[=].valueString = "fb04f2f5-d5b6-4031-85e9-547c78deb658"
+* section[sectionProceduresHx].text.extension[=].extension[+].url = "data"
+* section[sectionProceduresHx].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Procedure/fb04f2f5-d5b6-4031-85e9-547c78deb658"
 * section[sectionProceduresHx].entry.reference = "https://fhir.example.org/fhir/Procedure/fb04f2f5-d5b6-4031-85e9-547c78deb658"
+* section[sectionEncounters].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
+* section[sectionEncounters].extension[=].valueAnnotation.text = "Include all emergency room and inpatient encounters in the past 12 months. Include all ambulatory encounters in the past 6 months"
 * section[sectionEncounters].title = "Encounters"
 * section[sectionEncounters].text.status = #generated
 * section[sectionEncounters].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
 * section[sectionEncounters].code = $loinc#46240-8 "History of Hospitalizations+Outpatient visits Narrative"
+* section[sectionEncounters].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes all emergency room and inpatient encounters in the past 12 months. Includes all ambulatory encounters in the past 6 months</div><table border=\"1\"><tr><th>Encounter Type</th><th>Description</th><th>Date</th><th>Location</th></tr><tr id=\"e8be20b8-6f24-4204-8eca-6bc8ecd2b26b\"><td>Ambulatory</td><td>Office Visit</td><td>2026-03-17</td><td>HL7 East Ambulatory</td></tr><tr id=\"e11bfacd-557d-416b-bb7f-165afc68bca0\"><td>Inpatient</td><td>Hospitalization</td><td>2026-01-17 to 2026-01-20</td><td>Holy Family Hospital</td></tr></table></div>"
+* section[sectionEncounters].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionEncounters].text.extension[=].extension[0].url = "htmlid"
+* section[sectionEncounters].text.extension[=].extension[=].valueString = "e8be20b8-6f24-4204-8eca-6bc8ecd2b26b"
+* section[sectionEncounters].text.extension[=].extension[+].url = "data"
+* section[sectionEncounters].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Encounter/e8be20b8-6f24-4204-8eca-6bc8ecd2b26b"
+* section[sectionEncounters].text.extension[+].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionEncounters].text.extension[=].extension[0].url = "htmlid"
+* section[sectionEncounters].text.extension[=].extension[=].valueString = "e11bfacd-557d-416b-bb7f-165afc68bca0"
+* section[sectionEncounters].text.extension[=].extension[+].url = "data"
+* section[sectionEncounters].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/Encounter/e11bfacd-557d-416b-bb7f-165afc68bca0"
 * section[sectionEncounters].entry[0].reference = "https://fhir.example.org/fhir/Encounter/e8be20b8-6f24-4204-8eca-6bc8ecd2b26b"
 * section[sectionEncounters].entry[+].reference = "https://fhir.example.org/fhir/Encounter/e11bfacd-557d-416b-bb7f-165afc68bca0"
 
@@ -134,7 +192,7 @@ Usage: #inline
 * identifier.use = #usual
 * identifier.type = $v2-0203#MR "Medical Record Number"
 * identifier.type.text = "Medical Record Number"
-* identifier.system = "http://hospital.smarthealthit.org"
+* identifier.system = "https://example.org/fhir/identifier/medical-record-number"
 * identifier.value = "3104721"
 * active = true
 * name.use = #old
@@ -169,8 +227,6 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "1407071236"
-* identifier[+].system = "http://example.org/fhir/sid/us-tin"
-* identifier[=].value = "121111111"
 * active = true
 * type = $organization-type#prov "Healthcare Provider"
 * name = "Acme Clinic"
@@ -194,8 +250,8 @@ Usage: #inline
 * code.coding[+] = $provider-taxonomy#261QP2300X "Primary Care Clinic/Center"
 * specialty = $provider-taxonomy#208D00000X "General Practice Physician"
 * location = Reference(https://fhir.example.org/fhir/Location/hl7east) "Health Level Seven International"
-* endpoint[0] = Reference(https://fhir.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
-* endpoint[+] = Reference(https://fhir2.example.org//fhir/R4/Endpoint/Endpoint-71) "Brenda.Jennings.Richard.MD@direct.example.org"
+* endpoint[0] = Reference(https://fhir1.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
+* endpoint[+] = Reference(https://fhir2.example.org/fhir/R4/Endpoint/Endpoint-71) "Brenda.Jennings.Richard.MD@direct.example.org"
 
 Instance: 19c24876-ccf8-45e7-8b66-462317e970f1
 InstanceOf: Practitioner
@@ -204,11 +260,6 @@ Usage: #inline
 * language = #en
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "9941339100"
-* identifier[+].extension.url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-jurisdiction"
-* identifier[=].extension.valueCodeableConcept = $usps#MA
-* identifier[=].extension.valueCodeableConcept.text = "Massachusetts"
-* identifier[=].system = "http://www.acme.org/practitioners"
-* identifier[=].value = "25456"
 * name.family = "Bone"
 * name.given = "Ronald"
 * name.prefix = "Dr"
@@ -316,6 +367,7 @@ Usage: #inline
 * code.text = "Sodium SerPl-sCnc"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
 * effectiveDateTime = "2005-07-05"
+* performer = Reference(https://fhir.example.org/fhir/Practitioner/practitioner-1) "Ronald Bone, MD"
 * valueQuantity.value = 137
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.unit = "mmol/L"
@@ -353,9 +405,9 @@ Usage: #inline
 * type = $cpt#99211
 * type.text = "Office Visit"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
-* period.start = "2015-11-01T17:00:14-05:00"
-* period.end = "2015-11-01T18:00:14-05:00"
-* location.location = Reference(https://fhir.example.org/fhir/Location/hospital) "Holy Family Hospital"
+* period.start = "2026-03-17T17:00:14-05:00"
+* period.end = "2026-03-17T18:00:14-05:00"
+* location.location = Reference(https://fhir.example.org/fhir/Location/hl7east) "HL7 East Ambulatory"
 
 Instance: e11bfacd-557d-416b-bb7f-165afc68bca0
 InstanceOf: Encounter
@@ -367,5 +419,7 @@ Usage: #inline
 * type = $sct#261665006 "Unknown (qualifier value)"
 * type.text = "Hospitalization"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
+* period.start = "2026-01-17T17:00:14-05:00"
+* period.end = "2026-01-20T18:00:14-05:00"
 * hospitalization.dischargeDisposition = $PatDischargeStatus#01 "Discharged to Home"
 * location.location = Reference(https://fhir.example.org/fhir/Location/hospital) "Holy Family Hospital"
