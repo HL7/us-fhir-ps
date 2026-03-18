@@ -156,11 +156,13 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * section[sectionResults].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionResults].entry ^slicing.rules = #open
 * section[sectionResults].entry ^short = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient."
-* section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
+* section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and other clinical results."
 * section[sectionResults].entry contains
-    results-observation 0..* and
-    results-diagnosticReport 0..*
-* section[sectionResults].entry[results-observation] only Reference($us-core-observation-lab or $us-core-observation-clinical-result)
-* section[sectionResults].entry[results-observation] MS
-* section[sectionResults].entry[results-diagnosticReport] only Reference(us-core-diagnosticreport-lab)
-* section[sectionResults].entry[results-diagnosticReport] MS
+    results-observation-lab-imaging 0..* and
+    results-diagnosticReport-lab-imaging-note 0..*
+* section[sectionResults].entry[results-observation-lab-imaging] only Reference($us-core-observation-lab or $us-core-observation-clinical-result)
+* section[sectionResults].entry[results-observation-lab-imaging] MS
+* section[sectionResults].entry[results-observation-lab-imaging] ^short = "Observation results can include laboratory, imaging, microbiology/pathology, and other observations."
+* section[sectionResults].entry[results-diagnosticReport-lab-imaging-note] only Reference(us-core-diagnosticreport-lab or us-core-diagnosticreport-note)
+* section[sectionResults].entry[results-diagnosticReport-lab-imaging-note] MS
+* section[sectionResults].entry[results-diagnosticReport-lab-imaging-note] ^short = "Diagnostic reports can include laboratory, imaging, clinical notes, impressions and other report data. These can reference other resources in the Bundle. References generally will not include large files in the summary (e.g. images would not be included)."
