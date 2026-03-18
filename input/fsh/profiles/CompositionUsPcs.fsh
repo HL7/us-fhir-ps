@@ -20,6 +20,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * type = $loinc#60591-5
 * subject 1..1 MS
 * subject only Reference(us-core-patient)
+* subject.reference 1..1 MS
 * author 1..* MS
 * author only Reference(us-core-practitioner or us-core-practitionerrole or Device or us-core-patient or us-core-relatedperson or us-core-organization)
 * custodian 1..1 MS
