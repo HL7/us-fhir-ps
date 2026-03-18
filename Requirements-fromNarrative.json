@@ -6,5 +6,117 @@
   "title" : "Narrative Conformance Statements",
   "status" : "active",
   "experimental" : false,
-  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes"
+  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
+  "statement" : [{
+    "key" : "bund-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "All entries in the Bundle **SHALL** include a fullUrl, and a resource."
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/requirements-statementshallnot",
+      "valueBoolean" : true
+    }],
+    "key" : "bund-2",
+    "requirement" : "All entries in the Bundle **SHALL NOT** include: any Composition resource other than the first, a search attribute, a request attribute, or a response attribute."
+  },
+  {
+    "key" : "comp-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "- Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), at least one entry referencing a US Core resource or an emptyReason."
+  },
+  {
+    "key" : "comp-2",
+    "conformance" : ["SHALL"],
+    "requirement" : "The corresponding US Core Implementation Guide resource **SHALL** be sent in given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide"
+  },
+  {
+    "key" : "comp-3",
+    "conformance" : ["SHALL"],
+    "requirement" : "Each section **SHALL** contain a unique code to identify that section. For example, it would not be appropriate to send two separate Advance Directives sections (LOINC: 42348-3). This is enforced through the discriminator profiling on `section.code`"
+  },
+  {
+    "key" : "guidance-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS."
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/requirements-statementshallnot",
+      "valueBoolean" : true
+    }],
+    "key" : "guidance-2",
+    "requirement" : "While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHALL NOT** declare conformance to US-PCS when using US Core versions before 6.1.0."
+  },
+  {
+    "key" : "guidance-3",
+    "conformance" : ["SHOULD"],
+    "requirement" : "In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions."
+  },
+  {
+    "key" : "guidance-4",
+    "conformance" : ["SHOULD"],
+    "requirement" : "While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section."
+  },
+  {
+    "key" : "guidance-5",
+    "conformance" : ["SHALL"],
+    "requirement" : "US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0."
+  },
+  {
+    "key" : "guidance-6",
+    "conformance" : ["SHOULD"],
+    "requirement" : "When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html)."
+  },
+  {
+    "key" : "guidance-7",
+    "conformance" : ["SHALL"],
+    "requirement" : "US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation."
+  },
+  {
+    "key" : "guidance-8",
+    "conformance" : ["SHALL"],
+    "requirement" : "US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will chose to display the text for for human use."
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/requirements-statementshallnot",
+      "valueBoolean" : true
+    }],
+    "key" : "guidance-9",
+    "requirement" : "Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary."
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/requirements-statementshallnot",
+      "valueBoolean" : true
+    }],
+    "key" : "guidance-10",
+    "requirement" : "In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation."
+  },
+  {
+    "key" : "guidance-11",
+    "conformance" : ["SHALL"],
+    "requirement" : "US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system."
+  },
+  {
+    "key" : "guidance-12",
+    "conformance" : ["SHOULD"],
+    "requirement" : "In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing **and** the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`."
+  },
+  {
+    "key" : "guidance-13",
+    "conformance" : ["SHALL"],
+    "requirement" : "US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information."
+  },
+  {
+    "key" : "ip-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "Implementers and testers of this specification **SHALL** abide by the license requirements for each terminology content artifact utilized within a functioning implementation."
+  },
+  {
+    "key" : "ip-2",
+    "conformance" : ["SHALL"],
+    "requirement" : "Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used."
+  }]
 }

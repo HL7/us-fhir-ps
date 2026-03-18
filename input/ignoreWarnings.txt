@@ -1,9 +1,68 @@
 == Suppressed Messages ==
 
-# 19. === The following code systems are not discoverable because they are code systems in THO, but THO doesn't define the codes. They have been checked, and the identifiers are correct (text from US Core) ===
+# 01. === EXTENSIONS: These messages are generated in the snapshot from the base resources. There is no reference to these extensions in the US-PCS resource profiles. (same text as IPS)
+INFORMATION: StructureDefinition/Bundle-us-pcs: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0-ballot-tc1 is deprecated with the note: 'Use additionalBinding extension or element instead'
+
+# 02. === The following code systems are not discoverable because they are code systems in THO, but THO doesn't define the codes. They have been checked, and the identifiers are correct (text from US Core) ===
 
 The definition for the Code System with URI 'urn:oid:2.16.840.1.113883.6.238' doesn't provide any codes so the code cannot be validated
 
-# 21. === The following code system is not discoverable because they are code systems in THO, but THO doesn't define the codes due to AHA NUBC Patient Discharge Status Codes IP issues. These codes were checked manually (text from US Core)===
+# 03. === The following code system is not discoverable because they are code systems in THO, but THO doesn't define the codes due to AHA NUBC Patient Discharge Status Codes IP issues. These codes were checked manually (text from US Core)===
 
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated
+
+# 04. === This guide does not define any valueset, but it depends on international guides. We cannot address this error since it appears to stem from international guide using non-US SNOMED valuesets. For the US-PCS, we direct implementers to US Core resources which only use US-PCS:
+WARNING: IG: The IG is not for the international realm, and it uses SNOMED CT, so it should fix the SCT edition in the expansion parameters
+
+# 05. === The US-PCS guide includes a no-info and full example of a Bundle, which contains US-PCS Composition. The group thinks an example of Composition alone is misleading since it only makes sense when it includes the referenced resource in the Bundle
+INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pcs/StructureDefinition/Composition-us-pcs'): The Implementation Guide contains no explicitly linked examples for this profile
+
+# 06. === The US-PCS Bundle profile includes a slice that allows both a US Core Clinical Result and US Core Laboratory Observation. The latter is a derived profile of former, so it will always be present as a slicing warning. We think it important to include both profiles in the Must Support section of "Results" in US-PCS 
+WARNING: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[0].resource/*Composition/514af4c1-194d-48b4-8afe-7be09d3f895a*/.section[4].entry[0]: Found multiple matching profiles for https://fhir.example.org/fhir/Observation/b0187efd-5f9b-474d-87bc-efebf877449a among choices: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result|6.1.0, http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[10].resource/*Observation/b0187efd-5f9b-474d-87bc-efebf877449a*/: The entry resource matched more than one of the allowed profiles (http://hl7.org/fhir/StructureDefinition/Observation, http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result, http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab)
+WARNING: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[10].resource: Found multiple matching profiles among 3 choices: http://hl7.org/fhir/StructureDefinition/Observation, http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result, http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+
+# 07. === The US-PCS workgroup had substantially discussion on what US Core version to reference. Since 6.1.0 (USCDI v3) is what is generally implemented in 2026, the group decided to start with those resources since EHRs are implementing today rather than pinning to future version not yet required by vendors. We expect ballot feedback on this topic. 
+WARNING: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '06052023' could not be found, so the code cannot be validated. Valid versions: 02032025
+WARNING: ImplementationGuide/hl7.fhir.us.pcs: ImplementationGuide.dependsOn[3]: The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 8.0.1. This reference is getting old and the more recent version should be considered
+
+# 08. === Referenced resources need to be included in a US-PCS where relevant (and definitely when referenced from Composition). The working US-PCS group, however, thought important to demonstrate that not all references must be contained in example. This is is important for several US Core resources where the references are requried in the base resource but the second or third order data may not be relevant for the summary.
+
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Organization/acme-lab' in the bundle (Bundle.entry[3].resource.organization)
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Location/hl7east' in the bundle (Bundle.entry[3].resource.location[0])
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir1.example.org/fhir/Endpoint/Endpoint-71' in the bundle (Bundle.entry[3].resource.endpoint[0])
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir2.example.org/fhir/R4/Endpoint/Endpoint-71' in the bundle (Bundle.entry[3].resource.endpoint[1])
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Practitioner/practitioner-1' in the bundle (Bundle.entry[8].resource.requester)
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Practitioner/practitioner-1' in the bundle (Bundle.entry[10].resource.performer[0])
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Specimen/specimen-example-serum' in the bundle (Bundle.entry[10].resource.specimen)
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/ServiceRequest/34c2af5e-14e3-41c0-9f65-4e5128e48e47' in the bundle (Bundle.entry[11].resource.basedOn[0])
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Device/udi-2' in the bundle (Bundle.entry[11].resource.focalDevice[0].manipulated)
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Location/hl7east' in the bundle (Bundle.entry[12].resource.location[0].location)
+INFORMATION: Bundle/US-PCS-Bundle-All-7-Sections: Bundle: Can't find 'https://fhir.example.org/fhir/Location/hospital' in the bundle (Bundle.entry[13].resource.location[0].location)
+
+# 09. === We are using 5.3.0-ballot as internal dependency (like IPS) since we include textLink extension in example (like IPS) INFORMATION: StructureDefinition.snapshot.element[114].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[130].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[147].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[164].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[181].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[198].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[215].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[232].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[15].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[20].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[26].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[32].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[38].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[43].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[48].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.differential.element[53].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+INFORMATION: StructureDefinition.snapshot.element[114].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0-ballot-tc1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0-ballot-tc1 (hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1)
+
+# 10. === We have pinned canonicals but still have this information message. 
+INFORMATION: StructureDefinition.snapshot.element[100].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActCode to 3.0.0 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.1)
+INFORMATION: StructureDefinition.snapshot.element[107].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActCode to 3.0.0 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.1)
+
+# 11. === These conformance clauses are referenced from C-CDA 2.1 and are not part of the US-PCS conformance statements
+INFORMATION: en/general-guidance.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: 'SHALL¹'
+INFORMATION: en/general-guidance.html: The html source contains the word 'SHOULD' but it is not in a text phrase marked as a conformance clause: 'SHOULD¹'
+INFORMATION: en/general-guidance.html: The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause: 'MAY¹'
