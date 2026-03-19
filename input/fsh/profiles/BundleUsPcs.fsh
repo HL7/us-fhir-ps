@@ -34,7 +34,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[condition].resource 1..
 * entry[condition].resource only us-core-condition-problems-health-concerns
 * entry[diagnosticreport].resource 1..
-* entry[diagnosticreport].resource only us-core-diagnosticreport-lab
+* entry[diagnosticreport].resource only $us-core-diagnosticreport-lab or $us-core-diagnosticreport-note
 * entry[documentreference].resource 1..
 * entry[documentreference].resource only us-core-documentreference
 * entry[encounter].resource 1..

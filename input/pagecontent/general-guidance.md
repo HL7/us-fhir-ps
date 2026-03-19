@@ -1,4 +1,8 @@
 <style>
+table {
+  width: 100%
+}
+
 td, th {
    border: 1px solid black!important;
    max-width:500px;
@@ -25,29 +29,29 @@ The US-PCS profiles 6 sections to align with the sections in the IPS Implementat
 
 The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us/ccda/) is a library of clinical documents in wide usage in the United States. The US-PCS is not intended to directly replace any of these documents, although it is most closely related to the [Continuity of Care Document (CCD)](https://hl7.org/cda/us/ccda/StructureDefinition-ContinuityofCareDocumentCCD.html). As published in 2007, the original CCD standard profiled 16 different sections although none were required. Over time through inclusion in the C-CDA standard, 6 of the CCD sections became required as CCD serves a primary mechanism to communicate information across US providers and health information technology.  A comparison of CCD sections (C-CDA 2.1) to the FHIR IPS (2.0) and US-PCS sections is shown below with guidance about US Core profiles appropriate for each section: 
 
-|Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|US-PCS Guidance|US Core Resources| 
+|Section Name (LOINC code)|CCD Section Conformance (C-CDA 2.1)|IPS Section Recommendation (IPS 2.0)|<span style="color: #00B0F0;">US-PCS Guidance ▼</span>|US Core Resources| 
 |-----|-----|-----|-----|----|
-|Problems (11450-4)|SHALL¹|Required|Required|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
-|Allergies (48765-2)|SHALL¹|Required|Required|[US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
-|Medications (10160-0)|SHALL¹|Required|Required|[US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
-|Results(30954-2)|SHALL¹|Recommended|Must Support|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)
+|Allergies (48765-2)|SHALL¹|Required|**Required**|[US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
+|Medications (10160-0)|SHALL¹|Required|**Required**|[US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
+|Problems (11450-4)|SHALL¹|Required|**Required**|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+|Encounters(46240-8)|MAY¹|Not Profiled|**Must Support**|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
+|Immunizations (11369-6)|MAY¹|Recommended|**Must Support**|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
+|Procedures (47519-4)|SHOULD¹|Recommended|**Must Support**|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
+|Results(30954-2)|SHALL¹|Recommended|**Must Support**|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html)
+|Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not profiled in 6.1.0
+|Alerts (104605-1)|Not Profiled|Optional|Not Profiled|Not profiled in 6.1.0
+|Care Plan (18776-5)|SHOULD¹|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
+|Family History (10157-6)|MAY¹|Not Profiled|Not Profiled|Not profiled in 6.1.0
+|Functional Status (47420-5)|MAY¹|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
+|History of Past Problems (11348-0)|Not Profiled|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
+|Medical Devices (46264-8)|MAY¹|Recommended|Not Profiled|Device Use not profiled in 6.1.0<br/>[US Core Implantable Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
+|Mental Status (10190-7)|MAY¹|Not Profiled|Not Profiled|[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[US Core Observation Screening Assessment Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[US Core QuestionnaireResponse Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-questionnaireresponse.html)
+|Nutrition (61144-2)|MAY¹|Not Profiled|Not Profiled|Not profiled in 6.1.0
+|Patient Story (81338-6)|Not Profiled|Optional|Not Profiled|Any resource permitted
+|Payers (48768-6)|MAY¹|Not Profiled|Not Profiled|[US Core Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html)
+|Pregnancy (10162-6)|Not Profiled|Optional|Not Profiled|[US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)<br/>[US Core Observation Pregnancy Intent Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html)
 |Social History (29762-2)|SHALL¹|Optional|Not Profiled|[US Core Smoking Status Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)<br/>[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Observation Occupation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html)<br/>[US Core Observation Sexual Orientation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-sexual-orientation.html)<br/>
 |Vital Signs (8716-3)|SHALL¹|Optional|Not Profiled|[US Core Blood Pressure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)<br/>[US Core Body Height Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)<br/>[US Core Body Weight Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)<br/>[US Core Heart Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)<br/>[US Core Respiratory Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)<br/>[US Core Body Temperature Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)<br/>[US Core Pulse Oximetry Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)<br/>[US Core Pediatric BMI for Age Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)<br/>[Pediatric Weight for Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)<br/>[US Core Pediatric Head Occipital Frontal Circumference Percentile Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
-|Care Plan (18776-5)|SHOULD¹|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
-|Procedures (47519-4)|SHOULD¹|Recommended|Must Support|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
-|Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not available in 6.1.0
-|Encounters(46240-8)|MAY¹|Not Profiled|Must Support|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
-|Family History (10157-6)|MAY¹|Not Profiled|Not Profiled|Not available in 6.1.0
-|Functional Status (47420-5)|MAY¹|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
-|Immunizations (11369-6)|MAY¹|Recommended|Must Support|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
-|Medical Devices (46264-8)|MAY¹|Recommended|Not Profiled|Device Use not available in 6.1.0<br/>[US Core Implantable Device Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
-|Payers (48768-6)|MAY¹|Not Profiled|Not Profiled|[US Core Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html)
-|Mental Status (10190-7)|MAY¹|Not Profiled|Not Profiled|[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[US Core Observation Screening Assessment Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[US Core QuestionnaireResponse Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-questionnaireresponse.html)
-|Nutrition (61144-2)|MAY¹|Not Profiled|Not Profiled|Not Profiled in 6.1.0
-|Alerts (104605-1)|Not Profiled|Optional|Not Profiled|Not Profiled in 6.1.0
-|History of Past Problems (11348-0)|Not Profiled|Optional|Not Profiled|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
-|Patient Story (81338-6)|Not Profiled|Optional|Not Profiled|Any resource permitted
-|Pregnancy (10162-6)|Not Profiled|Optional|Not Profiled|[US Core Observation Pregnancy Status Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html)<br/>[US Core Observation Pregnancy Intent Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html)
 
 ¹=These are not conformance statements for US-PCS 
 
@@ -73,45 +77,13 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and is subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
-- **Problems (Required)**:  
-  - Include `Condition.clinicalStatus` of: `active`, `recurrence`, `relapse` or `remission`. Resolved or inactive problems can be included when clinically relevant
-  - Exclude `Condition.verificationStatus` of `entered-in-error` 
-- **Allergies (Required)**: 
-  - Include `AllergyIntolerance.clinicalStatus` of `active`.  Resolved or inactive allaergies can be included when clinically relevant.
-  - Exclude `AllergyIntolerance.verificationStatus` of `entered-in-error`
-- **Medications (Required)**: 
-  - The goal is to provide an active medication list. Refer to [US Core Guidance on Medication Lists for Active Medications](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications)
-  - Include `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`, unless specific rationale for clinical relevance
-  - Exclude `MedicationRequest.doNotPerform` if `true` (Note that the [IPS MedicationRequest profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html) specifically excludes `doNotPerform` medications. Medications to not be administered can be communicated in Alerts or Allergies section as appropriate.)
-- **Encounters (Must Support)**:
-  - Include all emergency room and inpatient encounters in the past 12 months
-  - Include all ambulatory encounters in the past 6 months
-  - Exclude `Encounter.status` of `cancelled`
-  - Note that there is an additional "note to balloters" in the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) on the Encounters section and we highlight this section as one for implementer feedback.   
-- **Immunizations (Must Support)**:
-  - For immunizations that provide short-term immunity (e.g. flu and COVID vaccines), include only when `occurenceDateTime` is in the past 24 months
-  - Include all other immunizations administered in lifetime of patient
-  - Exclude `Immunization.status` of `entered-in-error`
-- **Procedures (Must Support)**:
-  - Include all major procedures with lasting clinical implications
-    - Major surgeries (e.g. cardiac bypass, bowel resection)
-    - Implant placements (e.g. pacemakers, orthopedic hardware which can be determined through `Procedure.focalDevice`)
-    - Procedures with lasting clinical implications (e.g. mastectomy, organ transplant)
-  - Include all other procedures in the past 90 days
-  - Exclude `Procedure.status` of `entered-in-error` or `not-done`
-- **Results (Must Support)**:
-  - Include `DiagnosticReport` in the past 90 days (and corresponding `DiagnosticReport.result` observations)
-  - Include `Observation.category` of `laboratory` and `imaging` in the past 90 days (if not already included above)
-  - Include abnormal clinical results as clinically relevant for the patient
-
-
 ##### Required Sections
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
 | **Problems** | `Condition.clinicalStatus` of `active`, `recurrence`, `relapse`, or `remission`. (Inactive or resolved problems can be included when clinically relevant.) | `Condition.verificationStatus` of `entered-in-error` |
 | **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies can be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
-| **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to US Core Guidance for active medication lists.) | `MedicationRequest.doNotPerform` if `true` |
+| **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to [US Core Guidance for active medication lists](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications).) | `MedicationRequest.doNotPerform` if `true` |
 
 ##### Must Support Sections
 
