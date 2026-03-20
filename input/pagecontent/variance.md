@@ -252,7 +252,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
    - `Procedure.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Procedure.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Procedure.code.coding.system` ValueSet varies from [Procedures - IPS](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) vs. (US Core Procedure Codes)[https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-procedure-code.html]
+   - `Procedure.code.coding.system` ValueSet varies from [Procedures - IPS](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) vs. [US Core Procedure Codes](https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-procedure-code.html)
    - `Procedure.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Procedure.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Procedure.subject.reference` Element minimum cardinalities differ: '1' vs '0'

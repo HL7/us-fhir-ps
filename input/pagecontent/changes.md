@@ -7,6 +7,6 @@ The first ballot of the US Patient Care Summary (US-PCS) includes the following 
 - Populate the document contents with [US Core Implementation Guide 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) resources
 - Document [variances to IPS](./variance.html)
 - Provide [terminology guidance](./terminology-guidance.html) to/from international expectations   
-- Specific conformance requirements are document through the use of [Must Support](./general-guidance.html#must-support-elements) 
+- Specific conformance requirements are documented through the use of [Must Support](./general-guidance.html#must-support-elements) 
 
 Since this the first version, no detailed change log is yet available. 
