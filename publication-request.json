@@ -4,7 +4,7 @@
   "path" : "http://hl7.org/fhir/us/pcs/1.0.0-ballot",
   "mode" : "working",
   "status" : "ballot",
-  "sequence" : "STU 1 Ballot",
+  "sequence" : "STU 1",
   "desc" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
   "descmd" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
   "changes" : "changes.html",

@@ -16,7 +16,7 @@ extension:
 license: CC0-1.0
 version: 1.0.0-ballot
 copyrightYear: 2026+
-releaseLabel: STU 1
+releaseLabel: STU 1 Ballot
 publisher:
   name: HL7 International / Cross-Group Projects
   url: http://www.hl7.org/Special/committees/cgp
