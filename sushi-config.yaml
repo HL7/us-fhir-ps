@@ -37,6 +37,7 @@ definition:
       valueCode: hl7.fhir.uv.extensions.r4#5.3.0-ballot-tc1
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   pin-canonicals: pin-multiples
+  path-expansion-params: ../../input/_resources/exp-params.json  # for using US ed of SNOMED
 pages:
   index.md:
     extension:

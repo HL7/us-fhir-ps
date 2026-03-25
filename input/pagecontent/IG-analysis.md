@@ -35,3 +35,7 @@ Specific differences between IPS and US-PCS are described in the [US Variance to
 ### Global Profiles
 
 {% lang-fragment globals-table.xhtml %}
+
+### Expansion Parameters
+
+{% include expansion-params.xhtml %}
