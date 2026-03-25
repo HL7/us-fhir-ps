@@ -198,14 +198,14 @@ Usage: #inline
 * name.use = #old
 * name.family = "Shaw"
 * name.given = "John"
-* name.period.start = "1987-02-20"
+* name.period.start = "1986-02-21"
 * telecom[0].system = #phone
 * telecom[=].value = "555-555-5555"
 * telecom[=].use = #home
 * telecom[+].system = #email
 * telecom[=].value = "john.shaw@example.com"
-* gender = #female
-* birthDate = "1987-02-20"
+* gender = #male
+* birthDate = "1986-02-21"
 * address[0].use = #old
 * address[=].line = "49 Meadow St"
 * address[=].city = "Mounds"
