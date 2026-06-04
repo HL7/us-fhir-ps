@@ -60,11 +60,11 @@ Usage: #inline
 * event.code.coding.code =  $v3-ActClass#PCPR
 * event.period.end = "2026-03-21T18:53:00.8116604+00:00"
 * section[sectionAllergies].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
-* section[sectionAllergies].extension[=].valueAnnotation.text = "Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntorlance.verificationStatus of entered-in-error"
+* section[sectionAllergies].extension[=].valueAnnotation.text = "Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntolerance.verificationStatus of entered-in-error"
 * section[sectionAllergies].title = "Allergies and Intolerances"
 * section[sectionAllergies].code = $loinc#48765-2 "Allergies and adverse reactions Document"
 * section[sectionAllergies].text.status = #generated
-* section[sectionAllergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntorlance.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Allergy Type</th><th>Substance</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Reaction</th></tr><tr id=\"9838cf73-c30d-4aa5-8ed8-36a079060b81\"><td></td><td>sulfonamide antibacterial</td><td></td><td></td><td></td><td>skin rash: mild<br/></td></tr></table></div>"
+* section[sectionAllergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes AllergyIntolerance.clinicalStatus of active; Excludes AllergyIntolerance.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Allergy Type</th><th>Substance</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Reaction</th></tr><tr id=\"9838cf73-c30d-4aa5-8ed8-36a079060b81\"><td></td><td>sulfonamide antibacterial</td><td></td><td></td><td></td><td>skin rash: mild<br/></td></tr></table></div>"
 * section[sectionAllergies].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionAllergies].text.extension[=].extension[0].url = "htmlid"
 * section[sectionAllergies].text.extension[=].extension[=].valueString = "9838cf73-c30d-4aa5-8ed8-36a079060b81"
