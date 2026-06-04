@@ -41,7 +41,7 @@ While this implementation guide is designed so US-PCS documents also conform to 
 
 - Defining [US-PCS Must Support](./general-guidance.html#must-support-elements) differently than how the IPS defines Must Support
 - Deriving the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) from FHIR Clinical Documents and modifying guidance, sections and constraints
-- Using [US Core Profiles](https://hl7.org/fhir/us/core/STU6.1/) for the individual reasources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
+- Using [US Core Profiles](https://hl7.org/fhir/us/core/STU6.1/) for the individual resources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
 
 Specific variances from US-PCS to IPS are further detailed in the [US Variance to IPS](./variance.html) section of this guide. 
 
