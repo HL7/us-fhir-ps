@@ -11,23 +11,23 @@ The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has
 
 |Resource|US Core Terminology|IPS Terminology|Guidance|
 |-----|-----|-----|-----|
-|AllergyIntolerance (Allergies and Intolerance)|RxNorm, SNOMED|SNOMED, WHO ATC|Map RxNorm concepts to SNOMED. Include WHO ATC when available|
-|Condition (Problem List)|SNOMED, ICD-10|SNOMED|Map ICD-10 concepts to SNOMED| 
-|MedicationRequest (Medication Summary)|RxNorm|SNOMED, WHO ATC|Map RxNorm concepts to SNOMED. Include WHO ATC when available|
-|Immunization (Immunizations)|CVX|SNOMED, WHO ATC|Map CVX concepts to SNOMED. Include WHO ATC when available
+|AllergyIntolerance (Allergies and Intolerance)|RxNorm, SNOMED CT US Edition|SNOMED CT, WHO ATC|Map RxNorm concepts to SNOMED CT. Include WHO ATC when available|
+|Condition (Problem List)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
+|MedicationRequest (Medication Summary)|RxNorm|SNOMED CT, WHO ATC|Map RxNorm concepts to SNOMED CT. Include WHO ATC when available|
+|Immunization (Immunizations)|CVX|SNOMED CT, WHO ATC|Map CVX concepts to SNOMED CT. Include WHO ATC when available
 |Observation and DiagnosticReport (Results)|LOINC|LOINC|No additional mapping
-|Procedure (Procedures)|SNOMED, LOINC, CPT, CDT, ICD-10, HCPCS|SNOMED|Map LOINC, CPT, CDT, ICD-10, HCPCS to SNOMED|
-|Device (Medical Devices)|SNOMED|SNOMED|Map to SNOMED|
+|Procedure (Procedures)|SNOMED CT US Edition, LOINC, CPT, CDT, ICD-10-PCS, HCPCS|SNOMED CT|Map LOINC, CPT, CDT, ICD-10-PCS, HCPCS to SNOMED CT|
+|Device (Medical Devices)|SNOMED CT US Edition|SNOMED CT|Map to SNOMED CT|
 |Consent (Advance Directives)|Not profiled|Not profiled|
 |Flag (Alerts)|Not profiled|Not profiled|
-|Condition (Functional Status)|SNOMED, ICD-10|SNOMED|Map ICD-10 concepts to SNOMED| 
-|Condition (History of Past Problems)|SNOMED, ICD-10|SNOMED|Map ICD-10 concepts to SNOMED| 
-|Observation (History of Pregnancy)|LOINC (code), SNOMED (value)|LOINC (code), SNOMED (value)|No additional mapping 
+|Condition (Functional Status)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
+|Condition (History of Past Problems)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10 concepts to SNOMED CT| 
+|Observation (History of Pregnancy)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT (value)|No additional mapping 
 |Any (Patient Story)|Not profiled|Not profiled|
 |CarePlan|None|Not profiled|
-|Observation (Social History - Smoking Status)|LOINC (code), SNOMED (value)|LOINC (code), SNOMED (value)|No additional mapping 
+|Observation (Social History - Smoking Status)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT(value)|No additional mapping 
 |Observation (Vital Signs)|LOINC|LOINC|No additional mapping  
 
 ### Using SNOMED IPS Terminology
 
-SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Thereforce, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-onotology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
+SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED CT. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Thereforce, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-onotology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
