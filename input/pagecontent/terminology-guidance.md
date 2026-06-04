@@ -30,4 +30,4 @@ The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has
 
 ### Using SNOMED IPS Terminology
 
-SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED CT. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Thereforce, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-onotology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
+SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED CT. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Therefore, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-ontology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
