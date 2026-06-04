@@ -21,7 +21,7 @@ The [Project Proposal](https://jira.hl7.org/browse/PSS-2660) and [Project Scope 
 
 #### In-Scope Items
 
-FHIR Implementation Guide with a mininum of profiles for Bundle and Composition that:
+FHIR Implementation Guide with a minimum of profiles for Bundle and Composition that:
 - Derives from [FHIR Clinical Documents Profile 1.0.1](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/)
 - Aligns to [FHIR International Patient Summary 2.0.0](https://hl7.org/fhir/uv/ips/STU2/) 
 - Provides narrative guidance on:
