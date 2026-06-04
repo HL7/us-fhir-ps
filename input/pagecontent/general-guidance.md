@@ -109,7 +109,7 @@ The author and custodian of a US-PCS document are required in US-PCS as detailed
 </blockquote>
 
 
-The US-PCS both inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and assigns additional Must Support in the profiles. 
+The US-PCS inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and assigns additional Must Support in the profiles. 
 
 The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
