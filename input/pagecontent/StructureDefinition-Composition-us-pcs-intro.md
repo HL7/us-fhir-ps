@@ -63,7 +63,7 @@ The following data elements must always be present (Mandatory definition) or mus
 This section provides detailed implementation guidance for the US-PCS Profile. 
 The US-PCS Composition includes seven priority sections which is a subset of all sections profiled in the IPS FHIR Implementation Guide. Implementers may send additional sections so long as: 
 
-- All sections sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
+- All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
 
 - §comp-1: Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), at least one entry referencing a US Core resource or an emptyReason.§
 - §comp-2: The corresponding US Core Implementation Guide resource **SHALL** be sent in given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide§  
