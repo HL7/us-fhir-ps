@@ -123,7 +123,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
 1. **MedicationRequest**: [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
 
-   Additional requirements in [IPS MedicationRequest](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/MedicationRequest-uv-ips.html):
+   Additional requirements in [IPS MedicationRequest](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html):
 
    - `MedicationRequest.doNotPerform` is fixed to false vs. true/false
    - `MedicationRequest.medication[x].coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
