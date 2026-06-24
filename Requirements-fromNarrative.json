@@ -8,19 +8,6 @@
   "experimental" : false,
   "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
   "statement" : [{
-    "key" : "bund-1",
-    "conformance" : ["SHALL"],
-    "requirement" : "All entries in the Bundle **SHALL** include a fullUrl, and a resource."
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/requirements-statementshallnot",
-      "valueBoolean" : true
-    }],
-    "key" : "bund-2",
-    "requirement" : "All entries in the Bundle **SHALL NOT** include: any Composition resource other than the first, a search attribute, a request attribute, or a response attribute."
-  },
-  {
     "key" : "comp-1",
     "conformance" : ["SHALL"],
     "requirement" : "Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), at least one entry referencing a US Core resource or an emptyReason."

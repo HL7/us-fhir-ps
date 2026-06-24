@@ -117,12 +117,3 @@ menu:
   Change Log: changes.html
 
   
-resources:
-  Bundle/US-PCS-Bundle-All-7-Sections:
-    name: Example US-PCS Bundle with Data in All 7 Sections
-    description: >
-      Example US-PCS Bundle demonstrating the expected structure and populated content for this implementation guide.
-  Bundle/US-PCS-Bundle-No-Info-Required-Sections:
-    name: Example US-PCS Bundle with No Information in Required Sections
-    description: >
-      Example US-PCS Bundle demonstrating the expected structure and lack of information in required sections for this implementation guide.
