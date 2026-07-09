@@ -8,7 +8,7 @@ The US-PCS guide does not use the Must Support definition through obligations as
 
 ### US Variance in Sections
 
-There are no variances in the cardinality of IPS mandatory sections (i.e. Allergies, Problem and Medications)
+There are no variances in the cardinality of IPS mandatory sections (i.e. Allergies, Problem and Medications).
 
 For "recommended" sections in IPS that where support is specified through obligations, the following changes have been introduced: 
 

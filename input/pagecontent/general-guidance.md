@@ -34,10 +34,10 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 |Allergies (48765-2)|SHALL¹|Required|**Required**|[US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html)
 |Medications (10160-0)|SHALL¹|Required|**Required**|[US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
 |Problems (11450-4)|SHALL¹|Required|**Required**|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
-|Encounters(46240-8)|MAY¹|Not Profiled|**Must Support**|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
+|Encounters (46240-8)|MAY¹|Not Profiled|**Must Support**|[US Core Encounter Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
 |Immunizations (11369-6)|MAY¹|Recommended|**Must Support**|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
 |Procedures (47519-4)|SHOULD¹|Recommended|**Must Support**|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
-|Results(30954-2)|SHALL¹|Recommended|**Must Support**|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html)
+|Results (30954-2)|SHALL¹|Recommended|**Must Support**|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html)
 |Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not profiled in 6.1.0
 |Alerts (104605-1)|Not Profiled|Optional|Not Profiled|Not profiled in 6.1.0
 |Care Plan (18776-5)|SHOULD¹|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
@@ -61,15 +61,15 @@ The US-PCS aligns with the open-section slicing included in IPS, which also alig
 
 #### Summary Creation
 
-#### Operations for US-PCS Generation
+##### Operations for US-PCS Generation
 
-IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPS) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
+IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPA) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
 
 - §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.§
 
-We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html)
+We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html).
 
-#### Data Inclusion in Summary Documents
+##### Data Inclusion in Summary Documents
 
 The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementer consideration. 
 
@@ -77,7 +77,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and is subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
-##### Required Sections
+###### Required Sections
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
@@ -85,7 +85,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 | **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies can be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
 | **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to [US Core Guidance for active medication lists](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications).) | `MedicationRequest.doNotPerform` if `true` |
 
-##### Must Support Sections
+###### Must Support Sections
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
@@ -93,8 +93,6 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 | **Immunizations** | Short-term immunity (e.g., flu, COVID) if `occurrenceDateTime` is in the past 24 months.<br>All other immunizations administered in lifetime of patient. | `Immunization.status` of `entered-in-error` |
 | **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant).<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
 | **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results. | N/A |
-
-
 
 Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. §guidance-6: When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).§
 
@@ -113,7 +111,7 @@ The US-PCS inherits Must Support flags from [FHIR Clinical Documents](https://hl
 
 The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
-The Profile elements may be defined as *Mandatory* and *Must Support*. The sections below defines the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
+The Profile elements may be defined as *Mandatory* and *Must Support*. The sections below define the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
 #### Mandatory Elements
 
@@ -124,7 +122,7 @@ The Profile elements may be defined as *Mandatory* and *Must Support*. The secti
 For generating a US-PCS, *Must Support* on any profile data element is to be interpreted as follows:
 
 * §guidance-7:US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.§
-* §guidance-8:US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will chose to display the text for human use.§
+* §guidance-8:US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will choose to display the text for human use.§
 * §guidance-9:Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary.§
 * §guidance-10:In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.§
 * §guidance-11:US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.§
