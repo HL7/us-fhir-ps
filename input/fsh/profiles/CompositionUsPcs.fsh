@@ -2,17 +2,17 @@ Profile: CompositionUsPcs
 Parent: ClinicalDocumentComposition
 Id: Composition-us-pcs
 Title: "Composition (US-PCS)"
-Description: """An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS profiles 7 sections (with 10 additional optional sections from IPS) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [MustSupport](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/STU6.1/must-support.html) in the context of populating those resources."""
+Description: """An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS profiles 7 sections (with 10 additional optional sections from IPS) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [MustSupport](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/STU6.1/must-support.html) in the context of populating those resources."""
 * ^status = #active
 * ^date = "2025-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
 * ^contact.telecom.value = "http://www.hl7.org/Special/committees/cgp"
 * ^jurisdiction = urn:iso:std:iso:3166#US
-* ^purpose = "An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
+* ^purpose = "An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
 * ^copyright = "HL7 International"
 * . ^short = "US-PCS Composition"
-* . ^definition = "An United States Patient Care Summary (US-PCS) is FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n The US-PCS profiles 7 sections (with 10 additional optional sections from IPS) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
+* . ^definition = "An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It aligns with the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n The US-PCS profiles 7 sections (with 10 additional optional sections from IPS) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS aligns with the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
 * meta.profile MS
 * meta.profile ^short = "The conformance of this Composition to a specific US-PCS version."
 * meta.profile ^definition = "The conformance of this Composition to a specific version of the US-PCS (e.g. http://hl7.org/fhir/us/pcs/StructureDefinition/Composition-us-pcs|1.0.0)"
@@ -105,7 +105,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * section[sectionMedications].emptyReason MS
 * section[sectionEncounters] obeys cmp-uspcs-1
 * section[sectionEncounters] ^short = "US-PCS Encounters Section"
-* section[sectionEncounters] ^definition = "The encounters section contains a description of relevant encounters in the context of a summary (e.g. a recent hospitalizations)."
+* section[sectionEncounters] ^definition = "The encounters section contains a description of relevant encounters in the context of a summary (e.g. recent hospitalizations)."
 * section[sectionEncounters].code 1..1 MS
 * section[sectionEncounters].code = $loinc#46240-8
 * section[sectionEncounters].entry only Reference(Encounter or DocumentReference)
@@ -115,7 +115,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * section[sectionEncounters].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionEncounters].entry ^slicing.rules = #open 
 * section[sectionEncounters].entry ^short = "Relevant encounters of the patient in the context of a patient summary."
-* section[sectionEncounters].entry ^definition = "Relevant encounters of the patient in the context of a patient summary (e.g. a recent hospitalizations)"
+* section[sectionEncounters].entry ^definition = "Relevant encounters of the patient in the context of a patient summary (e.g. recent hospitalizations)"
 * section[sectionEncounters].entry contains encounter 0..*
 * section[sectionEncounters].entry[encounter] only Reference(us-core-encounter)
 * section[sectionEncounters].entry[encounter] MS
@@ -135,7 +135,7 @@ Description: """An United States Patient Care Summary (US-PCS) is FHIR document 
 * section[sectionImmunizations].entry[immunization] MS
 * section[sectionProceduresHx] obeys cmp-uspcs-1
 * section[sectionProceduresHx] ^short = "US-PCS History of Procedures Section"
-* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
+* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
 * section[sectionProceduresHx].code 1..1 MS
 * section[sectionProceduresHx].code = $loinc#47519-4
 * section[sectionProceduresHx].entry only Reference(Procedure or DocumentReference)

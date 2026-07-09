@@ -8,7 +8,7 @@
   <ol>
     <li>Should the Encounters section be included as Must Support?</li>
     <li>How should guidance be provided that these Encounter resources should not result in
-      large unweidly US-PCS documents? For example, not all resources linked from an Encounter
+      large unwiedly US-PCS documents? For example, not all resources linked from an Encounter
       resource need be included in the US-PCS Bundle.</li>
     <li>What types of Encounters should be encouraged for inclusion in the US-PCS? Experience from
       other jurisdictions (e.g. Nova Scotia) has suggested limiting the types of encounters
@@ -39,7 +39,7 @@ The following data elements must always be present (Mandatory definition) or mus
 **Each US-PCS Composition Must Have:**
 1. a status
 1. a type specifying that it is a patient summary
-1. a category specifying that is it a clinical note
+1. a category specifying that it is a clinical note
 1. a subject 
 1. a date
 1. an author 
@@ -57,16 +57,16 @@ The following data elements must always be present (Mandatory definition) or mus
 1. attester information
 1. relations to other documents
 1. clinical services (`event`) being documented
-1. Sections respresenting: encounters, immunization, procedures and results
+1. Sections representing: encounters, immunization, procedures and results
 
 ### Profile Specific Implementation Guidance
 This section provides detailed implementation guidance for the US-PCS Profile. 
 The US-PCS Composition includes seven priority sections which is a subset of all sections profiled in the IPS FHIR Implementation Guide. Implementers may send additional sections so long as: 
 
-- All sections sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
+- All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
 
-- §comp-1: Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), at least one entry referencing a US Core resource or an emptyReason.§
-- §comp-2: The corresponding US Core Implementation Guide resource **SHALL** be sent in given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide§  
+- §comp-1: Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), and at least one entry referencing a US Core resource or an emptyReason.§
+- §comp-2: The corresponding US Core Implementation Guide resource **SHALL** be sent in a given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US Core CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide§  
 - §comp-3: Each section **SHALL** contain a unique code to identify that section. For example, it would not be appropriate to send two separate Advance Directives sections (LOINC: 42348-3). This is enforced through the discriminator profiling on `section.code`§
 
 The US-PCS [General Guidance](./general-guidance.html) page includes the definition of Must Support for this guide and additional guidance on populating sections. 

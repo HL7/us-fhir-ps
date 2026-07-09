@@ -1,6 +1,6 @@
 ## US Variance to IPS
 
-The US-PCS attempts to strongly align with the IPS but it does not derive its Bundle or Composition profiles from the IPS. Only 6 sections of the IPS are profiled in US-PCS (with one new Encounters section available not from IPS), but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
+The US-PCS attempts to strongly align with the IPS but it does not derive its Bundle or Composition profiles from the IPS. Only six sections of the IPS are profiled in US-PCS (with one new Encounters section available not from IPS), but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
 
 ### US Variance in Must Support, Obligation and Actors
 
@@ -8,9 +8,9 @@ The US-PCS guide does not use the Must Support definition through obligations as
 
 ### US Variance in Sections
 
-There are no variances in the cardinality of IPS mandatory sections (i.e. Allergies, Problem and Medications)
+There are no variances in the cardinality of IPS mandatory sections (i.e. Allergies, Problem and Medications).
 
-For "recommended" sections in IPS that where support is specified through obligations, the following changes have been introduced: 
+For "recommended" sections in IPS where support is specified through obligations, the following changes have been introduced: 
 
 - The US-PCS Immunizations, Procedures, and Results sections have been flagged as ["Must Support" as defined in US-PCS](./general-guidance.html#must-support-elements) which varies from the obligations defined in IPS
 - The US-PCS has removed Must Support from the Medical Devices section, which is considered optional and not profiled in this guide
@@ -37,7 +37,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `AllergyIntolerance.code.coding.system` ValueSet binding varies from [Allergies & Intolerances - IPS](https://hl7.org/fhir/uv/ips/ValueSet-allergies-intolerances-uv-ips.html) vs. [Common substances for allergy and intolerance documentation including refutations](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion)
    - `AllergyIntolerance.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `AllergyIntolerance.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `AllergyIntolerance.reaction.manifestation` Valueset binding varies from [Allergy Reaction - IPS](https://hl7.org/fhir/uv/ips/ValueSet-allergy-reaction-uv-ips.html) vs. [SNOMEDCTClinicalFindings](http://hl7.org/fhir/R4/valueset-clinical-findings.html)
+   - `AllergyIntolerance.reaction.manifestation` ValueSet binding varies from [Allergy Reaction - IPS](https://hl7.org/fhir/uv/ips/ValueSet-allergy-reaction-uv-ips.html) vs. [SNOMEDCTClinicalFindings](http://hl7.org/fhir/R4/valueset-clinical-findings.html)
    - `AllergyIntolerance.reaction.severity` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
 
 1. **CarePlan**: [US Core Care Plan](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
@@ -105,7 +105,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
    - `Medication.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Medication.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Medication.coding.system` ValueSet binding varies from [Medications - IPS](https://hl7.org/fhir/uv/ips/ValueSet-medication-uv-ips.html) vs. [Medication Clinical Drug](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion)
+   - `Medication.code.coding.system` ValueSet binding varies from [Medications - IPS](https://hl7.org/fhir/uv/ips/ValueSet-medication-uv-ips.html) vs. [Medication Clinical Drug](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion)
    - `Medication.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Medication.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Medication.form` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
@@ -123,7 +123,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
 1. **MedicationRequest**: [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
 
-   Additional requirements in [IPS MedicationRequest](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/MedicationRequest-uv-ips.html):
+   Additional requirements in [IPS MedicationRequest](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-MedicationRequest-uv-ips.html):
 
    - `MedicationRequest.doNotPerform` is fixed to false vs. true/false
    - `MedicationRequest.medication[x].coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
@@ -137,7 +137,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
     Additional requirements in [IPS Observation Results - Laboratory/Pathology](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition/Observation-results-laboratory-pathology-uv-ips.html):
 
-   - `Observation.status` Element differ in valueset: 'http://hl7.org/fhir/uv/ips/ValueSet/results-status-uv-ips (required)' vs 'http://hl7.org/fhir/ValueSet/observation-status (required)'
+   - `Observation.status` Element differ in ValueSet: 'http://hl7.org/fhir/uv/ips/ValueSet/results-status-uv-ips (required)' vs 'http://hl7.org/fhir/ValueSet/observation-status (required)'
    - `Observation.category:laboratory` Fixed binding to "laboratory" vs. [Clinical Result Observation Category](https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-clinical-result-observation-category.html)  
    - `Observation.category.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.category.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
@@ -145,7 +145,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.category.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.code.coding.system` ValueSet binding varies from [Results Laboratory/Pathology Observation](https://hl7.org/fhir/uv/ips/ValueSet-results-laboratory-pathology-observations-uv-ips.html) vs. vs. [LOINCCodes](http://hl7.org/fhir/R4/valueset-observation-codes.html) 
+   - `Observation.code.coding.system` ValueSet binding varies from [Results Laboratory/Pathology Observation](https://hl7.org/fhir/uv/ips/ValueSet-results-laboratory-pathology-observations-uv-ips.html) vs. [LOINCCodes](http://hl7.org/fhir/R4/valueset-observation-codes.html) 
    - `Observation.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.subject.reference` Element minimum cardinalities differ: '1' vs '0'
@@ -213,7 +213,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
    - `Observation.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Observation.code.coding.system` Valueset binding varies from [Current Smoking Status](https://hl7.org/fhir/uv/ips/ValueSet-current-smoking-status-uv-ips.html) to [Smoking Status](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.11.20.9.38/expansion)
+   - `Observation.code.coding.system` ValueSet binding varies from [Current Smoking Status](https://hl7.org/fhir/uv/ips/ValueSet-current-smoking-status-uv-ips.html) to [Smoking Status](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.11.20.9.38/expansion)
    - `Observation.code.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.code.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Observation.subject.reference` Element minimum cardinalities differ: '1' vs '0'
@@ -264,7 +264,7 @@ All elements vary in the definition of [Must Support/Obligations in IPS](https:/
 
    - `Specimen.type.coding` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Specimen.type.coding.system` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
-   - `Specimen.type.coding.system` ValueSet binding varies from [Result Speciman Type -IPS](https://hl7.org/fhir/uv/ips/ValueSet-results-specimen-type-uv-ips.html) to [Specimen Type](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion)
+   - `Specimen.type.coding.system` ValueSet binding varies from [Result Specimen Type - IPS](https://hl7.org/fhir/uv/ips/ValueSet-results-specimen-type-uv-ips.html) to [Specimen Type](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion)
    - `Specimen.type.coding.code` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Specimen.type.text` Element differ in definition for mustSupport/Obligations: 'true' vs 'false'
    - `Specimen.subject.reference` Element minimum cardinalities differ: '1' vs '0'
