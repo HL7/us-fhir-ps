@@ -24,7 +24,7 @@ publisher:
 jurisdiction: 'urn:iso:std:iso:3166#US'
 dependencies:
   hl7.fhir.uv.ips:
-    version: 2.0.0
+    version: 2.0.1
     uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
   hl7.fhir.us.core:
     version: 6.1.0
