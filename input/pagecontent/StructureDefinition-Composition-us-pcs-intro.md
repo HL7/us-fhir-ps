@@ -39,7 +39,6 @@ The following data elements must always be present (Mandatory definition) or mus
 **Each US-PCS Composition Must Have:**
 1. a status
 1. a type specifying that it is a patient summary
-1. a category specifying that it is a clinical note
 1. a subject 
 1. a date
 1. an author 
@@ -51,19 +50,13 @@ The following data elements must always be present (Mandatory definition) or mus
 **Each US-PCS Composition Must Support:**
 1. a `meta.profile` to share profile and version information
 1. a textual narrative of the Composition (which does not include section content)
-1. the language of the document
-1. extensions defined in [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/en/StructureDefinition-clinical-document-composition.html)
-1. an identifier
-1. attester information
-1. relations to other documents
+1. extensions defined in [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/StructureDefinition-clinical-document-composition.html)
 1. clinical services (`event`) being documented
 1. Sections representing: encounters, immunization, procedures and results
 
 ### Profile Specific Implementation Guidance
 This section provides detailed implementation guidance for the US-PCS Profile. 
 The US-PCS Composition includes seven priority sections which is a subset of all sections profiled in the IPS FHIR Implementation Guide. Implementers may send additional sections so long as: 
-
-- All sections Must Support the [change made](http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ChangeMade) and [section-note](http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-note.html) extensions which document changes and other notes to the section. 
 
 - §comp-1: Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), and at least one entry referencing a US Core resource or an emptyReason.§
 - §comp-2: The corresponding US Core Implementation Guide resource **SHALL** be sent in a given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US Core CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide§  

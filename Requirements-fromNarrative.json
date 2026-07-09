@@ -23,12 +23,12 @@
   {
     "key" : "comp-1",
     "conformance" : ["SHALL"],
-    "requirement" : "Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), at least one entry referencing a US Core resource or an emptyReason."
+    "requirement" : "Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), and at least one entry referencing a US Core resource or an emptyReason."
   },
   {
     "key" : "comp-2",
     "conformance" : ["SHALL"],
-    "requirement" : "The corresponding US Core Implementation Guide resource **SHALL** be sent in given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide"
+    "requirement" : "The corresponding US Core Implementation Guide resource **SHALL** be sent in a given section when available. For example, when sending a plan of care section (LOINC: 18776-5), US Core CarePlan Profile resources will be used when available. A list of sections with corresponding US Core resources are included in the [Aligning US-PCS Sections with IPS, C-CDA and US Core table](./general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) in this guide"
   },
   {
     "key" : "comp-3",
@@ -56,7 +56,7 @@
   {
     "key" : "guidance-4",
     "conformance" : ["SHOULD"],
-    "requirement" : "While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section data match an existing definition of a section."
+    "requirement" : "While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section entries match an existing definition of a section."
   },
   {
     "key" : "guidance-5",
@@ -76,7 +76,7 @@
   {
     "key" : "guidance-8",
     "conformance" : ["SHALL"],
-    "requirement" : "US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will chose to display the text for for human use."
+    "requirement" : "US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will choose to display the text for human use."
   },
   {
     "extension" : [{
