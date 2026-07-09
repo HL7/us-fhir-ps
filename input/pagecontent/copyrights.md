@@ -1,4 +1,4 @@
-This guide, as well the artifacts developped by HL7® including terminologies, is produced by HL7 under the terms of HL7® Governance and Operations Manual relating to Intellectual Property (Section 16), specifically its copyright, trademark and patent provisions.
+This guide, as well the artifacts developed by HL7® including terminologies, is produced by HL7 under the terms of HL7® Governance and Operations Manual relating to Intellectual Property (Section 16), specifically its copyright, trademark and patent provisions.
 
 This document is licensed under Creative Commons "No Rights Reserved" (CC0).
 

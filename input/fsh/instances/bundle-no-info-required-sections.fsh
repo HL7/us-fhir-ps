@@ -1,7 +1,7 @@
 Instance: US-PCS-Bundle-No-Info-Required-Sections
 InstanceOf: Bundle-us-pcs
 Title: "Bundle - No Information in Required Sections"
-Description: "Bundle - No Information in Required Sections"
+Description: "This is a US-PCS Bundle example containing no information in required sections and other sections omitted."
 Usage: #example
 * language = #en-US
 * identifier.system = "https://example.org/fhir/identifier/bundle-id"

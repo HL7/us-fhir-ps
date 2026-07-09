@@ -105,7 +105,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionMedications].emptyReason MS
 * section[sectionEncounters] obeys cmp-uspcs-1
 * section[sectionEncounters] ^short = "US-PCS Encounters Section"
-* section[sectionEncounters] ^definition = "The encounters section contains a description of relevant encounters in the context of a summary (e.g. a recent hospitalizations)."
+* section[sectionEncounters] ^definition = "The encounters section contains a description of relevant encounters in the context of a summary (e.g. recent hospitalizations)."
 * section[sectionEncounters].code 1..1 MS
 * section[sectionEncounters].code = $loinc#46240-8
 * section[sectionEncounters].entry only Reference(Encounter or DocumentReference)
@@ -115,7 +115,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionEncounters].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionEncounters].entry ^slicing.rules = #open 
 * section[sectionEncounters].entry ^short = "Relevant encounters of the patient in the context of a patient summary."
-* section[sectionEncounters].entry ^definition = "Relevant encounters of the patient in the context of a patient summary (e.g. a recent hospitalizations)"
+* section[sectionEncounters].entry ^definition = "Relevant encounters of the patient in the context of a patient summary (e.g. recent hospitalizations)"
 * section[sectionEncounters].entry contains encounter 0..*
 * section[sectionEncounters].entry[encounter] only Reference(us-core-encounter)
 * section[sectionEncounters].entry[encounter] MS
@@ -135,7 +135,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionImmunizations].entry[immunization] MS
 * section[sectionProceduresHx] obeys cmp-uspcs-1
 * section[sectionProceduresHx] ^short = "US-PCS History of Procedures Section"
-* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
+* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
 * section[sectionProceduresHx].code 1..1 MS
 * section[sectionProceduresHx].code = $loinc#47519-4
 * section[sectionProceduresHx].entry only Reference(Procedure or DocumentReference)

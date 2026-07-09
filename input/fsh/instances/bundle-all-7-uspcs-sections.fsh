@@ -90,7 +90,7 @@ Usage: #inline
 * section[sectionProblems].entry[0].reference = "https://fhir.example.org/fhir/Condition/8039e4a7-d459-454c-92a5-6c17ca2a824b"
 * section[sectionProblems].entry[+].reference = "https://fhir.example.org/fhir/Condition/f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1"
 * section[sectionMedications].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
-* section[sectionMedications].extension[=].valueAnnotation.text = "Include MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true"
+* section[sectionMedications].extension[=].valueAnnotation.text = "Includes MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true"
 * section[sectionMedications].title = "Medication Summary"
 * section[sectionMedications].code = $loinc#10160-0 "History of Medication use Narrative"
 * section[sectionMedications].text.status = #generated
@@ -141,7 +141,6 @@ Usage: #inline
 * section[sectionEncounters].extension[=].valueAnnotation.text = "Include all emergency room and inpatient encounters in the past 12 months. Include all ambulatory encounters in the past 6 months"
 * section[sectionEncounters].title = "Encounters"
 * section[sectionEncounters].text.status = #generated
-* section[sectionEncounters].text.div = "<div xmlns='http://www.w3.org/1999/xhtml' lang='en-US' xml:lang='en-US'>To be inserted</div>"
 * section[sectionEncounters].code = $loinc#46240-8 "History of Hospitalizations+Outpatient visits Narrative"
 * section[sectionEncounters].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes all emergency room and inpatient encounters in the past 12 months. Includes all ambulatory encounters in the past 6 months</div><table border=\"1\"><tr><th>Encounter Type</th><th>Description</th><th>Date</th><th>Location</th></tr><tr id=\"e8be20b8-6f24-4204-8eca-6bc8ecd2b26b\"><td>Ambulatory</td><td>Office Visit</td><td>2026-03-17</td><td>HL7 East Ambulatory</td></tr><tr id=\"e11bfacd-557d-416b-bb7f-165afc68bca0\"><td>Inpatient</td><td>Hospitalization</td><td>2026-01-17 to 2026-01-20</td><td>Holy Family Hospital</td></tr></table></div>"
 * section[sectionEncounters].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
