@@ -142,8 +142,8 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionProceduresHx].entry ^slicing.discriminator[0].type = #profile
 * section[sectionProceduresHx].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionProceduresHx].entry ^slicing.rules = #open
-* section[sectionProceduresHx].entry ^short = "Patient past procedures pertinent to the scope of this document."
-* section[sectionProceduresHx].entry ^definition = "It lists the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
+* section[sectionProceduresHx].entry ^short = "Patient's past procedures pertinent to the scope of this document."
+* section[sectionProceduresHx].entry ^definition = "It lists the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
 * section[sectionProceduresHx].entry contains procedure 0..*
 * section[sectionProceduresHx].entry[procedure] only Reference(us-core-procedure)
 * section[sectionProceduresHx].entry[procedure] MS
