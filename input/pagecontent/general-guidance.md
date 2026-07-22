@@ -38,7 +38,7 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 |Immunizations (11369-6)|MAY¹|Recommended|**Must Support**|[US Core Immunization Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
 |Procedures (47519-4)|SHOULD¹|Recommended|**Must Support**|[US Core Procedure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
 |Results (30954-2)|SHALL¹|Recommended|**Must Support**|[US Core Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)<br/>[US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-clinical-result.html)<br/>[US Core DiagnosticReport Profile for Laboratory Results Reporting](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)<br/>[US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html)
-|Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not profiled in 6.1.0
+|Advance Directives (42348-3)|MAY¹|Optional|Not Profiled|Not profiled in 6.1.0. See US Core 9.0.0 [Observation ADI Documentation](https://hl7.org/fhir/us/core/STU9/StructureDefinition-us-core-observation-adi-documentation.html) and [ADI DocumentReference](https://hl7.org/fhir/us/core/STU9/StructureDefinition-us-core-adi-documentreference.html) profiles
 |Alerts (104605-1)|Not Profiled|Optional|Not Profiled|Not profiled in 6.1.0
 |Care Plan (18776-5)|SHOULD¹|Optional|Not Profiled|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-careplan.html)
 |Family History (10157-6)|MAY¹|Not Profiled|Not Profiled|Not profiled in 6.1.0
@@ -54,10 +54,6 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 |Vital Signs (8716-3)|SHALL¹|Optional|Not Profiled|[US Core Blood Pressure Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)<br/>[US Core Body Height Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)<br/>[US Core Body Weight Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)<br/>[US Core Heart Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)<br/>[US Core Respiratory Rate Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)<br/>[US Core Body Temperature Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)<br/>[US Core Pulse Oximetry Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)<br/>[US Core Pediatric BMI for Age Observation Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)<br/>[Pediatric Weight for Height Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)<br/>[US Core Pediatric Head Occipital Frontal Circumference Percentile Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 
 ¹=These are not conformance statements for US-PCS 
-
-##### Additional Sections in US-PCS  
-
-The US-PCS aligns with the open-section slicing included in IPS, which also aligns with past precedence from C-CDA documents. This means that while only 7 sections are profiled in this guide, other sections can be added to US-PCS to support care. §guidance-4: While LOINC codes are not required for US-PCS sections, implementers **SHOULD** use LOINC codes aligned with the above table and [C-CDA sections](https://hl7.org/cda/us/ccda/artifacts.html#section-templates) when the section entries match an existing definition of a section.§  For example, a local code of "PAYERS" would not be used to define an US-PCS payers section since the code "48768-6" is available and used by C-CDA. When sending sections beyond the seven profiled in this guide, the table above provides a reference for what US Core Implementation Guide 6.1.0 resources to consider for each section.  
 
 #### Summary Creation
 
@@ -94,7 +90,18 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 | **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant).<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
 | **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results. | N/A |
 
-Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. §guidance-6: When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-note.html).§
+Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. §guidance-6: When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-note.html).§
+
+###### Additional Sections in US-PCS
+
+Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific. This design aligns with IPS.
+
+When including sections that are not profiled in this guide:
+1. §guidance-6: Document Creators **SHOULD** include the logic for the inclusion, within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-note.html).§
+2. §guidance-7: Document Creators **SHALL** include only the sections, data elements, and resources needed to create a concise, clinically relevant patient summary.§
+   - This guide does not provide a computable definition of clinical relevance, as relevance varies by care setting, exchange purpose, and use case. Whether additional sections are included depends on the purpose of the exchange, the clinician's judgment, and the patient's preferences.
+3. §guidance-8: Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections] table above.§
+   - For example, to define a section for Payers, use the LOINC code 48768-6 and US Core Coverage Profile documented in the table's "Payers" row.
 
 ### Authorship and Provenance in US-PCS
 
@@ -121,13 +128,12 @@ The Profile elements may be defined as *Mandatory* and *Must Support*. The secti
 
 For generating a US-PCS, *Must Support* on any profile data element is to be interpreted as follows:
 
-* §guidance-7:US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.§
-* §guidance-8:US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will choose to display the text for human use.§
-* §guidance-9:Document Creators **SHALL NOT** include additional sections, data elements, or resources not relevant to the summary.§
-* §guidance-10:In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.§
-* §guidance-11:US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.§
-* §guidance-12:In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.§
-* §guidance-13:US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.§
+* §guidance-9:US-PCS Document Creators **SHALL** be capable of populating all data elements as part of the document creation.§
+* §guidance-10:US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will choose to display the text for human use.§
+* §guidance-11:In situations where information on a particular data element is not present, and the reason for absence is unknown, Document Creators **SHALL NOT** include the data elements in the resource instances returned as part of document creation.§
+* §guidance-12:US-PCS Document Consumers **SHALL** interpret missing data elements within resource instances as data not present in the US-PCS Document Creator's system.§
+* §guidance-13:In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.§
+* §guidance-14:US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.§
 
 The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but are not complete equivalents.
 
