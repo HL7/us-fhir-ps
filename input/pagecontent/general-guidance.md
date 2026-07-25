@@ -94,7 +94,7 @@ Implementers can include additional sections as well when relevant to the US-PCS
 
 ###### Additional Sections in US-PCS
 
-Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific. This design aligns with IPS.
+Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific use case. This design aligns with IPS.
 
 When including sections that are not profiled in this guide:
 1. §guidance-6: Document Creators **SHOULD** include the logic for the inclusion, within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-note.html).§
