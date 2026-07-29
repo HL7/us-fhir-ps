@@ -118,7 +118,7 @@ The US-PCS inherits Must Support flags from [FHIR Clinical Documents](https://hl
 
 The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
-The Profile elements may be defined as *Mandatory* and *Must Support*. The sections below define the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
+The Profile elements may be defined as *Mandatory* or *Must Support*. The sections below define the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
 #### Mandatory Elements
 
