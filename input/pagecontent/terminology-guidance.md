@@ -21,7 +21,7 @@ The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has
 |Consent (Advance Directives)|Not profiled|Not profiled|
 |Flag (Alerts)|Not profiled|Not profiled|
 |Condition (Functional Status)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
-|Condition (History of Past Problems)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10 concepts to SNOMED CT| 
+|Condition (History of Past Problems)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
 |Observation (History of Pregnancy)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT (value)|No additional mapping 
 |Any (Patient Story)|Not profiled|Not profiled|
 |CarePlan|None|Not profiled|
