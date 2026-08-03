@@ -113,9 +113,7 @@ The author and custodian of a US-PCS document are required in US-PCS as detailed
 </blockquote>
 
 
-The US-PCS inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and assigns additional Must Support in the profiles. 
-
-The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
+The US-PCS inherits Must Support flags from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/StructureDefinition-clinical-document-composition.html#guidance-on-composition-flags) and assigns additional Must Support in the profiles. The US-PCS definition of Must Support is aligned with the [FHIR US Core (6.1.0)](https://hl7.org/fhir/us/core/STU6.1/must-support.html) definition with adaptations to a document context:
 
 The Profile elements may be defined as *Mandatory* or *Must Support*. The sections below define the document creator and consumer expectations for processing these elements and illustrates how they are displayed and documented.
 
@@ -136,6 +134,17 @@ For generating a US-PCS, *Must Support* on any profile data element is to be int
 
 The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but are not complete equivalents.
 
+#### Comparing Must Support between US-Core, IPS and US-PCS
+
+As noted, the Must Support definition in US-PCS is aligned with US Core and is not the same as IPS definition of Must Support. The following table highlights major differences between US Core, IPS and US-PCS Must Support definitions: 
+
+|| [US Core Definition]() | [IPS Definition]() | US-PCS Definition |
+|:--- | :--- | :--- | :--- |
+|Actors in Must Support| Only defined as part of MustSupport definition:<br/>-Responders<br/>-Requestors|Defined with Actor profiles and Obligations:<br/>- [Document Creator](https://hl7.org/fhir/uv/ips/STU2/ActorDefinition-Creator.html) and [Document Server](https://hl7.org/fhir/uv/ips/STU2/ActorDefinition-Server.html)<br/> -[Document Consumer](https://hl7.org/fhir/uv/ips/STU2/ActorDefinition-Consumer.html)<br/>|Only defined as part of MustSupport definition:<br/> -Document Creator<br/> -Document Consumer|
+|Must Support Scope & Definitions|Does not use obligations, so flags universally mean: <br/>- **SHALL** be capable of populating¹ <br/> - **SHALL** process¹ <br/> - **SHALL NOT** send missing data when absence reason unknown¹ <br/>- **SHALL** interpret missing data as not present¹ <br/> - **SHOULD** send missing reason when known¹<br/>- **SHALL** process missing information assertions¹| MustSupport defined by use of obligations. Obligations vary strength and by element including:<br/>- **SHALL**:able-to-populate¹<br/>- **SHALL**:populate-if-known¹<br/>- **SHOULD**:populate-if-known¹<br/>- **SHALL**:handle¹<br/>- **SHOULD**:display¹|
+|Source of Full Guidance|https://hl7.org/fhir/us/core/must-support.html|https://hl7.org/fhir/uv/ips/STU2/Must-Support-and-Obligations.html|Defined above in this guide
+
+¹=These are conformance statements for other guides and not US-PCS
 
 ### Conformance
 
