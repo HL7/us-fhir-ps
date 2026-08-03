@@ -4,9 +4,6 @@ This Implementation Guide is being balloted in May 2026 ballot cycle by HL7.
 
 ### Dependencies and Related Guides
 
-{% include img.html img="US-PCS-Relationships.png" caption="Figure 1: The US-PCS"
-    width="80%" %}
-
 #### Dependency on US Core
 
 US-PCS uses [US Core Implementation Guide 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) to populate the Patient, Organization, Practitioner and individual clinical resources within US-PCS sections. 
