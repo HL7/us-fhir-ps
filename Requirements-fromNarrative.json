@@ -23,7 +23,7 @@
   {
     "key" : "comp-1",
     "conformance" : ["SHALL"],
-    "requirement" : "Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation)), and at least one entry referencing a US Core resource or an emptyReason."
+    "requirement" : "Each section **SHALL** include: a title, a code, a textual narrative of the data in the section (See [IPS guide on Narrative](https://hl7.org/fhir/uv/ips/STU2/Design-Conventions.html#narrative-and-language-translation))."
   },
   {
     "key" : "comp-2",

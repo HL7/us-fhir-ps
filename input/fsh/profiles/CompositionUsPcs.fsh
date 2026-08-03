@@ -100,8 +100,9 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionMedications].entry ^slicing.rules = #open
 * section[sectionMedications].entry ^short = "Medications relevant for the scope of the patient summary"
 * section[sectionMedications].entry ^definition = "This list the medications relevant for the scope of the patient summary or it is used to indicate that the subject is known not to be on any relevant medication; either that no information is available about medications."
-* section[sectionMedications].entry contains medicationStatementOrRequest 0..*
-* section[sectionMedications].entry[medicationStatementOrRequest] only Reference(us-core-medicationrequest)
+* section[sectionMedications].entry contains medicationRequest 0..*
+* section[sectionMedications].entry[medicationRequest] only Reference(us-core-medicationrequest)
+* section[sectionMedications].entry[medicationRequest] MS
 * section[sectionMedications].emptyReason MS
 * section[sectionEncounters] obeys cmp-uspcs-1
 * section[sectionEncounters] ^short = "US-PCS Encounters Section"
