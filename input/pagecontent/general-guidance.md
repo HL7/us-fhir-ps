@@ -59,11 +59,10 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 
 ##### Operations for US-PCS Generation
 
-IPS outlines [two different methods](https://hl7.org/fhir/uv/ips/STU2/Generation-and-Data-Inclusion.html#generating--accessing-ips-documents) available for summary generation. These include a [`$summary`](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) operation defined in the IPS guide as well as use of [`$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html) as defined in the [International Patient Access (IPA) 1.1 guide](https://hl7.org/fhir/uv/ipa/STU1.1/). This guide requires use of the `$summary` operation. 
+- §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [$summary operation from IPS](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) .§
 
-- §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [`$summary` operation](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) from IPS 2.0.0.§
-
-We note that the [US Core `$docref` operation](https://hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html) is strongly aligned with the [IPA `$docref` operation](https://hl7.org/fhir/uv/ipa/STU1.1/OperationDefinition-docref.html). While servers can also support this operation for US-PCS retrieval, requiring document creators to support the IPS `$summary` operation ensures a common method will be available for all implementers.  For additional guidance on what data to include in a US-PCS, please refer to definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html).
+IPS outlines two different methods available for summary generation. These include 1) a $summary operation defined in the IPS guide, and 2) a [$docref](https://hl7.org/fhir/us/core/OperationDefinition-docref.html) operation defined in both US Core and International Patient Access (IPA) 1.1. Although servers can support $docref for US-PCS retrieval, requiring document creators to support the IPS $summary operation ensures a common method will be available for all implementers.
+For additional guidance on what data to include in a US-PCS, please refer to below, the definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html).
 
 ##### Data Inclusion in Summary Documents
 
