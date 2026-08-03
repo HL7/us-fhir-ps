@@ -132,8 +132,6 @@ For generating a US-PCS, *Must Support* on any profile data element is to be int
 * §guidance-13:In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing *and* the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`.§
 * §guidance-14:US-PCS Document Consumers **SHALL** be able to process resource instances containing data elements asserting missing information.§
 
-The terms *US-PCS Document Creator* and *US-PCS Document Consumer* when used in this guide share many similarities with [IPS Creator](https://hl7.org/fhir/uv/ips/ActorDefinition-Creator.html) and [IPS Consumer](https://hl7.org/fhir/uv/ips/ActorDefinition-Consumer.html) but are not complete equivalents.
-
 #### Comparing Must Support between US-Core, IPS and US-PCS
 
 As noted, the Must Support definition in US-PCS is aligned with US Core and is not the same as IPS definition of Must Support. The following table highlights major differences between US Core, IPS and US-PCS Must Support definitions: 
