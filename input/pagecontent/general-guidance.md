@@ -100,7 +100,7 @@ When including sections that are not profiled in this guide:
 2. §guidance-7: Document Creators **SHALL** include only the sections, data elements, and resources needed to create a concise, clinically relevant patient summary.§
    - This guide does not provide a computable definition of clinical relevance, as relevance varies by care setting, exchange purpose, and use case. Whether additional sections are included depends on the purpose of the exchange, the clinician's judgment, and the patient's preferences.
 3. §guidance-8: Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections] table above.§
-   - For example, to define a section for Payers, use the LOINC code 48768-6 and US Core Coverage Profile documented in the table's "Payers" row.
+   - For example, to define a section for Payers, use the LOINC code 48768-6 (Payment sources Document) and US Core Coverage Profile documented in the table's "Payers" row.
 
 ### Authorship and Provenance in US-PCS
 
