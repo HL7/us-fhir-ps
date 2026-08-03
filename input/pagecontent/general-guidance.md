@@ -89,7 +89,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 | **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant) in lifetime of patient.<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
 | **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results when currently relevant from anytime in past. | N/A |
 
-Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. §guidance-6: When specific criteria are used in the creation of a patient summary, the logic **SHOULD** be included within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-note.html).§
+Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. 
 
 ###### Additional Sections in US-PCS
 
