@@ -84,7 +84,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
-| **Encounters** | All emergency room and inpatient encounters (past 12 months).<br>All ambulatory encounters (past 6 months). | `Encounter.status` of `cancelled` |
+| **Encounters** | All emergency room and inpatient encounters (past 12 months).<br>All ambulatory encounters (past 6 months). | `Encounter.status` of `cancelled` or `entered-in-error`|
 | **Immunizations** | Short-term immunity (e.g., flu, COVID) if `occurrenceDateTime` is in the past 24 months.<br>All other immunizations administered in lifetime of patient. | `Immunization.status` of `entered-in-error` |
 | **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant) in lifetime of patient.<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
 | **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results when currently relevant from anytime in past. | `DiagnosticReport.status` or `Observation.status` of `entered-in-error` or `cancelled` |
