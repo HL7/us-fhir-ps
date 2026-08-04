@@ -36,6 +36,16 @@
     "requirement" : "Each section **SHALL** contain a unique code to identify that section. For example, it would not be appropriate to send two separate Advance Directives sections (LOINC: 42348-3). This is enforced through the discriminator profiling on `section.code`"
   },
   {
+    "key" : "entries-1",
+    "conformance" : ["MAY"],
+    "requirement" : "In addition to the US Core profiles identified for a given section (see table above), other profiles based on the same FHIR resource type and/or DocumentReference resources **MAY** be included as section entries."
+  },
+  {
+    "key" : "entries-2",
+    "conformance" : ["SHOULD"],
+    "requirement" : "While no content constraints (.e.g reference to a full document or a PDF of section information) are made on the referenced DocumentReference, these resources **SHOULD** be linked from the section where most applicable."
+  },
+  {
     "key" : "guidance-1",
     "conformance" : ["SHALL"],
     "requirement" : "The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS."
