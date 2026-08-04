@@ -2,7 +2,7 @@ Profile: BundleUsPcs
 Parent: ClinicalDocumentBundle
 Id: Bundle-us-pcs
 Title: "Bundle (US-PCS)"
-Description: "This profile represents the constraints applied to the Bundle resource by the United States Patient Care Summary (US-PCS) FHIR Implementation Guide. The Bundle is of type document and outlines resources that may be commonly included, but the specific organization of US-PCS sections and document information is contained in the US-PCS [Composition profile](./StructureDefinition-Composition-us-pcs.html)."
+Description: "This profile represents the constraints applied to the Bundle resource by the United States Patient Care Summary (US-PCS) FHIR Implementation Guide. The Bundle is of type document and includes resources that may be commonly included in the US-PCS. Readers should refer to the [US-PCS Composition profile](./StructureDefinition-Composition-us-pcs.html) for specific requirements and organization of US-PCS sections and entries. The Bundle profile includes multiple resources beyond required sections to minimize validation messages for unexpected slices in US-PCS documents."
 * ^date = "2026-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
