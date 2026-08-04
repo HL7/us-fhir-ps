@@ -81,7 +81,7 @@
   {
     "key" : "guidance-10",
     "conformance" : ["SHALL"],
-    "requirement" : "US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, some consumers will fully process and store the discrete resources while others will choose to display the text for human use."
+    "requirement" : "US-PCS Document Consumers **SHALL** be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. For example, processing may range from choosing to display the text for human use or incorporate and store individual resources and data. Any of level of processing chosen cannot cause the application to fail."
   },
   {
     "extension" : [{
