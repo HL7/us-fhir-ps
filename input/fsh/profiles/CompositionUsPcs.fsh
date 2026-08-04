@@ -21,6 +21,8 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * author 1..* MS
 * author only Reference(us-core-practitioner or us-core-practitionerrole or Device or us-core-patient or us-core-relatedperson or us-core-organization)
 * custodian 1..1 MS
+* custodian ^short = "Organization which maintains the composition"
+* custodian ^comment = "This is required in US-PCS given requirement precedences of C-CDA and document paradigm. In addition, it provides a logical starting point for systems searching for additional data as discussed in US-PCS use case."
 * custodian only Reference(us-core-organization)
 * relatesTo.target[x] only Identifier or Reference(Composition or CompositionUvIps)
 * event ^slicing.discriminator[0].type = #value
