@@ -10,7 +10,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * ^jurisdiction = urn:iso:std:iso:3166#US
 * ^purpose = "This profile represents the constraints applied to the Bundle resource by the United States Patient Care Summary (US-PCS) FHIR Implementation Guide. \r\n The Bundle is of type document and outlines resources that may be commonly included, but the specific organization of US-PCS sections and document information is contained in the US-PCS Composition profile."
 * obeys bdl-uspcs-1
-* entry.fullUrl 1.. 
+* entry.fullUrl 1.. MS
 * entry contains
     patient 1..1 and
     allergyintolerance 0..* and
@@ -29,6 +29,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[clinical-document-composition].resource only CompositionUsPcs
 * entry[patient].resource 1..
 * entry[patient].resource only us-core-patient
+* entry[patient].fullUrl 1.. MS
 * entry[allergyintolerance].resource 1..
 * entry[allergyintolerance].resource only us-core-allergyintolerance
 * entry[condition].resource 1..
