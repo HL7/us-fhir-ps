@@ -10,20 +10,18 @@ td, th {
 }
 </style>
 
-### US-PCS Guidance 
-
 The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](./StructureDefinition-Composition-us-pcs.html) profiles derive from guidance in [FHIR Clinical Documents (1.1.0)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and apply additional constraints relevant to the United States. These include header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
 
 {% include img.html img="US-PCS-Relationships.png" caption="Figure 3: US-PCS Relationships to Other Guides"
     width="80%" %}
 
-#### US Core Version 6.1.0
+### US Core Version 6.1.0
 
 §guidance-1: The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS.§ These profiles are required through US Core Data for Interoperability (USCDI) in 2026 and are generally available by most US health information technology vendors and organizations. §guidance-2: While possible to package resources from earlier US Core versions and remain conformant to the IPS specification, implementers **SHALL NOT** declare conformance to US-PCS when using US Core versions before 6.1.0.§ §guidance-3:In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions.§ For example, a US-PCS document creator can include more recent versions such as [US Core 7.0.0](https://hl7.org/fhir/us/core/STU7/) or [US Core 8.0.1](https://hl7.org/fhir/us/core/STU8.0.1/) and still conform to this guide. Regardless of US Core version used, systems are not required to send any items in conflict with [Executive Order 14168](https://www.whitehouse.gov/presidential-actions/2025/01/defending-women-from-gender-ideology-extremism-and-restoring-biological-truth-to-the-federal-government/).
 
 The ["US Variance to IPS"](./variance.html) portion of this guide compares the clinical profile from US Core 6.1.0 to the IPS 2.0.0 profiles, and consideration of IPS alignment is recommended when sending different US Core versions. 
 
-#### Aligning US-PCS Sections with IPS, C-CDA and US Core
+### Aligning US-PCS Sections with IPS, C-CDA and US Core
 
 The US-PCS profiles 6 sections to align with the sections in the IPS Implementation Guide and adds a section on encounters not profiled in IPS. The US-PCS, like the IPS and C-CDA documents, remains open at the section level, which means that additional sections can be added so long as they have different `Composition.section.code` coding. Like the IPS, the US-PCS only requires a summary to have the three sections of Problems, Allergies and Medications. This enables systems to create concise summaries while allowing additional sections to be included when clinically relevant. For more guidance about what content can be included in IPS-aligned US-PCS sections, we refer readers to [Data Inclusion in Summary Documents](./general-guidance.html#data-inclusion-in-summary-documents) and [IPS Guidance](https://hl7.org/fhir/uv/ips/Structure-of-the-International-Patient-Summary.html). 
 
@@ -55,22 +53,24 @@ The [Consolidated Clinical Document Architecture (C-CDA)](https://hl7.org/cda/us
 
 ¹=These are not conformance statements for US-PCS 
 
-#### Entries within US-PCS Sections
+### Entries within US-PCS Sections
 
-For each US-PCS section, entry slicing is not limited to US Core profiles.§entries-1: In addition to the US Core profiles identified for a given section (see table above), other profiles based on the same FHIR resource type and/or DocumentReference resources **MAY** be included as section entries.§ This flexibility allows clinically relevant content to be exchanged when it cannot be represented using the preferred US Core profile or when the information is available only as a document rather than as discrete FHIR data. 
+For each US-PCS section, entry slicing is not limited to US Core profiles. §entries-1: In addition to the US Core profiles identified for a given section (see table above), other profiles based on the same FHIR resource type and/or DocumentReference resources **MAY** be included as section entries.§ This flexibility allows clinically relevant content to be exchanged when it cannot be represented using the preferred US Core profile or when the information is available only as a document rather than as discrete FHIR data. 
 
 This approach is consistent with the design of the [International Patient Summary (IPS) Composition profile](https://hl7.org/fhir/uv/ips/STU2/StructureDefinition-Composition-uv-ips.html), which uses open slicing for section entries and explicitly permits DocumentReference as an allowed entry type alongside section-specific structured resources. Accordingly, DocumentReference provides a mechanism for exchanging document-based clinical content while preserving the clinical intent of the section.§entries-2: While no content constraints (.e.g reference to a full document or a PDF of section information) are made on the referenced DocumentReference, these resources **SHOULD** be linked from the section where most applicable.§ This approach promotes alignment with IPS and supports progressive interoperability across diverse systems. 
 
-#### Summary Creation
+In addition, as specified in the [FHIR Composition profile](https://hl7.org/fhir/R4/composition.html) and the [FHIR Clinical Documents Bundle profile](https://hl7.org/fhir/uv/fhir-clinical-document/en/StructureDefinition-clinical-document-bundle.html), all resources referenced directly from `Composition.section.entry` must be included in the Bundle. While secondary and tertiary references may be included in the Bundle when clinically relevant, often these data will be omitted. For example, the encounters sections is intended to include relevant visit history without having to include all associated clinical data with each encounter. Referencing encounters allows additional data to be found and more readily requested as explained in the [US-PCS use case](./use-case.html). See guidance on [Additional Sections and Data in US-PCS](./general-guidance.html#additional-sections-and-data-in-us-pcs) for further guidance. 
 
-##### Operations for US-PCS Generation
+### Summary Creation
+
+#### Operations for US-PCS Generation
 
 - §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [$summary operation from IPS](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) .§
 
 IPS outlines two different methods available for summary generation. These include 1) a $summary operation defined in the IPS guide, and 2) a [$docref](https://hl7.org/fhir/us/core/OperationDefinition-docref.html) operation defined in both US Core and International Patient Access (IPA) 1.1. Although servers can support $docref for US-PCS retrieval, requiring document creators to support the IPS $summary operation ensures a common method will be available for all implementers.
 For additional guidance on what data to include in a US-PCS, please refer to below, the definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html).
 
-##### Data Inclusion in Summary Documents
+#### Data Inclusion in Summary Documents
 
 The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementer consideration. 
 
@@ -78,7 +78,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and is subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
-###### Required Sections
+#### Required Sections
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
@@ -86,7 +86,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 | **Allergies** | `AllergyIntolerance.clinicalStatus` of `active`. (Inactive or resolved allergies can be included when clinically relevant.) | `AllergyIntolerance.verificationStatus` of `entered-in-error` |
 | **Medications** | `MedicationRequest.status` of `active` and `MedicationRequest.intent` of `order` or `plan`. (Refer to [US Core Guidance for active medication lists](https://hl7.org/fhir/us/core/STU6.1/medication-list.html#get-all-active-medications).) | `MedicationRequest.doNotPerform` if `true` |
 
-###### Must Support Sections
+#### Must Support Sections
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
@@ -97,7 +97,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 Implementers can include additional sections as well when relevant to the US-PCS use case, although no specific content recommendations are provided for optional or additional sections. 
 
-###### Additional Sections in US-PCS
+#### Additional Sections and Data in US-PCS
 
 Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific use case. This design aligns with IPS.
 
