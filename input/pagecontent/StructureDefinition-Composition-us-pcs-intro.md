@@ -1,13 +1,12 @@
 <blockquote class="stu-note">
-  <p> The IPS FHIR Implementation Guide does not include a section for Encounters. Based on
-    implementer feedback and historic precedence among C-CDA documents, an encounters section 
-    has been included in the US-PCS. Consrequently, <code>Composition.encounter</code> and 
+  <p> Based on implementer feedback and historic precedence among C-CDA documents, an encounters 
+    section has been included in the US-PCS. Consequently, <code>Composition.encounter</code> and 
     <code>Composition.event[careProvisioningEvent].detail</code> are not recommended for use 
     in US-PCS. In US-PCS, encounter details are included in the Encounters section. 
     
-    In addition, a request has been made to the International
-    Patient Summary Coordinating Committee to include an encounters section in future version 
-    of the guide. Implementers  
+    The IPS FHIR Implementation Guide does not include a section for Encounters. A request has 
+    been made to the International Patient Summary Coordinating Committee to add an encounters 
+    section in future versions of the universal realm IPS guide.  
   </p>
 </blockquote>
 
