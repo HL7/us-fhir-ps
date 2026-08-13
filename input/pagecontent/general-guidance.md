@@ -68,14 +68,15 @@ In addition, as specified in the [FHIR Composition profile](https://hl7.org/fhir
 - §guidance-5: US-PCS Document Creators **SHALL** be able to generate US-PCS documents using the [$summary operation from IPS](https://hl7.org/fhir/uv/ips/STU2/OperationDefinition-summary.html) .§
 
 IPS outlines two different methods available for summary generation. These include 1) a $summary operation defined in the IPS guide, and 2) a [$docref](https://hl7.org/fhir/us/core/OperationDefinition-docref.html) operation defined in both US Core and International Patient Access (IPA) 1.1. Although servers can support $docref for US-PCS retrieval, requiring document creators to support the IPS $summary operation ensures a common method will be available for all implementers.
+
 For additional guidance on what data to include in a US-PCS, please refer to below, the definitions of [Must Support in US-PCS](./general-guidance.html#must-support-elements) as well as [US-PCS use cases](./use-case.html).
 
 #### Data Inclusion in Summary Documents
 
-The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementer consideration. 
+The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, do not provide detailed rules for generating a patient summary. The [use case for US-PCS](./use-case.html) remains aligned with these global guides with its intent to **provide a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.**  The data relevant for clinical decision making will not always be the same and is subject to clinical judgment. Nevertheless, implementers have requested best practices for summary generation acknowledging many data are not relevant for patient care summaries. For the required and Must Support sections of the US-PCS, the following recommendations are provided for implementer consideration, particularly when automated summary generation is employed. When a human authors a clinical summary, information relevant for care will diverge from the guidelines below. Implementers are not required to implement these recommendations and may apply their own logic for content recency and relevancy.  
 
-<blockquote class="note-to-balloters">
-	<p>We seek ballot and implementer feedback on these recommendations. The content of this section is still being developed and is subject to change based on further feedback and implementation experience. </p>
+<blockquote class="stu-note">
+	<p>We seek continue implementer feedback on these recommendations. The content of this section is not definitive guidance and subject to change based on further feedback and implementation experience. </p>
 </blockquote>
 
 #### Required Sections
@@ -90,7 +91,7 @@ The IPS international guides, both ISO 27269 and FHIR IPS Implementation Guide, 
 
 | Section | Recommended Inclusion Criteria | Recommended Exclusion Criteria |
 | :--- | :--- | :--- |
-| **Encounters** | All emergency room and inpatient encounters (past 12 months).<br>All ambulatory encounters (past 6 months). | `Encounter.status` of `cancelled` or `entered-in-error`|
+| **Encounters** | Encounters in past 18 months | `Encounter.status` of `cancelled` or `entered-in-error`|
 | **Immunizations** | Short-term immunity (e.g., flu, COVID) if `occurrenceDateTime` is in the past 24 months.<br>All other immunizations administered in lifetime of patient. | `Immunization.status` of `entered-in-error` |
 | **Procedures** | Major procedures (e.g., bypass, bowel resection, implants, mastectomy, organ transplant) in lifetime of patient.<br>All other procedures (past 90 days). | `Procedure.status` of `entered-in-error` or `not-done` |
 | **Results** | `DiagnosticReport` and corresponding `result` observations (past 90 days).<br>`Observation.category` of `laboratory` and `imaging` (past 90 days).<br>Abnormal clinical results when currently relevant from anytime in past. | `DiagnosticReport.status` or `Observation.status` of `entered-in-error` or `cancelled` |
