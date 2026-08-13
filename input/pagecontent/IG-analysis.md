@@ -6,7 +6,7 @@ This Implementation Guide is being balloted in May 2026 ballot cycle by HL7.
 
 #### Dependency on US Core
 
-US-PCS uses [US Core Implementation Guide 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) to populate the Patient, Organization, Practitioner and individual clinical resources within US-PCS sections. 
+US-PCS requires the minimal use of [US Core Implementation Guide 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) to populate the Patient, Organization, Practitioner and individual clinical resources within US-PCS sections. 
 
 #### Dependency on FHIR Clinical Documents
 

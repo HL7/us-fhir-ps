@@ -48,7 +48,7 @@
   {
     "key" : "guidance-1",
     "conformance" : ["SHALL"],
-    "requirement" : "The US-PCS references clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS."
+    "requirement" : "The US-PCS uses clinical profiles from [US Core version 6.1.0](https://hl7.org/fhir/us/core/STU6.1/) that **SHALL** be the minimal version of US Core resource to send in the US-PCS."
   },
   {
     "extension" : [{
@@ -109,7 +109,7 @@
   {
     "key" : "guidance-13",
     "conformance" : ["SHOULD"],
-    "requirement" : "In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/STU6.1/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing **and** the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/STU6.1/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`."
+    "requirement" : "In situations where information on a particular data element is missing or suppressed, refer to the US Core guidance for [Missing Data](https://hl7.org/fhir/us/core/general-requirements.html#missing-data) and [Suppressed Data](https://hl7.org/fhir/us/core/general-guidance.html#suppressed-data). In cases where information on a specific data element is missing **and** the US-PCS Document Creator knows the precise reason for the absence of data (other than suppressed data), US-PCS Document Creators **SHOULD** send the reason for the missing information. This is done by following the same methodology outlined in the [Missing Data](https://hl7.org/fhir/us/core/general-requirements.html#missing-data) section but using the appropriate reason code instead of `unknown`."
   },
   {
     "key" : "guidance-14",

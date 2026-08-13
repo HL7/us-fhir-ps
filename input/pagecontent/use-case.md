@@ -25,9 +25,9 @@ In keeping with guidance from the IPS, the US-PCS only requires three sections o
 
 #### Queries for Additional Data using US Core FHIR servers  
 
-FHIR Servers that support the [US-Core Implementation Guide](https://hl7.org/fhir/us/core/STU6.1/) will generally contain additional information not included in US-PCS documents. To search for and retrieve additional data, implementers can access US Core servers using [methods outlined in that guide](https://hl7.org/fhir/us/core/STU6.1/security.html).  
+FHIR Servers that support the [US-Core Implementation Guide](https://hl7.org/fhir/us/core/) will generally contain additional information not included in US-PCS documents. To search for and retrieve additional data, implementers can access US Core servers using [authentication methods outlined in that guide](https://hl7.org/fhir/us/core/security.html).  
 
-When resources in US-PCS documents are from a US Core FHIR server, the `entry.fullUrl` in the [US-PCS Bundle profile](./StructureDefinition-Bundle-us-pcs.html) specify originating information. This `entry.fullUrl` and other identifiers allow downstream receivers to query for additional data when clinically appropriate. For example, using the `entry.fullUrl` of the `Patient` resource (as well as the `patient.id`) allows for additional data requests without performing a [`$match` operation](https://hl7.org/fhir/R4/patient-operation-match.html). The US Core Implementation Guide defines a wide range of [search parameters](https://hl7.org/fhir/us/core/STU6.1/search-parameters-and-operations.html) that provide implementers several options to request additional data. 
+When resources in US-PCS documents are from a US Core FHIR server, the `entry.fullUrl` in the [US-PCS Bundle profile](./StructureDefinition-Bundle-us-pcs.html) specify originating information. This `entry.fullUrl` and other identifiers allow downstream receivers to query for additional data when clinically appropriate. For example, using the `entry.fullUrl` of the `Patient` resource (as well as the `patient.id`) allows for additional data requests without performing a [`$match` operation](https://hl7.org/fhir/R4/patient-operation-match.html). The US Core Implementation Guide defines a wide range of [search parameters](https://hl7.org/fhir/us/core/search-parameters-and-operations.html) that provide implementers several options to request additional data. 
 
 ### Patient Mediated Interoperability with US-PCS
 
@@ -41,7 +41,7 @@ While this implementation guide is designed so US-PCS documents also conform to 
 
 - Defining [US-PCS Must Support](./general-guidance.html#must-support-elements) differently than how the IPS defines Must Support
 - Deriving the [US-PCS Composition](./StructureDefinition-Composition-us-pcs.html) from FHIR Clinical Documents and modifying guidance, sections and constraints
-- Using [US Core Profiles](https://hl7.org/fhir/us/core/STU6.1/profiles-and-extensions.html) for the individual resources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
+- Using [US Core Profiles](https://hl7.org/fhir/us/core/profiles-and-extensions.html) for the individual resources within US-PCS sections, which adds additional constraints and data expectations from that implementation guide
 
 Specific variances from US-PCS to IPS are further detailed in the [US Variance to IPS](./variance.html) section of this guide. 
 
