@@ -16,13 +16,10 @@ Description: "This profile represents the constraints applied to the Bundle reso
     allergyintolerance 0..* and
     condition 0..* and
     diagnosticreport 0..* and
-    documentreference 0..* and
     encounter 0..* and
     immunization 0..* and
-    medication 0..* and
     medicationrequest 0..* and
     practitioner 0..* and
-    practitionerrole 0..* and
     procedure 0..* and
     observation-results 0..* and
     organization 0..* 
@@ -41,11 +38,11 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[immunization].resource only us-core-immunization
 * entry[medicationrequest].resource 1..
 * entry[medicationrequest].resource only us-core-medicationrequest
+* entry[observation-results].resource 1..
+* entry[observation-results].resource only Observation or $us-core-observation-clinical-result or $us-core-observation-lab
+* entry[organization].resource 1..
+* entry[organization].resource only us-core-organization
 * entry[practitioner].resource 1..
 * entry[practitioner].resource only us-core-practitioner
 * entry[procedure].resource 1..
 * entry[procedure].resource only us-core-procedure
-* entry[organization].resource 1..
-* entry[organization].resource only us-core-organization
-* entry[observation-results].resource 1..
-* entry[observation-results].resource only Observation or $us-core-observation-clinical-result or $us-core-observation-lab
