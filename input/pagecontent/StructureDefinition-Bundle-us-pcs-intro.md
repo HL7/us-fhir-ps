@@ -1,10 +1,10 @@
-<blockquote class="note-to-balloters">
-  <p> The US-PCS only profiles seven sections in the US-PCS Composition. This Bundle profile only includes resources from those seven sections, even though other resources could be used for other sections. This does not exclude other resources due to the open slicing of Bundle.entry. We invite feedback on this approach from implementers.  
+<blockquote class="stu-note">
+  <p> The US-PCS only profiles seven sections in the US-PCS Composition. This Bundle profile only includes resources from those seven sections, even though other resources could be used for other sections. This does not exclude other resources due to the open slicing of Bundle.entry. For the organization of which resources to include in each section, refer to the US-PCS Composition profile. 
   </p>
 </blockquote>
 
-<blockquote class="note-to-balloters">
-  <p> The US-PCS does not profile <code>Bundle.signature</code> for document signatures in part since FHIR R6 will likely remove <code>Bundle.signature</code>. Many real‑world IGs (e.g., XDS‑on‑FHIR, IHE profiles) prefer <code>Bundle.signature</code> for document‑level attestation. We recognize that <code>Provenance.signature</code> is also a means to provide signatures. The US Core Provenance resource is not listed in this Bundle profile. We seek implementer feedback on these design choices and guidance regarding digital signatures.    
+<blockquote class="stu-note">
+  <p> The US-PCS does not profile <code>Bundle.signature</code> for document signatures since [emerging FHIR guidance](https://fhir.hl7.org/fhir/signatures.html) has favored usage of <code>Provenance.signature</code>. We recommend implementers refer to the latest FHIR guidance when including signatures on attested US-PCS documents and content. 
   </p>
 </blockquote>
 
@@ -20,10 +20,6 @@ The following data elements must always be present (Mandatory definition) or mus
 1. a US-PCS Composition 
 1. a US Core Patient 
 
-**Each US-PCS Bundle Must Support:**
-1. a signature for the entire document when attested
-
- 
 ### Profile Specific Implementation Guidance
 This section provides detailed implementation guidance for the US-PCS Profile.
 
