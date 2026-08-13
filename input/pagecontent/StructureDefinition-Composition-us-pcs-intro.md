@@ -31,7 +31,6 @@ The following data elements must always be present (Mandatory definition) or mus
 
 1. a textual narrative of the Composition (which does not include section content)
 1. extensions defined in [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/StructureDefinition-clinical-document-composition.html)
-1. clinical services (`event`) being documented
 1. Sections representing: encounters, immunization, procedures and results
 
 ### Profile Specific Implementation Guidance
