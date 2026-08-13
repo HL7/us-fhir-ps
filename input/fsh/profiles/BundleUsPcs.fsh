@@ -35,20 +35,14 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[condition].resource only us-core-condition-problems-health-concerns
 * entry[diagnosticreport].resource 1..
 * entry[diagnosticreport].resource only $us-core-diagnosticreport-lab or $us-core-diagnosticreport-note
-* entry[documentreference].resource 1..
-* entry[documentreference].resource only us-core-documentreference
 * entry[encounter].resource 1..
 * entry[encounter].resource only us-core-encounter
 * entry[immunization].resource 1..
 * entry[immunization].resource only us-core-immunization
-* entry[medication].resource 1..
-* entry[medication].resource only us-core-medication
 * entry[medicationrequest].resource 1..
 * entry[medicationrequest].resource only us-core-medicationrequest
 * entry[practitioner].resource 1..
 * entry[practitioner].resource only us-core-practitioner
-* entry[practitionerrole].resource 1..
-* entry[practitionerrole].resource only us-core-practitionerrole
 * entry[procedure].resource 1..
 * entry[procedure].resource only us-core-procedure
 * entry[organization].resource 1..
