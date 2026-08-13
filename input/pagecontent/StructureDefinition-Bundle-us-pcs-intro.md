@@ -4,7 +4,7 @@
 </blockquote>
 
 <blockquote class="stu-note">
-  <p> The US-PCS does not profile <code>Bundle.signature</code> for document signatures since [emerging FHIR guidance](https://fhir.hl7.org/fhir/signatures.html) has favored usage of <code>Provenance.signature</code>. We recommend implementers refer to the latest FHIR guidance when including signatures on attested US-PCS documents and content. 
+  <p> The US-PCS does not profile <code>Bundle.signature</code> for document signatures since <a href="https://fhir.hl7.org/fhir/signatures.html">emerging FHIR guidance</a> has favored usage of <code>Provenance.signature</code>. We recommend implementers refer to the latest FHIR guidance when including signatures on attested US-PCS documents and content. 
   </p>
 </blockquote>
 
