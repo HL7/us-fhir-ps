@@ -32,10 +32,9 @@ dependencies:
   hl7.fhir.uv.fhir-clinical-document:
     version: 1.1.0
     uri: http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document
-definition: 
-  extension: 
-    - url: http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency
-      valueCode: hl7.fhir.uv.extensions.r4#5.3.0
+  hl7.fhir.uv.extensions.r4:
+    version: 5.3.0
+    uri: http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   pin-canonicals: pin-multiples
   path-expansion-params: ../../input/_resources/exp-params.json  # for using US ed of SNOMED
