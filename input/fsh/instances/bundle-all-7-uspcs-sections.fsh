@@ -181,13 +181,8 @@ Usage: #inline
 * extension[=].extension[+].url = "isEnrolled"
 * extension[=].extension[=].valueBoolean = false
 * extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation"
-* extension[+].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
-* extension[=].valueCode = #F
-* extension[+].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex"
-* extension[=].valueCode = #248152002
-* extension[+].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity"
-* extension[=].valueCodeableConcept = $v3-NullFlavor#UNK "Unknown"
-* extension[=].valueCodeableConcept.text = "Unknown"
+* extension[+].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex"
+* extension[=].valueCoding = $sct#248153007 "Male"
 * identifier.use = #usual
 * identifier.type = $v2-0203#MR "Medical Record Number"
 * identifier.type.text = "Medical Record Number"
