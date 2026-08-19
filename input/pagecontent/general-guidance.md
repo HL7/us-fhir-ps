@@ -10,7 +10,7 @@ td, th {
 }
 </style>
 
-The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](./StructureDefinition-Composition-us-pcs.html) profiles derive from guidance in [FHIR Clinical Documents (1.1.0)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and apply additional constraints relevant to the United States. These include header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS attempts to align with the [International Patient Summary (IPS) Implementation Guide (2.0.0)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
+The US-PCS [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](./StructureDefinition-Composition-us-pcs.html) profiles derive from guidance in [FHIR Clinical Documents (1.1.0)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and apply additional constraints relevant to the United States. These include header information in the US-PCS Composition and the use of US Core clinical profiles when available. The US-PCS conforms to the [International Patient Summary (IPS) Implementation Guide (2.0.1)](https://hl7.org/fhir/uv/ips/STU2/) by using the same document code and sections as defined in the IPS. In addition, when a US Core profile is not available within a specific section, references to IPS clinical profiles are retained. Variances between US-PCS and IPS are documented in the ["US Variance to IPS"](./variance.html) portion of this guide. 
 
 {% include img.html img="US-PCS-Relationships.png" caption="Figure 3: US-PCS Relationships to Other Guides"
     width="80%" %}
@@ -51,7 +51,7 @@ The following table includes a row for each section referenced in US-PCS, IPS or
 |Alerts (104605-1)|Not profiled in CCD|Optional|Not profiled in US-PCS|Not profiled in US Core 6.1.0
 |Care Plan (18776-5)|SHOULD[^2]|Optional|Not profiled in US-PCS|[US Core CarePlan Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-careplan.html)
 |Family History (10157-6)|MAY[^2]|Not profiled in IPS|Not profiled in US-PCS|Not profiled in US Core 6.1.0
-|Functional Status (47420-5)|MAY[^2]|Optional|Not profiled in US-PCS|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not align with IPS (Observation, QuestionnaireResponse)
+|Functional Status (47420-5)|MAY[^2]|Optional|Not profiled in US-PCS|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>Other profiles do not match IPS expected resources (Observation, QuestionnaireResponse)
 |History of Past Problems (11348-0)|Not profiled in CCD|Optional|Not profiled in US-PCS|[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-condition-problems-health-concerns.html)
 |Medical Devices (46264-8)|MAY[^2]|Recommended|Not profiled in US-PCS|Device Use not profiled in 6.1.0<br/>[US Core Implantable Device Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html)
 |Mental Status (10190-7)|MAY[^2]|Not profiled in IPS|Not profiled in US-PCS|[US Core Simple Observation Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-simple-observation.html)<br/>[US Core Condition Problems and Health Concerns Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-condition-problems-health-concerns.html)<br/>[US Core Observation Screening Assessment Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-screening-assessment.html)<br/>[US Core QuestionnaireResponse Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-questionnaireresponse.html)
@@ -111,13 +111,13 @@ Implementers can include additional sections as well when relevant to the US-PCS
 
 #### Open Slicing, Additional Sections and Data in US-PCS
 
-Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific use case. This design aligns with IPS.
+Consistent with the IPS goal of being both "minimal and non-exhaustive" and "specialty-agnostic and condition-independent," US-PCS begins with a constrained set of sections and data elements that are expected to be relevant for most exchanges. At the same time, the open-section design allows additional sections and content to be included when they are clinically relevant and appropriate for a specific use case. This design conforms with IPS.
 
 When including sections that are not profiled in this guide:
 1. §guidance-6: Document Creators **SHOULD** include the logic for the inclusion, within each `Composition.section` using the [section-note extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-note.html).§
 2. §guidance-7: Document Creators **SHALL** include only the sections, data elements, and resources needed to create a concise, clinically relevant patient summary.§
    - This guide does not provide a computable definition of clinical relevance, as relevance varies by care setting, exchange purpose, and use case. Whether additional sections are included depends on the purpose of the exchange, the clinician's judgment, and the patient's preferences.
-3. §guidance-8: Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections] table above.§
+3. §guidance-8: Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections](general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) table above.§
    - For example, to define a section for Payers, use the LOINC code 48768-6 (Payment sources Document) and US Core Coverage Profile documented in the table's "Payers" row.
 
 ### Authorship and Provenance in US-PCS

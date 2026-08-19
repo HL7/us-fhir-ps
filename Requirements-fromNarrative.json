@@ -86,7 +86,7 @@
   {
     "key" : "guidance-8",
     "conformance" : ["SHOULD"],
-    "requirement" : "Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections] table above."
+    "requirement" : "Document Creators **SHOULD** use the guidance and LOINC codes for content corresponding to an existing section definition in the [Aligning US-PCS Sections](general-guidance.html#aligning-us-pcs-sections-with-ips-c-cda-and-us-core) table above."
   },
   {
     "key" : "guidance-9",

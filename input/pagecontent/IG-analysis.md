@@ -12,9 +12,13 @@ US-PCS requires the minimal use of [US Core Implementation Guide 6.1.0](https://
 
 US-PCS derives its Bundle and Composition profiles from [FHIR Clinical Documents Implementation Guide 1.1.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/). Changes have been made to align these profiles with FHIR IPS 2.0.0 and include edits for the US ecosystem. The definition of "derive" for purposes of US-PCS is *"to formally base a specification through defined profiling or inheritance, remaining fully conformant while adding only further constraints."*
 
-#### Alignment to International Patient Summary 
+#### Alignment to the International Patient Summary 
 
-US-PCS seeks to align with the [FHIR IPS International Patient Summary Implementation Guide 2.0.0](https://hl7.org/fhir/uv/ips/STU2/). The definition of "align" for purposes of US-PCS is *"to structure a specification so it is consistent with IPS intent and structure, without formal derivation and without introducing conflicting requirements."*
+US-PCS seeks to align with the [FHIR IPS International Patient Summary Implementation Guide 2.0.1](https://hl7.org/fhir/uv/ips/STU2/). The definition of "align" for purposes of US-PCS is *"a specification or implementation produces content and behavior that are generally consistent with IPS goals, principles, and expectations, regardless of whether it formally derives from IPS artefacts. Alignment does not, by itself, imply derivation from or conformance to IPS specifications."*
+
+#### Conformance to the International Patient Summary 
+
+All US-PCS document instances will conform to the [FHIR IPS International Patient Summary Implementation Guide 2.0.1](https://hl7.org/fhir/uv/ips/STU2/) with no errors. The definition of "conform" for purposes of US-PCS is *"to satisfy the applicable requirements defined by the FHIR IPS implementation guide with no errors"*
 
 #### Profile Differences between IPS and US-PCS
 

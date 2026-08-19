@@ -1,6 +1,6 @@
 ## US Variance to IPS
 
-The US-PCS attempts to strongly align with the IPS but it does not derive its Bundle or Composition profiles from the IPS. Only six sections of the IPS are profiled in US-PCS (with one new Encounters section available not from IPS), but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
+The US-PCS conforms with the IPS but it does not derive its Bundle or Composition profiles from the IPS. Only six sections of the IPS are profiled in US-PCS (with one new Encounters section available not from IPS), but resource expectations draw primarily from US Core rather than IPS clinical profiles. 
 
 ### US Variance in Must Support, Obligation and Actors
 

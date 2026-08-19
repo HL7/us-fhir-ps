@@ -2,17 +2,17 @@
 
 ### Purpose and Approach
 
-The United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the [FHIR International Patient Summary](https://hl7.org/fhir/uv/ips/STU2/) derives its profiles from [FHIR Clinical Documents (1.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and applies additional constraints relevant to the United States. Its use is intended as a modern, streamlined summary that builds on the long-standing exchange of clinical documents in the United States.
+The United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the [FHIR International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) derives its profiles from [FHIR Clinical Documents (1.1)](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and applies additional constraints relevant to the United States. Its use is intended as a modern, streamlined summary that builds on the long-standing exchange of clinical documents in the United States. All US-PCS document instances will conform to the FHIR IPS specification.
 
-Health records in the United States have been implementing FHIR resources through the [US Core](https://hl7.org/fhir/us/core/) profiles over the past decade, and the US-PCS seeks to leverage those resources through profiles that derive from [FHIR Clinical Documents](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) and align with the [International Patient Summary](https://hl7.org/fhir/uv/ips/STU2/). This US-PCS Implementation Guide includes a Bundle and Composition profile with re-use of individual clinical resources defined in the [US Core Implementation Guide](https://hl7.org/fhir/us/core/) as shown below.    
+Health records in the United States have been implementing FHIR resources through the [US Core](https://hl7.org/fhir/us/core/) profiles over the past decade, and the US-PCS seeks to leverage those resources through its profiles. This US-PCS Implementation Guide defines a [Bundle](./StructureDefinition-Bundle-us-pcs.html) and [Composition](./StructureDefinition-Composition-us-pcs.html) profile with re-use of individual clinical resources defined in the [US Core Implementation Guide](https://hl7.org/fhir/us/core/) as shown below.    
 
 {% include img.html img="The US-PCS.png" caption="Figure 1: The US-PCS" width="80%" %}
 
 ### Project Need
 
-The rapid global adoption of the International Patient Summary (IPS) is reshaping expectations for cross-border, interoperable patient information. Countries across Europe, Asia-Pacific, and the Americas are implementing IPS-aligned solutions to support emergency care, travel medicine, cross-jurisdictional health services, public health response, and modern digital health ecosystems. As reflected in the growing number of national implementations showcased worldwide, the IPS has become a foundational global asset for safe, timely, and semantically consistent patient information exchange.
+The rapid global adoption of the IPS is reshaping expectations for cross-border, interoperable patient information. Countries across Europe, Asia-Pacific, and the Americas are implementing IPS-aligned solutions to support emergency care, travel medicine, cross-jurisdictional health services, public health response, and modern digital health ecosystems. As reflected in the growing number of national implementations showcased worldwide, the IPS has become a foundational global asset for safe, timely, and semantically consistent patient information exchange.
 
-These international advancements create a strong external driver for the United States to establish a nationally tailored, IPS-aligned patient summary that maintains global interoperability while addressing US clinical, regulatory, and technical realities. Aligning with this global momentum ensures that US healthcare remains connected to an emerging worldwide framework, supports care for US travelers abroad and international patients in the US, and signals US leadership in global health data standards.
+These international advancements create a strong external driver for the United States to establish a nationally tailored, IPS-conformant patient summary that maintains global interoperability while addressing US clinical, regulatory, and technical realities. Aligning with this global momentum ensures that US healthcare remains connected to an emerging worldwide framework, supports care for US travelers abroad and international patients in the US, and signals US leadership in global health data standards.
 Developing the US-PCS harmonizes with the IPS with FHIR US Core and positions the nation to participate fully in the evolving global digital health landscape to meet increasing expectations from patients, providers, governments, and implementers.
 
 The [Project Proposal](https://jira.hl7.org/browse/PSS-2660) and [Project Scope Statement](https://jira.hl7.org/browse/PSS-2718) for US-PCS are available for additional reference. 
@@ -22,8 +22,8 @@ The [Project Proposal](https://jira.hl7.org/browse/PSS-2660) and [Project Scope 
 #### In-Scope Items
 
 FHIR Implementation Guide with a minimum of profiles for Bundle and Composition that:
-- Derives from [FHIR Clinical Documents Profile 1.0.1](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/)
-- Aligns to [FHIR International Patient Summary 2.0.0](https://hl7.org/fhir/uv/ips/STU2/) 
+- Derives from [FHIR Clinical Documents Profile 1.1.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/)
+- Conforms to [FHIR International Patient Summary 2.0.1](https://hl7.org/fhir/uv/ips/STU2/) 
 - Provides narrative guidance on:
   - Relationship to US Core (https://hl7.org/fhir/us/core/)
   - Terminology guidance in regards to IPS 
@@ -40,7 +40,7 @@ FHIR Implementation Guide with a minimum of profiles for Bundle and Composition 
 
 ### Principles of the US-PCS
 
-This US-PCS Implementation Guide specifies both **business principles** for the creation of patient care summaries and **technical capabilities** of systems that conform to this specification. The business principles of US-PCS build on the original intent of the CCD and align with principles from the ISO and FHIR IPS specifications. These are explained in the [US-PCS Use Case](./use-case.html) to keep required content minimized to the most relevant information. 
+This US-PCS Implementation Guide specifies both **business principles** for the creation of patient care summaries and **technical capabilities** of systems that conform to this specification. The business principles of US-PCS build on the original intent of the CCD and conform with the FHIR IPS specifications. These are explained in the [US-PCS Use Case](./use-case.html) to keep required content minimized to the most relevant information. 
 
 The guide distinguishes **three required sections (Problems, Allergies, Medications)** which must be included in all instances from **four additional sections** that systems must be capable of sending/receiving. US-PCS also requires support of the $summary operation in US-PCS generation. These technical capabilities are represented through ["Must Support" flags](./general-guidance.html#must-support-elements) throughout this specification as well as conformance statements in [US-PCS General Guidance](./general-guidance.html#conformance). 
 
