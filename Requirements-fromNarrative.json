@@ -8,16 +8,6 @@
   "experimental" : false,
   "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
   "statement" : [{
-    "key" : "1",
-    "conformance" : ["SHOULD"],
-    "requirement" : "guidance-4: Implementers SHOULD avoid mixing multiple US Core versions within data produced by a single EHR or source system whenever possible."
-  },
-  {
-    "key" : "2",
-    "conformance" : ["SHOULD"],
-    "requirement" : "guidance-4: Implementers SHOULD avoid mixing multiple US Core versions within data produced by a single EHR or source system whenever possible."
-  },
-  {
     "key" : "bund-1",
     "conformance" : ["SHALL"],
     "requirement" : "All entries in the Bundle **SHALL** include a fullUrl, and a resource."
@@ -72,6 +62,11 @@
     "key" : "guidance-3",
     "conformance" : ["SHOULD"],
     "requirement" : "In the event that resources conformant to a newer version of US Core are available, this guide recommends that implementers **SHOULD** send more recent versions."
+  },
+  {
+    "key" : "guidance-4",
+    "conformance" : ["SHOULD"],
+    "requirement" : "Implementers **SHOULD** avoid mixing multiple US Core versions within data produced by a single EHR or source system whenever possible."
   },
   {
     "key" : "guidance-5",
