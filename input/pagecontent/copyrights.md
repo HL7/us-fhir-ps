@@ -1,14 +1,14 @@
-This guide, as well the artifacts developed by HL7® including terminologies, is produced by HL7 under the terms of HL7® Governance and Operations Manual relating to Intellectual Property (Section 16), specifically its copyright, trademark and patent provisions.
+This guide, as well as the artifacts developed by HL7® including terminologies, is produced by HL7 under the terms of HL7® Governance and Operations Manual relating to Intellectual Property (Section 16), specifically its copyright, trademark and patent provisions.
 
 This document is licensed under Creative Commons "No Rights Reserved" (CC0).
 
-HL7®, HEALTH LEVEL SEVEN®, FHIR® and the FHIR ® are trademarks owned by Health Level Seven International, registered with the United States Patent and Trademark Office.
+HL7®, HEALTH LEVEL SEVEN®, FHIR® and the FHIR <img src="icon-fhir-16.png" style="float: none; margin: 0px; padding: 0px; vertical-align: bottom">® are trademarks owned by Health Level Seven International, registered with the United States Patent and Trademark Office.
 
-This HL7 specification contains and references intellectual property owned by third parties ("Third Party IP").  
+This HL7 specification contains and references intellectual property owned by third parties ("Third Party IP").
 
 §ip-1:Implementers and testers of this specification **SHALL** abide by the license requirements for each terminology content artifact utilized within a functioning implementation.§
 
-§ip-2:Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used.§ 
+§ip-2:Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used.§
 
 It is the sole responsibility of each organization deploying or testing this specification to ensure their implementations comply with licensing requirements of each Third Party IP.
 

@@ -2,17 +2,17 @@ Profile: CompositionUsPcs
 Parent: ClinicalDocumentComposition
 Id: Composition-us-pcs
 Title: "Composition (US-PCS)"
-Description: """An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS profiles 7 sections (4 Must Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [Must Support](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/must-support.html) in the context of populating those resources."""
+Description: """A United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS profiles 7 sections (4 Must Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [Must Support](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/must-support.html) in the context of populating those resources."""
 * ^status = #active
 * ^date = "2025-01-28T10:50:07-05:00"
 * ^publisher = "HL7 International / Cross-Group Projects"
 * ^contact.telecom.system = #url
 * ^contact.telecom.value = "http://www.hl7.org/Special/committees/cgp"
 * ^jurisdiction = urn:iso:std:iso:3166#US
-* ^purpose = "An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
+* ^purpose = "A United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections."
 * ^copyright = "HL7 International"
 * . ^short = "US-PCS Composition"
-* . ^definition = "An United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n The US-PCS profiles 7 sections (4 Must-Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
+* . ^definition = "A United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n The US-PCS profiles 7 sections (4 Must-Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
 * language = #en-US
 * type = $loinc#60591-5
 * subject 1..1 MS
@@ -34,8 +34,8 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section ^short = "Sections composing the US-PCS"
 * section ^definition = "The root of the sections that make up the US-PCS composition."
 * section.extension contains $composition-section-note named section-note 0..*
-* section.extension[section-note] ^short = "Additional notes that apply to the section (but not to specific resource)."
-* section.extension[section-note] ^definition = "Additional notes that apply to the section (but not to specific resource)."
+* section.extension[section-note] ^short = "Additional notes that apply to the section (but not to a specific resource)."
+* section.extension[section-note] ^definition = "Additional notes that apply to the section (but not to a specific resource)."
 * section.title 1..1 MS
 * section.code 1..1 MS
 * section.text 1.. MS
@@ -73,7 +73,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionAllergies].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionAllergies].entry ^slicing.rules = #open
 * section[sectionAllergies].entry ^short = "Relevant allergies or intolerances for that patient."
-* section[sectionAllergies].entry ^definition = "It lists the relevant allergies or intolerances for that patient, describing the kind of reaction (e.g. rash, anaphylaxis,..); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum, it should list currently active and any relevant historical allergies and adverse reactions.\r\n This entry shall be used to document that no information about allergies is available, or that no allergies are known ."
+* section[sectionAllergies].entry ^definition = "It lists the relevant allergies or intolerances for that patient, describing the kind of reaction (e.g. rash, anaphylaxis,..); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum, it should list currently active and any relevant historical allergies and adverse reactions.\r\n This entry shall be used to document that no information about allergies is available, or that no allergies are known."
 * section[sectionAllergies].entry contains allergyOrIntolerance 0..*
 * section[sectionAllergies].entry[allergyOrIntolerance] only Reference(us-core-allergyintolerance)
 * section[sectionAllergies].entry[allergyOrIntolerance] MS
@@ -88,7 +88,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionMedications].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionMedications].entry ^slicing.rules = #open
 * section[sectionMedications].entry ^short = "Medications relevant for the scope of the patient summary"
-* section[sectionMedications].entry ^definition = "This list the medications relevant for the scope of the patient summary or it is used to indicate that the subject is known not to be on any relevant medication; either that no information is available about medications."
+* section[sectionMedications].entry ^definition = "This lists the medications relevant for the scope of the patient summary or it is used to indicate that the subject is known not to be on any relevant medication; or that no information is available about medications."
 * section[sectionMedications].entry contains medicationRequest 0..*
 * section[sectionMedications].entry[medicationRequest] only Reference(us-core-medicationrequest)
 * section[sectionMedications].entry[medicationRequest] MS
@@ -125,7 +125,7 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionImmunizations].entry[immunization] MS
 * section[sectionProceduresHx] obeys cmp-uspcs-1
 * section[sectionProceduresHx] ^short = "US-PCS History of Procedures Section"
-* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
+* section[sectionProceduresHx] ^definition = "The History of Procedures Section contains a description of the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure: e.g. Cardiac catheterization; (the results of these procedures are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy"
 * section[sectionProceduresHx].code 1..1 MS
 * section[sectionProceduresHx].code = $loinc#47519-4
 * section[sectionProceduresHx].entry only Reference(Procedure or DocumentReference)
@@ -133,13 +133,13 @@ Description: """An United States Patient Care Summary (US-PCS) is a FHIR documen
 * section[sectionProceduresHx].entry ^slicing.discriminator[=].path = "resolve()"
 * section[sectionProceduresHx].entry ^slicing.rules = #open
 * section[sectionProceduresHx].entry ^short = "Patient's past procedures pertinent to the scope of this document."
-* section[sectionProceduresHx].entry ^definition = "It lists the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
+* section[sectionProceduresHx].entry ^definition = "It lists the patient's past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure: e.g. Cardiac catheterization; (the results of these procedures are documented in the results section)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available, or that no relevant past procedures are known."
 * section[sectionProceduresHx].entry contains procedure 0..*
 * section[sectionProceduresHx].entry[procedure] only Reference(us-core-procedure)
 * section[sectionProceduresHx].entry[procedure] MS
 * section[sectionResults] obeys cmp-uspcs-1
 * section[sectionResults] ^short = "US-PCS Results Section"
-* section[sectionResults] ^definition = "This section assembles relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
+* section[sectionResults] ^definition = "This section assembles relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and other clinical results."
 * section[sectionResults].code 1..1 MS
 * section[sectionResults].code = $loinc#30954-2
 * section[sectionResults].entry only Reference(Observation or DiagnosticReport or DocumentReference)

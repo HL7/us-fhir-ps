@@ -10,7 +10,7 @@ US-PCS requires the minimal use of [US Core Implementation Guide 6.1.0](https://
 
 #### Dependency on FHIR Clinical Documents
 
-US-PCS derives its Bundle and Composition profiles from [FHIR Clinical Documents Implementation Guide 1.1.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/). Changes have been made to align these profiles with FHIR IPS 2.0.0 and include edits for the US ecosystem. The definition of "derive" for purposes of US-PCS is *"to formally base a specification through defined profiling or inheritance, remaining fully conformant while adding only further constraints."*
+US-PCS derives its Bundle and Composition profiles from [FHIR Clinical Documents Implementation Guide 1.1.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/). Changes have been made to align these profiles with FHIR IPS 2.0.1 and include edits for the US ecosystem. The definition of "derive" for purposes of US-PCS is *"to formally base a specification through defined profiling or inheritance, remaining fully conformant while adding only further constraints."*
 
 #### Alignment to the International Patient Summary 
 
