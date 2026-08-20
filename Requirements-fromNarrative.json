@@ -114,7 +114,7 @@
   {
     "key" : "guidance-13",
     "conformance" : ["SHOULD"],
-    "requirement" : "When information on a specific data element is missing, and the the precise reason for the absence of data is known, US Core Responders **SHOULD** send the reason for the missing information."
+    "requirement" : "When information on a specific data element is missing, and the precise reason for the absence of data is known, US Core Responders **SHOULD** send the reason for the missing information."
   },
   {
     "key" : "guidance-14",
