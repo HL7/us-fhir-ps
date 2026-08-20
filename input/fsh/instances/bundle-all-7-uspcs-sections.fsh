@@ -102,11 +102,11 @@ Usage: #inline
 * section[sectionMedications].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
 * section[sectionMedications].entry.reference = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
 * section[sectionImmunizations].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
-* section[sectionImmunizations].extension[=].valueAnnotation.text = "Includes short-terms immunizations within past 24 months. Includes lifetime of immunization with long-duration"
+* section[sectionImmunizations].extension[=].valueAnnotation.text = "Includes short-term immunizations within past 24 months. Includes lifetime immunizations with long duration"
 * section[sectionImmunizations].title = "Immunizations"
 * section[sectionImmunizations].code = $loinc#11369-6 "History of Immunization note"
 * section[sectionImmunizations].text.status = #generated
-* section[sectionImmunizations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes short-terms immunizations within past 24 months. Includes lifetime of immunization with long-duration</div><table border=\"1\"><tr><th>Vaccine</th><th>Date</th><th>Status</th><th>Lot Number</th></tr><tr id=\"17b5a6d7-307b-4726-8c8c-0031e61582ce\"><td>Influenza, high-dose, quadrivalent, PF</td><td>Nov 19 2020 15:46</td><td>Completed</td><td></td></tr></table></div>"
+* section[sectionImmunizations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes short-term immunizations within past 24 months. Includes lifetime immunizations with long duration</div><table border=\"1\"><tr><th>Vaccine</th><th>Date</th><th>Status</th><th>Lot Number</th></tr><tr id=\"17b5a6d7-307b-4726-8c8c-0031e61582ce\"><td>Influenza, high-dose, quadrivalent, PF</td><td>Nov 19 2020 15:46</td><td>Completed</td><td></td></tr></table></div>"
 * section[sectionImmunizations].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionImmunizations].text.extension[=].extension[0].url = "htmlid"
 * section[sectionImmunizations].text.extension[=].extension[=].valueString = "17b5a6d7-307b-4726-8c8c-0031e61582ce"

@@ -5,7 +5,7 @@ td, th {
 }
 </style>
 
-The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has preferred bindings to several terminologies that vary from US-Core terminology expectations. While mapping is not required to create a conformant US-PCS, it is encouraged where possible. 
+The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has preferred bindings to several terminologies that vary from US Core terminology expectations. While mapping is not required to create a conformant US-PCS, it is encouraged where possible. 
 
 ### Terminology Alignment from US Core to IPS 
 
