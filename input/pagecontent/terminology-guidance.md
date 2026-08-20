@@ -11,24 +11,36 @@ The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has
 
 |Data Section (FHIR Resource)|<span style="color: #00B0F0;">US-PCS Strength ▼</span>|US Core Terminology|IPS Terminology|Guidance|
 |-----|-----|-----|-----|-----|
-|Allergies (AllergyIntolerance)|**Mandatory**|RxNorm, SNOMED CT US Edition|SNOMED CT, WHO ATC|Map RxNorm concepts to SNOMED CT. Include WHO ATC when available|
-|Problem List (Condition)|**Mandatory**|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
-|Medication Summary (MedicationRequest)|**Mandatory**|RxNorm|SNOMED CT, WHO ATC|Map RxNorm concepts to SNOMED CT. Include WHO ATC when available|
-|Encounters (Encounter)|**Must Support**|SNOMED CT US Edition, CPT|Not profiled|SNOMED CT more suitable for international context|
-|Immunizations (Immunization)|**Must Support**|CVX|SNOMED CT, WHO ATC|Map CVX concepts to SNOMED CT. Include WHO ATC when available
-|Procedures (Procedure)|**Must Support**|SNOMED CT US Edition, LOINC, CPT, CDT, ICD-10-PCS, HCPCS|SNOMED CT|Map LOINC, CPT, CDT, ICD-10-PCS, HCPCS to SNOMED CT|
-|Results (Observation & DiagnosticReport)|**Must Support**|LOINC|LOINC|No additional mapping
-|Advance Directives (Consent)|N/A (IPS Optional)|Not profiled|Not profiled|
-|Alerts (Flag)|N/A (IPS Optional)|Not profiled|Not profiled|
-|Functional Status (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
-|Medical Devices (Device & DeviceUseStatement)|N/A (IPS Optional)|SNOMED CT US Edition|SNOMED CT|Map to SNOMED CT|
-|History of Past Problems (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|Map ICD-10-CM concepts to SNOMED CT| 
-|History of Pregnancy (Observation)|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT (value)|No additional mapping 
-|Patient Story (Any resource permitted)|N/A (IPS Optional)|Not profiled|Not profiled|
-|Plan of Care (CarePlan)|N/A (IPS Optional)|None|Not profiled|
-|Social History|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT(value)|No additional mapping 
-|Vital Signs|N/A (IPS Optional)|LOINC|LOINC|No additional mapping  
+|Allergies (AllergyIntolerance)|**Mandatory**|RxNorm, SNOMED CT US Edition|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
+|Problem List (Condition)|**Mandatory**|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|Medication Summary (MedicationRequest)|**Mandatory**|RxNorm|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
+|Encounters (Encounter)|**Must Support**|SNOMED CT US Edition, CPT|No terminology guidance|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|Immunizations (Immunization)|**Must Support**|CVX|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred
+|Procedures (Procedure)|**Must Support**|SNOMED CT US Edition, LOINC, CPT, CDT, ICD-10-PCS, HCPCS|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|Results (Observation & DiagnosticReport)|**Must Support**|LOINC|LOINC|Terminologies aligned|
+|Advance Directives (Consent)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
+|Alerts (Flag)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
+|Functional Status (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|Medical Devices (Device & DeviceUseStatement)|N/A (IPS Optional)|SNOMED CT US Edition|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|History of Past Problems (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|History of Pregnancy (Observation)|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT (value)|LOINC aligned although differences in SNOMED CT valuesets|
+|Patient Story (Any resource permitted)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
+|Plan of Care (CarePlan)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
+|Social History|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT(value)|LOINC aligned although differences in SNOMED CT valuesets 
+|Vital Signs|N/A (IPS Optional)|LOINC|LOINC|Terminologies aligned  
 
-### Using SNOMED IPS Terminology
+### Using SNOMED in IPS
 
-SNOMED CT is licensed and available for use in the United States. Not all nations worldwide, however, have a license or use SNOMED CT. In addition, national editions of SNOMED CT may vary from internationally recognized codes. Therefore, it is encouraged to leverage codes from the [SNOMED IPS Terminology](https://www.snomed.org/international-patient-summary-terminology) when possible. This sub-ontology of SNOMED CT is licensed permissively under a Creative Commons license and can be used worldwide.   
+The Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT) is licensed and available for use in the United States and has a national terminology subgroup in the US Edition of SNOMED CT. In addition, SNOMED CT is the [preferred vocabulary for most clinical domains in the context of IPS](https://hl7.org/fhir/uv/ips/en/General-Principles.html#structuring-terminology-choices). Therefore, it is encouraged to leverage codes from SNOMED CT when possible. While United States implementations may use concepts from the US Edition to support national requirements, implementers should preferentially select concepts that originate in the International Edition when clinically appropriate and sufficiently expressive for cross-border usage. Doing so promotes semantic interoperability across jurisdictions, reduces the need for cross-edition mappings, and improves the consistency of information exchange between US-based systems and international IPS implementations. 
+
+#### Adding Translation Concepts from US Terminologies to SNOMED
+
+Terminology mappings between US Core and IPS can be informed by resources from the U.S. National Library of Medicine (NLM) with the [Unified Medical Language System (UMLS) Metathesaurus](https://www.nlm.nih.gov/research/umls/index.html) serving as the primary source for identifying semantic equivalence across terminology systems. The UMLS integrates concepts and relationships from SNOMED CT, LOINC, RxNorm, ICD-10-CM, and numerous other clinical vocabularies, making it a valuable resource for implementing mapping between US Core and IPS terminology bindings. Note that while binding may be required or extensible in US Core, terminology bindings in IPS are only preferred. Therefore, while including international friendly concepts is encouraged, it is not required for IPS conformance.  
+
+- §terminology-1: While mapping to IPS-preferred terms remains optional for US-PCS implementers, document creators **SHOULD** reference published mapping resources and **SHOULD NOT** create custom maps to IPS concepts whenever possible.§   
+
+- §terminology-2: Document creators **SHOULD** retain US terms and concepts when adding international concepts.§   
+
+
+
+

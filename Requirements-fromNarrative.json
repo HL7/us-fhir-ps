@@ -135,5 +135,16 @@
     "key" : "ip-2",
     "conformance" : ["SHALL"],
     "requirement" : "Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used."
+  },
+  {
+    "key" : "terminology-1",
+    "conformance" : ["SHOULD-NOT",
+    "SHOULD"],
+    "requirement" : "While mapping to IPS-preferred terms remains optional for US-PCS implementers, document creators **SHOULD** reference published mapping resources and **SHOULD NOT** create custom maps to IPS concepts whenever possible."
+  },
+  {
+    "key" : "terminology-2",
+    "conformance" : ["SHOULD"],
+    "requirement" : "Document creators **SHOULD** retain US terms and concepts when adding international concepts."
   }]
 }
