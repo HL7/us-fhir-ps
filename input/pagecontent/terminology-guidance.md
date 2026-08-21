@@ -3,31 +3,43 @@ td, th {
    border: 1px solid black!important;
    max-width:500px;
 }
+
+table {
+   width:100%
+}
 </style>
 
 The [International Patient Summary (IPS)](https://hl7.org/fhir/uv/ips/STU2/) has preferred bindings to several terminologies that vary from US Core terminology expectations. While this guide does not provide full mapping guidance, which would require considerations at the ValueSet level for each respective clinical profile, the table below summarizes coding system difference for implementer awareness and use when possible.
 
 ### US Core to IPS Terminology Considerations
 
-|Data Section (FHIR Resource)|<span style="color: #00B0F0;">US-PCS Strength ▼</span>|US Core Terminology|IPS Terminology|Guidance|
-|-----|-----|-----|-----|-----|
-|Allergies (AllergyIntolerance)|**Mandatory**|RxNorm, SNOMED CT US Edition|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
-|Problem List (Condition)|**Mandatory**|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
-|Medication Summary (MedicationRequest)|**Mandatory**|RxNorm|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
-|Encounters (Encounter)|**Must Support**|SNOMED CT US Edition, CPT|No terminology guidance|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
-|Immunizations (Immunization)|**Must Support**|CVX|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred
-|Procedures (Procedure)|**Must Support**|SNOMED CT US Edition, LOINC, CPT, CDT, ICD-10-PCS, HCPCS|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
-|Results (Observation & DiagnosticReport)|**Must Support**|LOINC|LOINC|Terminologies aligned|
-|Advance Directives (Consent)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
-|Alerts (Flag)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
-|Functional Status (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
-|Medical Devices (Device & DeviceUseStatement)|N/A (IPS Optional)|SNOMED CT US Edition|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
-|History of Past Problems (Condition)|N/A (IPS Optional)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
-|History of Pregnancy (Observation)|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT (value)|LOINC aligned although differences in SNOMED CT valuesets|
-|Patient Story (Any resource permitted)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
-|Plan of Care (CarePlan)|N/A (IPS Optional)|No terminology guidance|No terminology guidance|N/A
-|Social History|N/A (IPS Optional)|LOINC (code), SNOMED CT US Edition (value)|LOINC (code), SNOMED CT(value)|LOINC aligned although differences in SNOMED CT valuesets 
-|Vital Signs|N/A (IPS Optional)|LOINC|LOINC|Terminologies aligned  
+#### US-PCS Mandatory and Must Support Sections
+
+|Data Section (FHIR Resource)|US Core Terminology|IPS Terminology|Guidance|
+|:----|:----|:----|:----|
+|Allergies (AllergyIntolerance)|RxNorm, SNOMED CT US Edition|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
+|Problem List (Condition)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|Medication Summary<br/>(MedicationRequest)|RxNorm|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) or WHO ATC concepts preferred|
+|Encounters (Encounter)|SNOMED CT US Edition, CPT|No terminology guidance|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|Immunizations (Immunization)|CVX|SNOMED CT, WHO ATC|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred
+|Procedures (Procedure)|SNOMED CT US Edition, <br/>LOINC, CPT, CDT, ICD-10-PCS, HCPCS|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|Results <br/>(Observation & DiagnosticReport)|LOINC|LOINC|Terminologies aligned|
+
+#### US- PCS Optional Sections from IPS
+
+|Data Section (FHIR Resource)|US Core Terminology|IPS Terminology|Guidance|
+|:----|:----|:----|:----|
+|Advance Directives (Consent)|No terminology guidance|No terminology guidance|N/A
+|Alerts (Flag)|No terminology guidance|No terminology guidance|N/A
+|Functional Status (Condition)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|Medical Devices <br/>(Device & DeviceUseStatement)|SNOMED CT US Edition|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred|
+|History of Past Problems (Condition)|SNOMED CT US Edition, ICD-10-CM|SNOMED CT|[Sending SNOMED CT](terminology-guidance.html#using-snomed-in-ips) concepts preferred| 
+|History of Pregnancy (Observation)|LOINC (code), <br/>SNOMED CT US Edition (value)|LOINC (code),<br/> SNOMED CT (value)|LOINC aligned although differences in SNOMED CT valuesets|
+|Patient Story <br/>(Any resource permitted)|No terminology guidance|No terminology guidance|N/A
+|Plan of Care (CarePlan)|No terminology guidance|No terminology guidance|N/A
+|Social History|LOINC (code),<br/> SNOMED CT US Edition (value)|LOINC (code),<br/> SNOMED CT (value)|LOINC aligned although differences in SNOMED CT valuesets 
+|Vital Signs|LOINC|LOINC|Terminologies aligned  
+
 
 ### Using SNOMED in IPS
 
