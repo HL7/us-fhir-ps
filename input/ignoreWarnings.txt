@@ -1,7 +1,8 @@
 == Suppressed Messages ==
 
 # 01. === EXTENSIONS: These messages are generated in the snapshot from the base resources. There is no reference to these extensions in the US-PCS resource profiles. (same text as IPS) ===
-INFORMATION: StructureDefinition/Bundle-us-pcs: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+INFORMATION: StructureDefinition/Composition-us-pcs: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+INFORMATION: StructureDefinition/Composition-us-pcs: StructureDefinition.snapshot.element[22].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
 
 # 02. === The following code systems are not discoverable because they are code systems in THO, but THO doesn't define the codes. They have been checked, and the identifiers are correct (text from US Core) ===
 The definition for the Code System with URI 'urn:oid:2.16.840.1.113883.6.238' doesn't provide any codes so the code cannot be validated
@@ -24,7 +25,7 @@ WARNING: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[10].resource: Found m
 
 # 07. === The US-PCS workgroup had substantially discussion on what US Core version to reference. Since 6.1.0 (USCDI v3) is what is generally implemented in 2026, the group decided to start with those resources since EHRs are implementing today rather than pinning to future version not yet required by vendors. We expect ballot feedback on this topic. ===
 WARNING: Bundle/US-PCS-Bundle-All-7-Sections: Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '06052023' could not be found, so the code cannot be validated. Valid versions: 03022026
-WARNING: ImplementationGuide/hl7.fhir.us.pcs: ImplementationGuide.dependsOn[3]: The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 8.0.1. This reference is getting old and the more recent version should be considered
+WARNING: ImplementationGuide/hl7.fhir.us.pcs: ImplementationGuide.dependsOn[2]: The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 9.0.0. This reference is getting old and the more recent 
 
 # 08. === Referenced resources need to be included in a US-PCS where relevant (and definitely when referenced from Composition). The working US-PCS group, however, thought important to demonstrate that not all references must be contained in our summary example. This is important for several US Core resources where the references are requried in the base resource but the second or third order data may not be relevant for the summary. ===
 
@@ -51,13 +52,13 @@ INFORMATION: StructureDefinition.snapshot.element[192].type[0].profile[0]: Pinne
 INFORMATION: StructureDefinition.snapshot.element[209].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
 INFORMATION: StructureDefinition.snapshot.element[226].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
 INFORMATION: StructureDefinition.differential.element[11].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[16].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[22].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[28].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[34].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[39].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[17].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[24].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[31].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[38].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
 INFORMATION: StructureDefinition.differential.element[44].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.differential.element[49].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[50].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+INFORMATION: StructureDefinition.differential.element[56].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
 
 # 10. === We have pinned canonicals but still have this information message. ===
 INFORMATION: StructureDefinition.snapshot.element[106].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActCode to 3.0.0 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.1)

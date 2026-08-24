@@ -242,7 +242,7 @@ Usage: #inline
 * organization = Reference(https://fhir.example.org/fhir/Organization/acme-lab) "Acme Lab"
 * code.coding[0] = $v3-ParticipationFunction#PCP "primary care physician"
 * code.coding[+] = $provider-taxonomy#261QP2300X "Primary Care Clinic/Center"
-* specialty = $provider-taxonomy#208D00000X "General Practice Physician"
+* specialty = $sct#419772000 "Family practice"
 * location = Reference(https://fhir.example.org/fhir/Location/hl7east) "Health Level Seven International"
 * endpoint[0] = Reference(https://fhir1.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
 * endpoint[+] = Reference(https://fhir2.example.org/fhir/R4/Endpoint/Endpoint-71) "Brenda.Jennings.Richard.MD@direct.example.org"
@@ -415,5 +415,4 @@ Usage: #inline
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
 * period.start = "2026-01-17T17:00:14-05:00"
 * period.end = "2026-01-20T18:00:14-05:00"
-* hospitalization.dischargeDisposition = $PatDischargeStatus#01 "Discharged to Home"
 * location.location = Reference(https://fhir.example.org/fhir/Location/hospital) "Holy Family Hospital"
