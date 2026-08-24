@@ -1,16 +1,11 @@
 {
   "package-id" : "hl7.fhir.us.pcs",
-  "version" : "1.0.0-ballot",
-  "path" : "http://hl7.org/fhir/us/pcs/2026May",
-  "mode" : "working",
-  "status" : "ballot",
+  "version" : "1.0.0",
+  "path" : "http://hl7.org/fhir/us/pcs/STU1",
+  "mode" : "milestone",
+  "status" : "trial-use",
   "sequence" : "STU 1",
-  "desc" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
-  "descmd" : "This publication is the 1.0.0 ballot of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, Aligns with the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
-  "changes" : "changes.html",
-  "first": true,
-  "title": "US Patient Care Summary (US-PCS) Implementation Guide",
-  "ci-build": "https://build.fhir.org/ig/HL7/us-fhir-ps",
-  "category": "Patient Summary",
-  "introduction": "This Implementation Guide defines a FHIR U.S. Patient Summary (US-PCS), aligned with the International Patient Summary (IPS) implementation guide and derived from the FHIR Clinical Documents implementation guide. US Core profiles are used wherever possible; any deviations followed the Cross-Group Projects Work Group variance process with documented approval. It incorporates US-specific requirements including United States Core Date for Interoperability (USCDI) elements where appropriate for a Patient Summary. \n The IPS universal guide provides a concise, specialty-agnostic summary of essential clinical data (e.g., allergies, medications, problems) to support unscheduled care, particularly in emergency scenarios, and is also applicable to planned care and care transitions. \n This US-PCS Implementation Guide preserves IPS principles while addressing U.S. needs, including terminology considerations for cross-border interoperability and guidance on alignment with CDA-based CCD exchange."
+  "desc" : "This publication is the 1.0.0 release of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, conforms to the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
+  "descmd" : "This publication is the 1.0.0 release of the US Patient Care Summary (US-PCS). It derives from FHIR Clinical Documents, conforms to the International Patient Summary (IPS) guide and uses US Core Implementation Guide resources to populate document content.",
+  "changes" : "changes.html"
 }

@@ -1,5 +1,10 @@
 # United States Patient Care Summary (US-PCS) Implementation Guide
 
-To be written.
+The US Patient Care Summary (US‑PCS) Implementation Guide defines a standard way for US healthcare systems to create and share a concise digital summary of a patient’s most important health information, like medications, allergies, and problems. This better informs clinicians during care transitions. It is built using modern FHIR standards and reuses existing US specific data definitions ([US Core](https://hl7.org/fhir/us/core/)), packaging them into a single, consistent document that can be shared with caregivers or family. It includes both a text-based view and computer-processable coded information. 
 
-Authors: John D'Amore, Brett Marquard, Gay Dolin
+Its purpose is to enable safe, fast, and consistent information sharing across organizations and countries in situations like care transitions or unplanned encounters. The guide aligns with the global International Patient Summary ([IPS](https://hl7.org/fhir/uv/ips/)) standard and adapts it to US usage. The US-PCS serves as a bridge from older medical summary formats toward a more modern, streamlined approach.
+
+See CI Build: https://build.fhir.org/ig/HL7/us-fhir-ps/en/
+
+Editors: John D'Amore, Brett Marquard, Gay Dolin
+Contributors: Eric Haas, Rob Hausam, Josh Hemmesch, James Jahns, Bryant Karras, Isaac Vetter, Jason Vogt
