@@ -58,7 +58,7 @@ There were no **Non-compatible** changes.
 - [FHIR-56872](https://jira.hl7.org/browse/FHIR-56872): Typos in the Use Case section
 - [FHIR-56873](https://jira.hl7.org/browse/FHIR-56873): Typos and grammar issues in the General Guidance section
 - [FHIR-56874](https://jira.hl7.org/browse/FHIR-56874): Consolidate Dependencies and Related Guides
-- [FHIR-56875](https://jira.hl7.org/browse/FHIR-56875): Temove US Core Gender and Birth Sex extensions from examples
+- [FHIR-56875](https://jira.hl7.org/browse/FHIR-56875): Remove US Core Gender and Birth Sex extensions from examples
 - [FHIR-56917](https://jira.hl7.org/browse/FHIR-56917): Typo on home page
 - [FHIR-56918](https://jira.hl7.org/browse/FHIR-56918): Clarity  "Required sections" versus "Must Support"
 - [FHIR-56932](https://jira.hl7.org/browse/FHIR-56932): Correct typo in the Example JSON note
@@ -85,7 +85,7 @@ There were no **Non-compatible** changes.
 - [FHIR-57154](https://jira.hl7.org/browse/FHIR-57154): Revise Encounters guidance
 - [FHIR-57833](https://jira.hl7.org/browse/FHIR-57833): Update to IPS 2.0.1
 - [FHIR-57921](https://jira.hl7.org/browse/FHIR-57921): Improve Figure 3 text that is unclear
-- [FHIR-57922](https://jira.hl7.org/browse/FHIR-57922): Explain Creator and Consumer defintion differences
+- [FHIR-57922](https://jira.hl7.org/browse/FHIR-57922): Explain Creator and Consumer definition differences
 - [FHIR-57957](https://jira.hl7.org/browse/FHIR-57957): Typo in Terminology Alignment page
 - [FHIR-57958](https://jira.hl7.org/browse/FHIR-57958): Improve Terminology Alignment table
 - [FHIR-57959](https://jira.hl7.org/browse/FHIR-57959): Clarify "methods outlined in that guide"
