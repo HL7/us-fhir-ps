@@ -145,6 +145,6 @@
   {
     "key" : "terminology-2",
     "conformance" : ["SHOULD"],
-    "requirement" : "Document creators **SHOULD** retain US terms and concepts when adding international concepts."
+    "requirement" : "Document creators **SHOULD** retain US codes and concepts when adding international concepts."
   }]
 }

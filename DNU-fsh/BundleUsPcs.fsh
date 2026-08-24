@@ -1,3 +1,5 @@
+// This is the Bundle profile that needed to be manually edited in JSON since the differential was excluding some information from the slices (since inherited from FHIR Clinical Document) which we want to display
+
 Profile: BundleUsPcs
 Parent: ClinicalDocumentBundle
 Id: Bundle-us-pcs
