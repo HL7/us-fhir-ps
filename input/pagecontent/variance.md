@@ -37,13 +37,13 @@ Finally the US-PCS introduces an "Encounters" section to its [Composition profil
 The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.0.1 clinical profiles for all the mandatory and Must Support sections of US-PCS. Note that IPS and US Core profile links refer to the most recent published version and that the following design conventions were applied in these tables in these tables: 
 
 - US Core and IPS vary in the definition of [Must Support in US Core](https://hl7.org/fhir/us/core/must-support.html) and [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html). MustSupport/obligations definitional differences are not included in table below, although it is indictated where one guide includes the MustSupport flag but the other does not
--  CodeableConcepts within IPS use a specialized [CodeableConcept IPS DataType](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html). For simplicity, differences in this datatype are not repeated for every profile. Implementers can consider wherever CodeableConcept is used. Specifically: 
+-  CodeableConcepts within IPS use a specialized [CodeableConcept IPS DataType](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html). For simplicity, differences in this datatype are not repeated for every profile. Implementers are recommended to consider this difference wherever CodeableConcept is used. Specifically: 
    - IPS places MustSupport/Obligations `CodeableConcept.coding.code` and `CodeableConcept.coding.system`
    - IPS places MustSupport/Obligations `CodeableConcept.text`
-   - IPS includes the [language translation extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-translation.html) within [CodeableConcept](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html) and [Coding](https://hl7.org/fhir/uv/ips/en/StructureDefinition-Coding-uv-ips.html) datatype
-- IPS universally includes the `patient.reference` or `subject.reference` element in its clinical profiles, while US Core does not specify that reference must be included. These differences are shown due to the cardinaliity variance.  
+   - IPS includes the [language translation extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-translation.html) within [CodeableConcept IPS](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html) and [Coding IPS](https://hl7.org/fhir/uv/ips/en/StructureDefinition-Coding-uv-ips.html) datatype
+- IPS universally includes the `patient.reference` or `subject.reference` element in its clinical profiles, while US Core does not specify that `.reference` must be included. These differences are shown due to the cardinality variance.  
 - Differences in element or extension inclusion are shown, even when optional
-- Differences in terminology bindings are included, even when example or preferred
+- Differences in terminology bindings are shown
 
 #### AllergyIntolerance
 
@@ -83,7 +83,10 @@ The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.
 | `DiagnosticReport.effective[x]` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 | `DiagnosticReport.issued` | Must Support: `true` |  Must Support/Obligations: `false` |
 
+Note that [US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html) may also be used in US-PCS results sections. This profile changes the `DiagnosticReport.category` ValueSet binding and the `Diagnostic.code.coding.system` ValueSet binding, and adds MustSupport flags to `DiagnosticReport.encounter`, `DiagnosticReport.media` and `Diagnostic.presentedForm`. This profile does not have a direct IPS equivalent so is not compared in the tables on this page. 
+
 #### Encounter
+
 | Resource Elements | US Core Profile ([Encounter](https://hl7.org/fhir/us/core/StructureDefinition-us-core-encounter.html)) | No IPS Profile ([Base FHIR R4 Encounter](https://hl7.org/fhir/R4/encounter.html)) |
 | --- | --- | --- |
 | `Encounter.identifier` | Must Support: `true` | Must Support/Obligations: `false` |
@@ -134,7 +137,7 @@ The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.
 | `MedicationRequest.doNotPerform` | Fixed to `true` or `false` | Fixed to `false` |
 | `MedicationRequest.category` | Must Support: `true` | Must Support/Obligations: `false` |
 | `MedicationRequest.reported[x]` | Must Support: `true` | Must Support/Obligations: `false` |
-| `MedicationRequest.medication[x].coding.system` | ValueSet: [Medication Clinical Drug (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion) | ValueSet: [Medications - IPS (preferre)](https://hl7.org/fhir/uv/ips/ValueSet-medication-uv-ips.html) |
+| `MedicationRequest.medication[x].coding.system` | ValueSet: [Medication Clinical Drug (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion) | ValueSet: [Medications - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-medication-uv-ips.html) |
 | `MedicationRequest.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 | `MedicationRequest.encounter` | Must Support: `true` | Must Support/Obligations: `false` |
 | `MedicationRequest.authoredOn` | Must Support: `true` | Must Support/Obligations: `false` |
@@ -146,83 +149,93 @@ The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.
 
 #### Observation: Laboratory/Pathology
 
-| Resource Elements | US Core Profile ([Clinical Result](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-clinical-result.html), [Laboratory Result](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html)) | IPS Clinical Profile ([Results - Laboratory/Pathology](https://hl7.org/fhir/uv/ips//StructureDefinition/Observation-results-laboratory-pathology-uv-ips.html)) |
+| Resource Elements | US Core ([Laboratory Result Observation Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html) | IPS Clinical Profile ([Results - Laboratory/Pathology](https://hl7.org/fhir/uv/ips//StructureDefinition/Observation-results-laboratory-pathology-uv-ips.html)) |
 | --- | --- | --- |
-| `Observation.status` | ValueSet: [observation-status](http://hl7.org/fhir/ValueSet/observation-status) (required) | ValueSet: [results-status-uv-ips](http://hl7.org/fhir/uv/ips/ValueSet/results-status-uv-ips) (required) |
-| `Observation.category:laboratory` | [Clinical Result Observation Category](https://hl7.org/fhir/us/core/ValueSet-us-core-clinical-result-observation-category.html) | Fixed binding: `laboratory` |
-| `Observation.category.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.category.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.category.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.category.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.coding.system` | ValueSet: [LOINCCodes](http://hl7.org/fhir/R4/valueset-observation-codes.html) | ValueSet: [Results Laboratory/Pathology Observation](https://hl7.org/fhir/uv/ips/ValueSet-results-laboratory-pathology-observations-uv-ips.html) |
-| `Observation.code.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Observation.status` | ValueSet: [ObservationStatus (required)](https://hl7.org/fhir/R4/valueset-observation-status.html) | ValueSet: [Results Status Codes - IPS (required)](http://hl7.org/fhir/uv/ips/ValueSet/results-status-uv-ips) |
+| `Observation.code.coding.system` | ValueSet: [US Core Laboratory Test Codes (extensible)](https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html) | ValueSet: [Results Laboratory/Pathology Observation - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-results-laboratory-pathology-observations-uv-ips.html) |
 | `Observation.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 | `Observation.effective[x]` | Minimum cardinality: `0` | Minimum cardinality: `1` |
+| `Observation.value.CodeableConcept` | ValueSet: None (us-core-4 suggests SNOMED) | ValueSet: [Results Coded Values Laboratory/Pathology - IPS (preferred)](https://hl7.org/fhir/uv/ips/en/ValueSet-results-coded-values-laboratory-pathology-uv-ips.html) |
 | `Observation.performer` | Minimum cardinality: `0` | Minimum cardinality: `1` |
-| `Observation.valueCodeableConcept.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.valueCodeableConcept.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.valueCodeableConcept.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.valueCodeableConcept.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.component` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Observation.performer` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Observation.specimen` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Observation.component` | Must Support: `false` | Must Support/Obligations: `true` |
 
-#### Observation: Radiology
-
-| Resource Elements | US Core Profile ([Clinical Result](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-clinical-result.html)) | IPS Clinical Profile ([Results - Radiology](https://hl7.org/fhir/uv/ips//StructureDefinition/Observation-results-radiology-uv-ips.html)) |
-| --- | --- | --- |
-| `Observation.category:radiology` | Minimum cardinality: `0`; maximum cardinality: `*` | Minimum cardinality: `1`; maximum cardinality: `1` |
-| `Observation.category:radiology` | [Clinical Result Observation Category](https://hl7.org/fhir/us/core/ValueSet-us-core-clinical-result-observation-category.html) | Fixed binding: `imaging` |
-| `Observation.code.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.coding.system` | ValueSet: [LOINCCodes](http://hl7.org/fhir/R4/valueset-observation-codes.html) | ValueSet: [Result Radiology Observation](https://hl7.org/fhir/uv/ips/ValueSet-results-radiology-observations-uv-ips.html) |
-| `Observation.code.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.code.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Observation.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
-| `Observation.effective[x]` | Minimum cardinality: `0` | Minimum cardinality: `1` |
-| `Observation.performer` | Minimum cardinality: `0` | Minimum cardinality: `1` |
-| `Observation.component` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+Note that US Core Laboratory Result Observation Profile derives from the [US Core Observation Clinical Result Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-clinical-result.html), which may also be used in US-PCS results sections. This profile has a different `Observation.category` ValueSet binding a different `Observation.code.coding.system` ValueSet binding. This profile does not have a direct IPS equivalent so is not compared in the tables on this page. 
 
 #### Organization
 
 | Resource Elements | US Core Profile ([Organization](https://hl7.org/fhir/us/core/StructureDefinition-us-core-organization.html)) | IPS Clinical Profile ([Organization](https://hl7.org/fhir/uv/ips//StructureDefinition-Organization-uv-ips.html)) |
 | --- | --- | --- |
-| No additional requirements in IPS Profile | No differences | No differences |
+| `Organization.identifier` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.active` | Minimum cardinality: `1` | Minimum cardinality: `0` |
+| `Organization.active` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.telecom.system` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.telecom.value` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.address.line` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.address.city` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.address.state` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.address.postalCode` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Organization.address.country` | Must Support: `true` | Must Support/Obligations: `false` |
 
 #### Patient
 
 | Resource Elements | US Core Profile ([Patient](https://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html)) | IPS Clinical Profile ([Patient](https://hl7.org/fhir/uv/ips//StructureDefinition/Patient-uv-ips.html)) |
 | --- | --- | --- |
-| `Patient.name.use` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Patient.name.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Patient.telecom` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Patient.gender` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Patient.extension` | Multiple extensions used across US Core Patient profile versions | Only [genderIdentity](http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-individual-genderIdentity.html) and [personalPronouns](http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-individual-pronouns.html) profiled |
+| `Patient.identifier` | Minimum cardinality: `1` | Minimum cardinality: `0` |
+| `Patient.name.use` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Patient.name.text` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Patient.telecom` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Patient.telecom,system` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.telecom.value` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.telecom.use` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.gender` | Must Support: `false` | Must Support/Obligations: `true` |
 | `Patient.birthDate` | Minimum cardinality: `0` | Minimum cardinality: `1` |
-| `Patient.generalPractitioner` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Patient.address.line` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.address.city` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.address.state` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.address.postalCode` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.address.country` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Patient.generalPractitioner` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Patient.communication.language` | Must Support: `true` | Must Support/Obligations: `false` |
 
 #### Practitioner
 
 | Resource Elements | US Core Profile ([Practitioner](https://hl7.org/fhir/us/core/StructureDefinition-us-core-practitioner.html)) | IPS Clinical Profile ([Practitioner](https://hl7.org/fhir/uv/ips//StructureDefinition/Practitioner-uv-ips.html)) |
 | --- | --- | --- |
-| `Practitioner.name.given` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Practitioner.identifier` | Minimum cardinality: `1` | Minimum cardinality: `0` |
+| `Practitioner.identifier` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.name.family` | Minimum cardinality: `1` | Minimum cardinality: `0` |
+| `Practitioner.name.given` | Must Support: `false` | Must Support/Obligations: `true` |
+| `Practitioner.telecom.system` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.telecom.value` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.active` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.address.line` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.address.city` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.address.state` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.address.postalCode` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Practitioner.address.country` | Must Support: `true` | Must Support/Obligations: `false` |
+
 
 #### PractitionerRole
 
 | Resource Elements | US Core Profile ([PractitionerRole](https://hl7.org/fhir/us/core/StructureDefinition-us-core-practitionerrole.html)) | IPS Clinical Profile ([PractitionerRole](https://hl7.org/fhir/uv/ips//StructureDefinition/PractitionerRole-uv-ips.html)) |
 | --- | --- | --- |
-| `PractitionerRole.code` | Binding: [Care Team Member Function](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.30/expansion) | Binding: [Healthcare Professional Roles - IPS](https://hl7.org/fhir/uv/ips/ValueSet-healthcare-professional-roles-uv-ips.html) |
-
+| `PractitionerRole.practitioner` | Must Support: `true` | Must Support/Obligations: `false` |
+| `PractitionerRole.code` | Must Support: `true` | Must Support/Obligations: `false` |
+| `PractitionerRole.code` | ValueSet: [Care Team Member Function (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.30/expansion) | ValueSet: [Healthcare Professional Roles - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-healthcare-professional-roles-uv-ips.html) |
+| `PractitionerRole.speciality` | ValueSet: [Health Provider Taxonomy (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.114222.4.11.1066/expansion) | [Practice Setting Code Value Set (preferred)](http://hl7.org/fhir/R4/valueset-c80-practice-codes.html)
+| `PractitionerRole.location` | Must Support: `true` | Must Support/Obligations: `false` |
+| `PractitionerRole.telecom` | Must Support: `true` | Must Support/Obligations: `false` |
+| `PractitionerRole.endpoint` | Must Support: `true` | Must Support/Obligations: `false` |
 
 #### Procedure
 
 | Resource Elements | US Core Profile ([Procedure](https://hl7.org/fhir/us/core/StructureDefinition-us-core-procedure.html)) | IPS Clinical Profile ([Procedure](https://hl7.org/fhir/uv/ips//StructureDefinition/Procedure-uv-ips.html)) |
 | --- | --- | --- |
-| `Procedure.code.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Procedure.code.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Procedure.code.coding.system` | ValueSet: [US Core Procedure Codes](https://hl7.org/fhir/us/core/ValueSet-us-core-procedure-code.html) | ValueSet: [Procedures - IPS](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) |
-| `Procedure.code.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Procedure.code.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Procedure.status` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Procedure.code.coding.system` | ValueSet: [US Core Procedure Codes (extensible)](https://hl7.org/fhir/us/core/ValueSet-us-core-procedure-code.html) | ValueSet: [Procedures - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-procedures-uv-ips.html) |
 | `Procedure.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 | `Procedure.performed[x]` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 
@@ -230,11 +243,9 @@ The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.
 
 | Resource Elements | US Core Profile ([Specimen](https://hl7.org/fhir/us/core/StructureDefinition-us-core-specimen.html)) | IPS Clinical Profile ([Specimen](https://hl7.org/fhir/uv/ips//StructureDefinition/Specimen-uv-ips.html)) |
 | --- | --- | --- |
-| `Specimen.type.coding` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Specimen.type.coding.system` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Specimen.type.coding.system` | ValueSet: [Specimen Type](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion) | ValueSet: [Result Specimen Type - IPS](https://hl7.org/fhir/uv/ips/ValueSet-results-specimen-type-uv-ips.html) |
-| `Specimen.type.coding.code` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
-| `Specimen.type.text` | Must Support/Obligations: `false` | Must Support/Obligations: `true` |
+| `Specimen.type.coding.system` | ValueSet: [Specimen Type (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion) | ValueSet: [Result Specimen Type - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-results-specimen-type-uv-ips.html) |
 | `Specimen.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
+| `Specimen.collection.method` | ValueSet: [FHIR Specimen Collection Method (example)](http://hl7.org/fhir/R4/valueset-specimen-collection-method.html) | ValueSet: [Results Specimen Collection Method - IPS (preferred)](https://hl7.org/fhir/uv/ips/en/ValueSet-results-specimen-collection-method-uv-ips.html) |
+| `Specimen.collection.bodySite` | ValueSet: [SNOMED CT Body Structures (example)](http://hl7.org/fhir/R4/valueset-body-site.html) | ValueSet: [Body Site - IPS (preferred)](https://hl7.org/fhir/uv/ips/en/ValueSet-body-site-uv-ips.html) |
 
 
