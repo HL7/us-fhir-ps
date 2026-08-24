@@ -34,9 +34,9 @@ Finally the US-PCS introduces an "Encounters" section to its [Composition profil
 
 ### US Core Profile Variances to IPS Profiles
 
-The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.0.1 clinical profiles for all the mandatory and Must Support sections of US-PCS. Note that IPS and US Core profile links refer to the most recent published version and that the following design conventions were applied in these tables in these tables: 
+The following provides a comparison of US Core 6.1.0 clinical profiles to IPS 2.0.1 clinical profiles for all the mandatory and Must Support sections of US-PCS. Note that IPS and US Core profile links refer to the most recent published version and that the following design conventions were applied in these tables: 
 
-- US Core and IPS vary in the definition of [Must Support in US Core](https://hl7.org/fhir/us/core/must-support.html) and [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html). MustSupport/obligations definitional differences are not included in table below, although it is indictated where one guide includes the MustSupport flag but the other does not
+- US Core and IPS vary in the definition of [Must Support in US Core](https://hl7.org/fhir/us/core/must-support.html) and [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html). MustSupport/obligations definitional differences are not included in table below, although it is indicated where one guide includes the MustSupport flag but the other does not
 -  CodeableConcepts within IPS use a specialized [CodeableConcept IPS DataType](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html). For simplicity, differences in this datatype are not repeated for every profile. Implementers are recommended to consider this difference wherever CodeableConcept is used. Specifically: 
    - IPS places MustSupport/Obligations `CodeableConcept.coding.code` and `CodeableConcept.coding.system`
    - IPS places MustSupport/Obligations `CodeableConcept.text`
@@ -87,28 +87,13 @@ Note that [US Core DiagnosticReport Profile for Report and Note Exchange](https:
 
 #### Encounter
 
-| Resource Elements | US Core Profile ([Encounter](https://hl7.org/fhir/us/core/StructureDefinition-us-core-encounter.html)) | No IPS Profile ([Base FHIR R4 Encounter](https://hl7.org/fhir/R4/encounter.html)) |
-| --- | --- | --- |
-| `Encounter.identifier` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.status` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.class` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.type` | Minimum cardinality: `1` | Minimum cardinality: `0`  |
-| `Encounter.type` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.subject` | Minimum cardinality: `1` | Minimum cardinality: `0`  |
-| `Encounter.subject` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.participant` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.period` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.reasonCode` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.reasonReference` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.hospitalization` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.location` | Must Support: `true` | Must Support/Obligations: `false` |
-| `Encounter.serviceProvider` | Must Support: `true` | Must Support/Obligations: `false` |
+IPS does not define an Encounter profile. Encounter resources may still appear in IPS instances as referenced supporting resources. When comparing to US Core, all variances would be a comparison of the [US Core Encounter Profile](https://hl7.org/fhir/us/core/StructureDefinition-us-core-encounter.html) relative to the [Base FHIR R4 Encounter](https://hl7.org/fhir/R4/encounter.html). Those differences can be observed by simply looking at the differential view in the US Core Encounter profile. 
 
 #### Immunization
 
 | Resource Elements | US Core Profile ([Immunization](https://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html)) | IPS Clinical Profile ([Immunization](https://hl7.org/fhir/uv/ips//StructureDefinition/Immunization-uv-ips.html)) |
 | --- | --- | --- |
-| `Immunization.patient.statusReason` | Must Support: `true` | Must Support/Obligations: `false` |
+| `Immunization.statusReason` | Must Support: `true` | Must Support/Obligations: `false` |
 | `Immunization.vaccineCode.coding.system` | ValueSet: [CVX Vaccines Administered Vaccine Set (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.6/expansion) | ValueSet: [Vaccines - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-vaccines-uv-ips.html) |
 | `Immunization.patient.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
 | `Immunization.primarySource` | Must Support: `true` | Must Support/Obligations: `true` |
@@ -146,6 +131,7 @@ Note that [US Core DiagnosticReport Profile for Report and Note Exchange](https:
 | `MedicationRequest.dosageInstruction.doseAndRate` | Must Support: `true` | Must Support/Obligations: `false` |
 | `MedicationRequest.dispenseRequest` | Must Support: `true` | Must Support/Obligations: `false` |
 
+Note that US Core 6.1.0 does not include a MedicationStatement profile to compare against the [IPS MedicationStatement profile](https://hl7.org/fhir/uv/ips/en/StructureDefinition-MedicationStatement-uv-ips.html). Therefore, any variances can be observed by comparing the IPS profile to the [Base R4 MedicationStatement](https://hl7.org/fhir/R4/medicationstatement.html) as available in the IPS differential view.  
 
 #### Observation: Laboratory/Pathology
 
@@ -182,7 +168,7 @@ Note that US Core Laboratory Result Observation Profile derives from the [US Cor
 
 | Resource Elements | US Core Profile ([Patient](https://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html)) | IPS Clinical Profile ([Patient](https://hl7.org/fhir/uv/ips//StructureDefinition/Patient-uv-ips.html)) |
 | --- | --- | --- |
-| `Patient.extension` | Multiple extensions used across US Core Patient profile versions | Only [genderIdentity](http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-individual-genderIdentity.html) and [personalPronouns](http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-individual-pronouns.html) profiled |
+| `Patient.extension` | Optional profiled extensions differ from IPS (multiple) | Optional profiled extensions differ from US Core (multiple) |
 | `Patient.identifier` | Minimum cardinality: `1` | Minimum cardinality: `0` |
 | `Patient.name.use` | Must Support: `false` | Must Support/Obligations: `true` |
 | `Patient.name.text` | Must Support: `false` | Must Support/Obligations: `true` |
@@ -225,7 +211,7 @@ Note that US Core Laboratory Result Observation Profile derives from the [US Cor
 | `PractitionerRole.practitioner` | Must Support: `true` | Must Support/Obligations: `false` |
 | `PractitionerRole.code` | Must Support: `true` | Must Support/Obligations: `false` |
 | `PractitionerRole.code` | ValueSet: [Care Team Member Function (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.30/expansion) | ValueSet: [Healthcare Professional Roles - IPS (preferred)](https://hl7.org/fhir/uv/ips/ValueSet-healthcare-professional-roles-uv-ips.html) |
-| `PractitionerRole.speciality` | ValueSet: [Health Provider Taxonomy (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.114222.4.11.1066/expansion) | [Practice Setting Code Value Set (preferred)](http://hl7.org/fhir/R4/valueset-c80-practice-codes.html)
+| `PractitionerRole.specialty` | ValueSet: [Health Provider Taxonomy (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.114222.4.11.1066/expansion) | [Practice Setting Code Value Set (preferred)](http://hl7.org/fhir/R4/valueset-c80-practice-codes.html)
 | `PractitionerRole.location` | Must Support: `true` | Must Support/Obligations: `false` |
 | `PractitionerRole.telecom` | Must Support: `true` | Must Support/Obligations: `false` |
 | `PractitionerRole.endpoint` | Must Support: `true` | Must Support/Obligations: `false` |
