@@ -1,6 +1,6 @@
 ### Ballot Status
 
-This Implementation Guide is being balloted in May 2026 ballot cycle by HL7. 
+This Implementation Guide was balloted in May 2026 ballot cycle by HL7. 
 
 ### Dependencies and Related Guides
 
