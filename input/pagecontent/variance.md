@@ -21,7 +21,7 @@ In addition, the terms US-PCS Document Creator and US-PCS Document Consumer used
 
 ### US Variance in Sections
 
-Each of the IPS mandatory sections (i.e. Allergies, Problems and Medications) are also required sections in the US-PCS.
+Each of the IPS mandatory sections (i.e. Allergies, Problems and Medications) is also required in the US-PCS.
 
 For "recommended" IPS sections where support is specified through obligations, the following changes have been introduced: 
 
