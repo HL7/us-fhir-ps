@@ -67,7 +67,7 @@ The following tables provide a comparison of US Core 6.1.0 clinical profiles to 
 | `Condition.extension[assertedDate]` | 0..1 included [extension](https://hl7.org/fhir/R4/extension-condition-asserteddate.html); Must Support: `true` | not included; Must Support/Obligations: `false` |
 | `Condition.verificationStatus` | Must Support: `true` | Must Support/Obligations: `false` |
 | `Condition.category` | Minimum Cardinality: `1` | Minimum Cardinality: `0`  |
-| `Condition.category.coding.system` | ValueSet: [US Core Problem or Health Concern (required)](https://hl7.org/fhir/us/core/ValueSet-us-core-problem-or-health-concern.html) or [US Core Screening Assessment Condition Category (required)](https://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-screening-assessment-condition-category.html) | ValueSet: [ProblemTypeUvIPS (extensible)](https://hl7.org/fhir/uv/ips/en/ValueSet-problem-type-uv-ips.html) |
+| `Condition.category.coding.system` | ValueSet: [US Core Problem or Health Concern (required)](https://hl7.org/fhir/us/core/ValueSet-us-core-problem-or-health-concern.html) or [US Core Screening Assessment Condition Category (required)](https://hl7.org/fhir/us/core/ValueSet-us-core-screening-assessment-condition-category.html) | ValueSet: [ProblemTypeUvIPS (extensible)](https://hl7.org/fhir/uv/ips/en/ValueSet-problem-type-uv-ips.html) |
 | `Condition.severity` | Must Support: `false` | Must Support/Obligations: `true` |
 | `Condition.code` | ValueSet: [US Core Condition Codes (extensible)](https://hl7.org/fhir/us/core/ValueSet-us-core-condition-code.html) | ValueSet: [ProblemsUvIps (preferred)](https://hl7.org/fhir/uv/ips/en/ValueSet-problems-uv-ips.html) |
 | `Condition.subject.reference` | Minimum cardinality: `0` | Minimum cardinality: `1` |
@@ -89,7 +89,7 @@ The following tables provide a comparison of US Core 6.1.0 clinical profiles to 
 
 *US Core resources (used in US-PCS sections) and IPS clinical profiles vary in the definition of [Must Support in US Core](https://hl7.org/fhir/us/core/must-support.html) and [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html). MustSupport/obligations definitional differences are not included in table above*
 
-Note that [US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html) may also be used in US-PCS results sections. This profile changes the `DiagnosticReport.category` ValueSet binding and the `Diagnostic.code.coding.system` ValueSet binding, and adds MustSupport flags to `DiagnosticReport.encounter`, `DiagnosticReport.media` and `Diagnostic.presentedForm`. This profile does not have a direct IPS equivalent so is not compared in the tables on this page. 
+Note that [US Core DiagnosticReport Profile for Report and Note Exchange](https://hl7.org/fhir/us/core/StructureDefinition-us-core-diagnosticreport-note.html) may also be used in US-PCS results sections. This profile changes the `DiagnosticReport.category` ValueSet binding and the `Diagnostic.code.coding.system` ValueSet binding, and adds MustSupport flags to `DiagnosticReport.encounter`, `DiagnosticReport.media` and `Diagnostic.presentedForm`. This profile does not have a direct IPS equivalent so is not compared in the tables on this page. 
 
 #### US Core Encounter (used in US-PCS encounters section)
 
