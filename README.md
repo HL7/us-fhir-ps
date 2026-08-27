@@ -6,5 +6,5 @@ Its purpose is to enable safe, fast, and consistent information sharing across o
 
 See CI Build: https://build.fhir.org/ig/HL7/us-fhir-ps/en/
 
-Editors: John D'Amore, Brett Marquard, Gay Dolin
-Contributors: Eric Haas, Rob Hausam, Josh Hemmesch, James Jahns, Bryant Karras, Isaac Vetter, Jason Vogt
+Editors: John D'Amore, Gay Dolin, Eric Haas, Brett Marquard  
+Contributors: Rob Hausam, Josh Hemmesch, James Jahns, Bryant Karras, Isaac Vetter, Jason Vogt

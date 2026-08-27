@@ -56,7 +56,7 @@ We strongly encourage implementers to consider the use-case of minimal, non-exha
 | **Editor** | John D'Amore | More Informatics | johnd@moreinformatics.com |
 | **Editor** | Brett Marquard | Wave One Associates | brett@waveoneassociates.com |
 | **Editor** | Gay Dolin | Namaste Informatics | gdolin@namasteinformatics.com |
-| **Contributor** | Eric Haas | Health eData | ehaas@healthedatainc.com |
+| **Editor** | Eric Haas | Health eData | ehaas@healthedatainc.com |
 | **Contributor** | Rob Hausam | Hausam Consulting | rob@hausamconsulting.com |
 | **Contributor** | Josh Hemmesch | MEDITECH | jhemmesch@meditech.com |
 | **Contributor** | James Jahns | Epic | jjahns@epic.com |
