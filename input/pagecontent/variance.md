@@ -42,7 +42,7 @@ The following tables provide a comparison of US Core 6.1.0 clinical profiles to 
    - IPS places MustSupport/Obligations `CodeableConcept.text`
    - IPS includes the [language translation extension](https://hl7.org/fhir/extensions/5.3.0/StructureDefinition-translation.html) within [CodeableConcept IPS](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html) and [Coding IPS](https://hl7.org/fhir/uv/ips/en/StructureDefinition-Coding-uv-ips.html) datatype
 - IPS universally includes the `patient.reference` or `subject.reference` element in its clinical profiles, while US Core does not specify that `.reference` must be included. These differences are shown due to the cardinality variance.  
-- Differences in element or extension inclusion are shown, focusing on MustSupport and cardinality differences
+- Differences in element or extension inclusion are shown, focusing on MustSupport and cardinality differences. US Core's [Additional USCDI data elements](https://hl7.org/fhir/us/core/must-support.html#additional-uscdi-requirements) are treated as optional for this comparison
 - Differences in terminology bindings are shown
 
 #### US Core AllergyIntolerance (used in US-PCS allergies section)
