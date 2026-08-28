@@ -11,7 +11,6 @@ Alias: $loinc = http://loinc.org
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 Alias: $PatDischargeStatus = https://www.nubc.org/CodeSystem/PatDischargeStatus
-Alias: $provider-taxonomy = http://nucc.org/provider-taxonomy
 Alias: $referencerange-meaning = http://terminology.hl7.org/CodeSystem/referencerange-meaning
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $sct = http://snomed.info/sct

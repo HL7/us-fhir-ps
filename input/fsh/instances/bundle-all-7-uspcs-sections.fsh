@@ -241,7 +241,7 @@ Usage: #inline
 * practitioner = Reference(https://fhir.example.org/fhir/Practitioner/19c24876-ccf8-45e7-8b66-462317e970f1) "Brenda Jennings Richard MD"
 * organization = Reference(https://fhir.example.org/fhir/Organization/acme-lab) "Acme Lab"
 * code.coding[0] = $v3-ParticipationFunction#PCP "primary care physician"
-* code.coding[+] = $provider-taxonomy#261QP2300X "Primary Care Clinic/Center"
+* code.coding[+] = $sct#446050000 "Primary care physician"
 * specialty = $sct#419772000 "Family practice"
 * location = Reference(https://fhir.example.org/fhir/Location/hl7east) "Health Level Seven International"
 * endpoint[0] = Reference(https://fhir1.example.org/fhir/Endpoint/Endpoint-71) "Westwood Physicians Organization ADT"
@@ -254,8 +254,8 @@ Usage: #inline
 * language = #en
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "9941339100"
-* name.family = "Bone"
-* name.given = "Ronald"
+* name.family = "Richard"
+* name.given = "Brenda"
 * name.prefix = "Dr"
 * address.use = #work
 * address.line = "1003 HEALTHCARE DR"
