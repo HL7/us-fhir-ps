@@ -38,6 +38,7 @@ dependencies:
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   pin-canonicals: pin-multiples
   path-expansion-params: ../../input/_resources/exp-params.json  # for using US ed of SNOMED
+  auto-oid-root: 2.16.840.1.113883.4.642.40.88
 pages:
   index.md:
     extension:
