@@ -34,7 +34,16 @@ Finally the US-PCS introduces an "Encounters" section to its [Composition profil
 
 ### US Core Profile Variances to IPS Profiles
 
-The following tables provide a comparison of US Core 6.1.0 clinical profiles to IPS 2.0.1 clinical profiles for all the mandatory and Must Support sections of US-PCS. Note that IPS and US Core profile links refer to the most recent published version. The following design conventions were applied in these tables: 
+The following tables provide a comparison of US Core 6.1.0 clinical profiles to IPS 2.0.1 clinical profiles for all the mandatory and Must Support sections of US-PCS. 
+
+
+<blockquote class="stu-note">
+   <p>
+      Note that IPS and US Core profile links below refer to the most recent published version while the variances listed are from a specific comparison of US Core 6.1.0 and IPS 2.0.1 
+   </p>
+</blockquote>
+
+The following design conventions were applied in these tables: 
 
 - US Core and IPS vary in the definition of [Must Support in US Core](https://hl7.org/fhir/us/core/must-support.html) and [Must Support/Obligations in IPS](https://hl7.org/fhir/uv/ips/Must-Support-and-Obligations.html). MustSupport/obligations definitional differences are not included in table below, although it is indicated where one guide includes the MustSupport flag but the other does not
 -  CodeableConcepts within IPS use a specialized [CodeableConcept IPS DataType](https://hl7.org/fhir/uv/ips/en/StructureDefinition-CodeableConcept-uv-ips.html). For simplicity, differences in this datatype are not repeated for every profile. Implementers are recommended to consider this difference wherever CodeableConcept is used. Specifically: 

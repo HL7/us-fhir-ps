@@ -54,7 +54,7 @@ pages:
     terminology-guidance.md:
       extension:
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-        valueCode: informative
+        valueCode: trial-use
       title: Terminology Guidance
     use-case.md:
       extension:

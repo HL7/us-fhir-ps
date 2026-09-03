@@ -2,7 +2,7 @@
 
 The reconciled version of US-PCS includes the following major updates: 
 
-- Derive its Bundle and Composition profiles from [FHIR Clinical Documents 1.0.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/)
+- Derive its Bundle and Composition profiles from updated [FHIR Clinical Documents 1.1.0](https://hl7.org/fhir/uv/fhir-clinical-document/STU1.1/en/) rather than FHIR Clinical Document 1.0.1
 - Ensure that its profiles conform to [FHIR IPS Implementation Guide 2.0.1](https://hl7.org/fhir/uv/ips/STU2/)
 - Various updates to guidance pages based on implementer feedback
 - Various updates to US-PCS Bundle and Composition profiles based on implementer feedback 

@@ -10,11 +10,12 @@ Certain examples reference CPT® content. CPT (http://www.ama-assn.org/go/cpt) i
 
 This implementation guide incorporates icons from Font Awesome Free. Font Awesome Free is provided by Fonticons, Inc. under applicable open-source licenses. Font Awesome is a trademark of Fonticons, Inc. For additional information, see https://fontawesome.com/. This implementation guide incorporates icons from Healthicons (https://healthicons.org/). Healthicons are made available under the CC0 public-domain dedication. Images included in this guide are made available under the same terms as the guide noting that HL7®, HEALTH LEVEL SEVEN®, FHIR® and the FHIR <img src="icon-fhir-16.png" style="float: none; margin: 0px; padding: 0px; vertical-align: bottom">® are trademarks owned by Health Level Seven International, registered with the United States Patent and Trademark Office.
 
-§ip-1:Implementers and testers of this specification **SHALL** abide by the license requirements for each terminology content artifact utilized within a functioning implementation.§
+**It is the sole responsibility of each organization deploying or testing this specification to ensure their implementations comply with licensing requirements of each Third Party IP. Patients may receive copies of their medical data through US-PCS (see [use case](./use-case.html#patient-mediated-interoperability-with-us-pcs)) and implementers should both patient-mediated and provider-mediated exchange into consideration when using Third Party IP.**
 
-§ip-2:Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used.§
+- §ip-1:Implementers and testers of this specification **SHALL** abide by the license requirements for each terminology content artifact utilized within a functioning implementation.§
 
-It is the sole responsibility of each organization deploying or testing this specification to ensure their implementations comply with licensing requirements of each Third Party IP.
+- §ip-2:Terminology licenses **SHALL** be obtained from the Third Party IP owner for each code system and/or other specified artifact used.§
+
 
 Following is a non-exhaustive list of third-party terminologies used in this guide that may require a separate license:
 
