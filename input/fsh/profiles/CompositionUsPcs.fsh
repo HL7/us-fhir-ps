@@ -1,5 +1,5 @@
 Profile: CompositionUsPcs
-Parent: ClinicalDocumentComposition
+Parent: CompositionUsRealm
 Id: Composition-us-pcs
 Title: "Composition (US-PCS)"
 Description: """A United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. The US-PCS profiles 7 sections (4 Must Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries.  The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of [Must Support](./general-guidance.html#must-support-elements) is provided in this guide although implementers should also refer to the [US Core Implementation Guide definition of Must Support](https://hl7.org/fhir/us/core/must-support.html) in the context of populating those resources."""
@@ -13,33 +13,13 @@ Description: """A United States Patient Care Summary (US-PCS) is a FHIR document
 * ^copyright = "HL7 International"
 * . ^short = "US-PCS Composition"
 * . ^definition = "A United States Patient Care Summary (US-PCS) is a FHIR document that captures key information for care transitions. It conforms to the International Patient Summary and is intended as a modern, streamlined summary that uses US Core resources to populate specific sections. \r\n The US-PCS profiles 7 sections (4 Must-Support sections beyond the 3 mandatory) with a primary use case of providing a minimal, non-exhaustive summary that supports clinical decision-making at the point of care for both planned and unplanned care across organizational boundaries. \r\n The US-PCS conforms to the IPS but formally derives its Composition profile from the FHIR Clinical Documents Implementation Guide. The US-PCS definition of MustSupport is provided in this guide although implementers should also refer to the US Core Implementation Guide definition of Must Support in the context of populating those resources."
-* language = #en-US
 * type = $loinc#60591-5
-* subject 1..1 MS
-* subject only Reference(us-core-patient)
-* subject.reference 1..1 MS
-* author 1..* MS
-* author only Reference(us-core-practitioner or us-core-practitionerrole or Device or us-core-patient or us-core-relatedperson or us-core-organization)
-* custodian 1..1 MS
-* custodian ^short = "Organization which maintains the composition"
-* custodian ^comment = "This is required in US-PCS given requirement precedences of C-CDA and document paradigm. In addition, it provides a logical starting point for systems searching for additional data as discussed in US-PCS use case."
-* custodian only Reference(us-core-organization)
-* relatesTo.target[x] only Identifier or Reference(Composition or CompositionUvIps or CompositionUsPcs)
-* confidentiality 1..1 MS
-* section 1.. MS
+* section 3..* MS
+* section.section ..0
 * section ^slicing.discriminator[0].type = #value
 * section ^slicing.discriminator[=].path = "code"
 * section ^slicing.ordered = false
 * section ^slicing.rules = #open
-* section ^short = "Sections composing the US-PCS"
-* section ^definition = "The root of the sections that make up the US-PCS composition."
-* section.extension contains $composition-section-note named section-note 0..*
-* section.extension[section-note] ^short = "Additional notes that apply to the section (but not to a specific resource)."
-* section.extension[section-note] ^definition = "Additional notes that apply to the section (but not to a specific resource)."
-* section.title 1..1 MS
-* section.code 1..1 MS
-* section.text 1.. MS
-* section.section ..0
 * section contains
     sectionProblems 1..1 MS and
     sectionAllergies 1..1 MS and
