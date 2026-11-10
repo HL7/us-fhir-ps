@@ -24,6 +24,8 @@ Usage: #example
 * entry[=].resource = f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1
 * entry[+].fullUrl = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
 * entry[=].resource = c3d31980-2a88-45b6-a7af-3fe8d32cc6fa
+* entry[+].fullUrl = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fb"
+* entry[=].resource = c3d31980-2a88-45b6-a7af-3fe8d32cc6fb
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Immunization/17b5a6d7-307b-4726-8c8c-0031e61582ce"
 * entry[=].resource = 17b5a6d7-307b-4726-8c8c-0031e61582ce
 * entry[+].fullUrl = "https://fhir.example.org/fhir/Observation/b0187efd-5f9b-474d-87bc-efebf877449a"
@@ -76,7 +78,7 @@ Usage: #inline
 * section[sectionProblems].title = "Problem List"
 * section[sectionProblems].code = $loinc#11450-4 "Problem list - Reported"
 * section[sectionProblems].text.status = #generated
-* section[sectionProblems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes Condition.clinicalStatus of: active, recurrence, relapse or remission; Excludes Condition.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Problem</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Severity</th></tr><tr id=\"8039e4a7-d459-454c-92a5-6c17ca2a824b\"><td>Active Duodenal Ulcer</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr><tr id=\"f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1\"><td>Active Duodenal Ulcer</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr></table></div>"
+* section[sectionProblems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes Condition.clinicalStatus of: active, recurrence, relapse or remission; Excludes Condition.verificationStatus of entered-in-error</div><table border=\"1\"><tr><th>Problem</th><th>Onset</th><th>Clinical Status</th><th>Verification Status</th><th>Severity</th></tr><tr id=\"8039e4a7-d459-454c-92a5-6c17ca2a824b\"><td>Cardiac arrhythmia</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr><tr id=\"f8ab8ac1-56d1-4239-8303-dc70c1a3d0e1\"><td>Diabetes mellitus type 2</td><td></td><td>Active</td><td>Confirmed</td><td></td></tr></table></div>"
 * section[sectionProblems].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionProblems].text.extension[=].extension[0].url = "htmlid"
 * section[sectionProblems].text.extension[=].extension[=].valueString = "8039e4a7-d459-454c-92a5-6c17ca2a824b"
@@ -94,19 +96,25 @@ Usage: #inline
 * section[sectionMedications].title = "Medication Summary"
 * section[sectionMedications].code = $loinc#10160-0 "History of Medication use Narrative"
 * section[sectionMedications].text.status = #generated
-* section[sectionMedications].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true</div><table border=\"1\"><tr><th>Medication</th><th>Dates</th><th>Dosage-Timing</th><th>Status</th><th>Route</th></tr><tr id=\"c3d31980-2a88-45b6-a7af-3fe8d32cc6fa\"><td>Nizatidine 15 MG/ML Oral Solution [Axid]</td><td></td><td>active</td><td></td></tr></table></div>"
+* section[sectionMedications].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes MedicationRequest.status of active and MedicationRequest.intent of order or plan. Excludes MedicationRequest.doNotPerform is true</div><table border=\"1\"><tr><th>Medication</th><th>Dates</th><th>Dosage-Timing</th><th>Status</th><th>Route</th></tr><tr id=\"c3d31980-2a88-45b6-a7af-3fe8d32cc6fa\"><td>24 HR metoprolol succinate 50 MG Extended Release Oral Tablet</td><td></td><td>active</td><td></td></tr><tr id=\"c3d31980-2a88-45b6-a7af-3fe8d32cc6fb\"><td>500 mg Metformin Oral Tablet</td><td></td><td>active</td><td></td></tr></table></div>"
 * section[sectionMedications].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionMedications].text.extension[=].extension[0].url = "htmlid"
 * section[sectionMedications].text.extension[=].extension[=].valueString = "c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
 * section[sectionMedications].text.extension[=].extension[+].url = "data"
 * section[sectionMedications].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
-* section[sectionMedications].entry.reference = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
+* section[sectionMedications].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
+* section[sectionMedications].text.extension[=].extension[0].url = "htmlid"
+* section[sectionMedications].text.extension[=].extension[=].valueString = "c3d31980-2a88-45b6-a7af-3fe8d32cc6fb"
+* section[sectionMedications].text.extension[=].extension[+].url = "data"
+* section[sectionMedications].text.extension[=].extension[=].valueUri = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fb"
+* section[sectionMedications].entry[0].reference = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fa"
+* section[sectionMedications].entry[+].reference = "https://fhir.example.org/fhir/MedicationRequest/c3d31980-2a88-45b6-a7af-3fe8d32cc6fb"
 * section[sectionImmunizations].extension[0].url = "http://hl7.org/fhir/StructureDefinition/note"
 * section[sectionImmunizations].extension[=].valueAnnotation.text = "Includes short-term immunizations within past 24 months. Includes lifetime immunizations with long duration"
 * section[sectionImmunizations].title = "Immunizations"
 * section[sectionImmunizations].code = $loinc#11369-6 "History of Immunization note"
 * section[sectionImmunizations].text.status = #generated
-* section[sectionImmunizations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes short-term immunizations within past 24 months. Includes lifetime immunizations with long duration</div><table border=\"1\"><tr><th>Vaccine</th><th>Date</th><th>Status</th><th>Lot Number</th></tr><tr id=\"17b5a6d7-307b-4726-8c8c-0031e61582ce\"><td>Influenza, high-dose, quadrivalent, PF</td><td>Nov 19 2020 15:46</td><td>Completed</td><td></td></tr></table></div>"
+* section[sectionImmunizations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes short-term immunizations within past 24 months. Includes lifetime immunizations with long duration</div><table border=\"1\"><tr><th>Vaccine</th><th>Date</th><th>Status</th><th>Lot Number</th></tr><tr id=\"17b5a6d7-307b-4726-8c8c-0031e61582ce\"><td>Influenza, split virus, trivalent, PF</td><td>Nov 19 2020 15:46</td><td>Completed</td><td></td></tr></table></div>"
 * section[sectionImmunizations].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionImmunizations].text.extension[=].extension[0].url = "htmlid"
 * section[sectionImmunizations].text.extension[=].extension[=].valueString = "17b5a6d7-307b-4726-8c8c-0031e61582ce"
@@ -118,7 +126,7 @@ Usage: #inline
 * section[sectionResults].title = "Results"
 * section[sectionResults].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
 * section[sectionResults].text.status = #generated
-* section[sectionResults].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes diagnostic reports, laboratory and imaging observations from the past 90 days</div><table border=\"1\"><tr><th>Result</th><th>Value</th><th>Date</th><th>Status</th></tr><tr id=\"b0187efd-5f9b-474d-87bc-efebf877449a\"><td>Sodium SerPl-sCnc</td><td>137 mmol/L</td><td>Jul 4 2005 20:00</td><td>final</td></tr></table></div>"
+* section[sectionResults].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div>Includes diagnostic reports, laboratory and imaging observations from the past 90 days</div><table border=\"1\"><tr><th>Result</th><th>Value</th><th>Date</th><th>Status</th></tr><tr id=\"b0187efd-5f9b-474d-87bc-efebf877449a\"><td>HbA1c</td><td>5.6 %</td><td>Jan 5 2026 20:00</td><td>final</td></tr></table></div>"
 * section[sectionResults].text.extension[0].url = "http://hl7.org/fhir/StructureDefinition/textLink"
 * section[sectionResults].text.extension[=].extension[0].url = "htmlid"
 * section[sectionResults].text.extension[=].extension[=].valueString = "b0187efd-5f9b-474d-87bc-efebf877449a"
@@ -189,7 +197,7 @@ Usage: #inline
 * identifier.system = "https://example.org/fhir/identifier/medical-record-number"
 * identifier.value = "3104721"
 * active = true
-* name.use = #old
+* name.use = #usual
 * name.family = "Shaw"
 * name.given = "John"
 * name.period.start = "1986-02-21"
@@ -200,7 +208,7 @@ Usage: #inline
 * telecom[=].value = "john.shaw@example.com"
 * gender = #male
 * birthDate = "1986-02-21"
-* address[0].use = #old
+* address[0].use = #home
 * address[=].line = "49 Meadow St"
 * address[=].city = "Mounds"
 * address[=].state = "OK"
@@ -225,14 +233,14 @@ Usage: #inline
 * type = $organization-type#prov "Healthcare Provider"
 * name = "Acme Clinic"
 * telecom[0].system = #phone
-* telecom[=].value = "(+1) 734-677-7777"
+* telecom[=].value = "(+1) 413-677-7777"
 * telecom[+].system = #email
 * telecom[=].value = "customer-service@acme-clinic.org"
 * address.line = "3300 WASHTENAW AVE STE 227"
 * address.city = "AMHERST"
 * address.state = "MA"
 * address.postalCode = "01002"
-* address.country = "USA"
+* address.country = "US"
 
 Instance: 75ed6f24-9a7e-4568-9c05-91b6d4786743
 InstanceOf: PractitionerRole
@@ -254,7 +262,7 @@ Usage: #inline
 * language = #en
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "9941339100"
-* name.family = "Richard"
+* name.family = "Jennings Richard"
 * name.given = "Brenda"
 * name.prefix = "Dr"
 * address.use = #work
@@ -292,8 +300,8 @@ Usage: #inline
 * verificationStatus.text = "Confirmed"
 * category = $condition-category#problem-list-item "Problem List Item"
 * category.text = "Problem List Item"
-* code = $sct#51868009 "Ulcer of duodenum (disorder)"
-* code.text = "Active Duodenal Ulcer"
+* code = $sct#698247007 "Cardiac arrhythmia"
+* code.text = "Cardiac arrhythmia"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
 * recordedDate = "2016-08-10T07:15:07-08:00"
 
@@ -320,21 +328,48 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
 * status = #active
 * intent = #order
-* medicationCodeableConcept = $rxnorm#582620 "Nizatidine 15 MG/ML Oral Solution [Axid]"
-* medicationCodeableConcept.text = "Nizatidine 15 MG/ML Oral Solution [Axid]"
-* subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "Amy Shaw"
-* authoredOn = "2008-04-05"
+* medicationCodeableConcept = $rxnorm#866436 "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet"
+* medicationCodeableConcept.coding[+] = http://www.whocc.no/atc#C07AB02 "metoprolol"
+* medicationCodeableConcept.text = "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet"
+* subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
+* authoredOn = "2026-03-01"
 * requester = Reference(https://fhir.example.org/fhir/Practitioner/practitioner-1) "Ronald Bone, MD"
-* reasonCode = $sct#51868009 "Ulcer of duodenum (disorder)"
-* reasonCode.text = "Active Duodenal Ulcer"
-* dosageInstruction.text = "10 mL bid"
-* dosageInstruction.timing.repeat.boundsPeriod.start = "2008-04-05"
+* reasonCode = $sct#698247007 "Cardiac arrhythmia"
+* reasonCode.text = "Cardiac arrhythmia"
+* dosageInstruction.text = "1 tab daily"
+* dosageInstruction.timing.repeat.boundsPeriod.start = "2026-03-01"
+* dosageInstruction.timing.repeat.frequency = 1
+* dosageInstruction.timing.repeat.period = 1
+* dosageInstruction.timing.repeat.periodUnit = #d
+* dosageInstruction.doseAndRate.doseQuantity = 1 '{tbl}' "tbl"
+* dispenseRequest.numberOfRepeatsAllowed = 1
+* dispenseRequest.quantity = 30 '{tbl}' "tbl"
+* dispenseRequest.expectedSupplyDuration = 30 'd' "days"
+
+Instance: c3d31980-2a88-45b6-a7af-3fe8d32cc6fb
+InstanceOf: MedicationRequest
+Usage: #inline
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+* status = #active
+* intent = #order
+* reportedBoolean = false
+* medicationCodeableConcept = $rxnorm#861007 "metformin hydrochloride 500 MG Oral Tablet"
+* medicationCodeableConcept.coding[+] = http://www.whocc.no/atc#A10BA02 "metformin"
+* medicationCodeableConcept.text = "metformin hydrochloride 500 MG Oral Tablet"
+* subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
+* authoredOn = "2026-03-01"
+* requester = Reference(https://fhir.example.org/fhir/Practitioner/practitioner-1) "Ronald Bone, MD"
+* reasonCode = $sct#44054006 "Diabetes mellitus type 2"
+* reasonCode.text = "Type 2 diabetes mellitus"
+* dosageInstruction.text = "Take 1 tablet by mouth twice daily with meals"
+* dosageInstruction.timing.repeat.boundsPeriod.start = "2026-03-01"
 * dosageInstruction.timing.repeat.frequency = 2
 * dosageInstruction.timing.repeat.period = 1
 * dosageInstruction.timing.repeat.periodUnit = #d
-* dosageInstruction.doseAndRate.doseQuantity = 10 'mL' "ml"
+* dosageInstruction.route = $sct#26643006 "Oral route"
+* dosageInstruction.doseAndRate.doseQuantity = 1 '{tbl}' "tbl"
 * dispenseRequest.numberOfRepeatsAllowed = 1
-* dispenseRequest.quantity = 480 'mL' "mL"
+* dispenseRequest.quantity = 60 '{tbl}' "tbl"
 * dispenseRequest.expectedSupplyDuration = 30 'd' "days"
 
 Instance: 17b5a6d7-307b-4726-8c8c-0031e61582ce
@@ -342,32 +377,33 @@ InstanceOf: Immunization
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization"
 * status = #completed
-* vaccineCode = $cvx#197 "Influenza, high-dose, quadrivalent, PF"
-* vaccineCode.text = "Influenza, high-dose, quadrivalent, PF"
+* vaccineCode = http://hl7.org/fhir/sid/cvx#140 "Influenza, split virus, trivalent, PF"
+* vaccineCode.coding[+] = http://www.whocc.no/atc#J07BB02 "Influenza, inactivated, split virus or surface antigen"
+* vaccineCode.coding[+] = http://snomed.info/sct#1181000221105 "Influenza virus antigen only vaccine product"
+* vaccineCode.text = "Influenza, split virus, trivalent, PF"
 * patient = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
-* occurrenceDateTime = "2020-11-19T12:46:57-08:00"
+* occurrenceDateTime = "2025-11-19T12:46:57-08:00"
 * primarySource = false
 
 Instance: b0187efd-5f9b-474d-87bc-efebf877449a
 InstanceOf: Observation
 Usage: #inline
 * meta.versionId = "914"
-* meta.lastUpdated = "2016-03-09T15:29:57.277+00:00"
+* meta.lastUpdated = "2026-01-05T15:29:57.277+00:00"
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
 * status = #final
 * category = $observation-category#laboratory "Laboratory"
 * category.text = "Laboratory"
-* code = $loinc#2951-2 "Sodium SerPl-sCnc"
-* code.text = "Sodium SerPl-sCnc"
+* code = $loinc#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
+* code.text = "HbA1c"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234) "John Shaw"
-* effectiveDateTime = "2005-07-05"
+* effectiveDateTime = "2026-01-05"
 * performer = Reference(https://fhir.example.org/fhir/Practitioner/practitioner-1) "Ronald Bone, MD"
-* valueQuantity.value = 137
+* valueQuantity.value = 5.6
 * valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.unit = "mmol/L"
-* specimen = Reference(https://fhir.example.org/fhir/Specimen/specimen-example-serum) "Serum specimen"
-* referenceRange.low = 135 'mmol/L' "mmol/L"
-* referenceRange.high = 145 'mmol/L' "mmol/L"
+* valueQuantity.unit = "%"
+* referenceRange.low = 0 '%' "%"
+* referenceRange.high = 5.8 '%' "%"
 * referenceRange.type = $referencerange-meaning#normal "Normal Range"
 * referenceRange.type.text = "Normal Range"
 
@@ -380,23 +416,22 @@ Usage: #inline
 * basedOn = Reference(https://fhir.example.org/fhir/ServiceRequest/34c2af5e-14e3-41c0-9f65-4e5128e48e47)
 * status = #completed
 * code = $cpt#33249
+* code.coding[+] = $sct#428555003 "Transvenous implantation of automatic cardiac defibrillator (procedure)"
 * code.text = "Insertion or replacement of permanent implantable defibrillator system with transvenous lead(s), single or dual chamber"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
 * performedPeriod.start = "2019-03-26T12:55:26-07:00"
 * performedPeriod.end = "2019-03-26T13:25:26-07:00"
-* performer.actor = Reference(https://fhir.example.org/fhir/Practitioner/19c24876-ccf8-45e7-8b66-462317e970f1)
 * focalDevice.manipulated = Reference(https://fhir.example.org/fhir/Device/udi-2)
 
 Instance: e8be20b8-6f24-4204-8eca-6bc8ecd2b26b
 InstanceOf: Encounter
 Usage: #inline
-* meta.lastUpdated = "2024-01-28T16:06:21-08:00"
+* meta.lastUpdated = "2026-03-17T18:06:21-08:00"
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
-* extension.url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-interpreter-needed"
-* extension.valueCoding = $sct#373066001
 * status = #finished
 * class = $v3-ActCode#AMB "ambulatory"
-* type = $cpt#99211
+* type = $cpt#99211 "Office or other outpatient visit for the evaluation and management of an established patient that may not require the presence of a physician"
+* type.coding[+] = $sct#390906007 "Follow-up encounter (procedure)"
 * type.text = "Office Visit"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
 * period.start = "2026-03-17T17:00:14-05:00"
@@ -410,7 +445,7 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
-* type = $sct#261665006 "Unknown (qualifier value)"
+* type = $sct#83362003 "Final inpatient visit with instructions at discharge"
 * type.text = "Hospitalization"
 * subject = Reference(https://fhir.example.org/fhir/Patient/DEF1234)
 * period.start = "2026-01-17T17:00:14-05:00"
